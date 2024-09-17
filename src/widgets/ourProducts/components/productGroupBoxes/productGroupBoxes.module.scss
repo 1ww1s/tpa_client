@@ -1,0 +1,20 @@
+.productGroupBoxes{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    >.productGroupBox{
+        height: 100%;
+        opacity: 0;
+        margin-top: -20px;
+        margin-left: 20px;
+        transition: all 1s ease-in-out;
+
+
+        &.observed{
+            opacity: 1;
+            margin-top: 0px;
+            transition: all 1s ease-in-out;
+        }
+    }
+}

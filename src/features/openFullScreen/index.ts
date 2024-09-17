@@ -1,0 +1,1 @@
+export { OpenFullScreen } from "./components/open/OpenFullScreen";

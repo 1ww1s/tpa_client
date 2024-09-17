@@ -1,0 +1,1 @@
+export { ProductCatalogCards as default } from "./components/ProductCatalogCards";

@@ -1,0 +1,22 @@
+
+.functionsDiv{
+    display: none;
+
+    &.open{
+        display: flex;
+    }
+}
+
+
+.textareaDiv{
+    min-width: 360px;
+}
+
+.result{
+    margin-left: 40px;
+
+    > ul{
+        margin: 0;
+    }
+}
+

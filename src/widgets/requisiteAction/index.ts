@@ -1,0 +1,1 @@
+export { RequisiteAction } from "./components/requisiteAction/RequisiteAction";

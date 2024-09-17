@@ -1,0 +1,1 @@
+export { SearchByName } from "./components/SearchByName";

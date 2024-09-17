@@ -1,0 +1,21 @@
+.formAuth{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+
+    .input{
+        width: 100%;
+        margin-top: 8px;
+    }
+
+    .sign{
+        margin-top: 36px;
+
+        a{
+            color: #2799ED;
+        }
+    }
+
+}

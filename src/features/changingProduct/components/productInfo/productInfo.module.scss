@@ -1,0 +1,20 @@
+.textareaDiv{
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+
+.textarea{
+    min-width: 360px;
+}
+
+.showInfo{
+    margin-left: 40px;
+    padding: 10px 0;
+    box-sizing: border-box;
+
+    > p{
+        font-size: 0.9em;
+        margin: 0;
+    }
+}

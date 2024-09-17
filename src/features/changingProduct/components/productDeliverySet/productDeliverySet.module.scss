@@ -1,0 +1,26 @@
+.deliverySetDiv{
+    width: 100%;
+    display: none;
+
+    &.open{
+        display: block;
+    }
+
+    .removeTC{
+        position: relative;
+
+        >img{
+            width: 16px;
+        }
+    }
+
+    >table{
+
+        >td:nth-child(2n+1), th:nth-child(2n+1){
+            width: 340px;
+        }
+        >td:nth-child(2), th:nth-child(2){
+            width: 100px;
+        }
+    }
+}

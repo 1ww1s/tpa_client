@@ -1,0 +1,52 @@
+.myTableDashed{
+
+    ul{
+        width: 100%;
+        padding: 0;
+        margin: 20px 0 0 0;
+        color: #4C4C4C;
+
+        li.title{
+            font-weight: 500;
+            color: #242424;
+        }
+
+        li{
+            display: flex;
+            width: 100%;
+            list-style: none;
+            padding: 2px 0;
+
+            span[data-cell] {
+                display: flex;
+                width: 40%;
+                justify-content: space-between;
+                background-color: #FFF;
+                margin: 0;
+                position: relative;
+
+                &:nth-child(1){
+                    width: 80%;
+                }
+
+                span[data-value]{
+                    width: 100%;
+                    position: relative;
+                    padding: 0;
+                    margin: 0;
+                }
+
+                span[data-dashed]{
+                    position: absolute;
+                    width: 100%;
+                    margin-left: 0;
+                    top: 18px;
+                    border-bottom: 1px dashed #cecece;
+
+                }
+            }
+
+
+        }
+    }
+}

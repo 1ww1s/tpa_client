@@ -1,0 +1,1 @@
+export { PartnerAction } from "./components/partnerAction/PartnerAction";

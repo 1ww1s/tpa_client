@@ -1,0 +1,1 @@
+export { LatestDevelopmentsHome as default } from "./components/latestDevelopmentsHome/LatestDevelopmentsHome";

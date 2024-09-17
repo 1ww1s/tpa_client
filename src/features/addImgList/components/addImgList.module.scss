@@ -1,0 +1,16 @@
+.addImage{
+    display: flex;
+    align-self: center;
+    cursor: pointer;
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+
+    img{
+        opacity: 0.75;
+    }
+
+    input{
+        display: none;
+    }
+}

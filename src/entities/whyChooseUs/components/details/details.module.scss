@@ -1,0 +1,21 @@
+.details{
+
+    >p{
+        font-size: 0.9em;
+        color: #262626;
+    }
+
+    .bestDevelopments{
+        
+        >p{
+            font-weight: 500;
+        }
+        >ul{
+            padding: 0 0 0 20px;
+            >li::marker{
+                color: #2799ED;
+            }
+        }
+    }
+
+}

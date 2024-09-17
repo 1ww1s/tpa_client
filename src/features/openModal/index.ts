@@ -1,0 +1,1 @@
+export { OpenModal } from "./components/OpenModal";

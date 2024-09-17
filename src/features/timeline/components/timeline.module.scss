@@ -1,0 +1,73 @@
+.Timeline {
+
+
+    .nav {
+        display: flex;
+        justify-content: center;
+
+        .navLine{
+            display: flex;
+            align-items: center;
+
+
+            span{
+                position: relative;
+                width: 20px;
+                height: 4px;
+                margin: 0 2px;
+                border-radius: 2px;
+                background-color: #279aed98;
+                // cursor: pointer;
+
+                &[data-selected="true"]{
+                    background-color: #2799ED;
+                    cursor: default;
+                }
+
+                &[data-disabled="true"]{
+                    background-color: #AAAAAA;
+                    cursor: default;
+                }
+
+                &[data-loading="true"]::after{
+                    position: absolute;
+                    content: "";
+                    height: 100%;
+                    width: 0px;
+                    border-radius: 2px;
+                    background-color: #2799ED;
+                    animation: loading 0.75s infinite;
+
+                    @keyframes loading {
+                        from{
+                            width: 0px;
+                        }
+                        to{
+                            width: 100%;
+                        }
+                    }
+
+                    
+                }
+
+            }
+        }
+    }    
+
+    .backward{
+        display: flex;
+        align-items: center;
+        position: absolute;
+        margin-top: -22px;
+        cursor: pointer;
+    
+        >img{
+            width: 15px;
+        }
+    
+        >span{
+            margin-left: 3px;
+            font-size: 13px;
+        }
+    }
+}

@@ -1,0 +1,16 @@
+.imagesCard{
+    display: flex;
+    height: 460px;
+
+    .switch{
+        width: 90px;
+    }
+
+    .image{
+        display: flex;
+        box-sizing: border-box;
+        width: 750px;
+        height: 100%;
+        padding: 20px;
+    }
+}

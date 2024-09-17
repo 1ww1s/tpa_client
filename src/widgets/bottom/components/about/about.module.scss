@@ -1,0 +1,14 @@
+.About {
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+
+    >img{
+        width: 120px;
+        opacity: 0.8;
+    }
+
+    >span{
+        margin-top: 24px;
+    }
+}

@@ -1,0 +1,1 @@
+export { ChangingProduct} from './components/changingProduct/ChangingProduct'

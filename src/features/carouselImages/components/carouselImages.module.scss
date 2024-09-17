@@ -1,0 +1,40 @@
+.switchImages{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1200px;
+    height: 100%;
+    overflow: hidden;
+
+    .imagesBlock{
+
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .imageList {
+            display: flex;
+            justify-content: space-between;
+            .image{
+                display: flex;
+            }
+        }
+    }
+
+    
+
+    .switch {
+        height: 30px;
+        margin-top: 16px;
+        .backward{
+            cursor: pointer;
+            transform: rotate(90deg);
+        }
+
+        .forward{
+            cursor: pointer;
+            transform: rotate(-90deg);
+        }
+    }
+
+}

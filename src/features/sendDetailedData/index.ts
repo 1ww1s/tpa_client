@@ -1,0 +1,1 @@
+export { SendDetailedData } from "./components/SendDetailedData";

@@ -1,0 +1,1 @@
+export { ChangingPartner } from "./components/ChangingPartner";

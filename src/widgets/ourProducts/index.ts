@@ -1,0 +1,1 @@
+export { OurProducts as default } from "./components/ourProducts/OurProducts";

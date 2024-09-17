@@ -1,0 +1,41 @@
+.whyUsCard{
+ 
+    margin-left: 20px;
+    width: 300px;
+
+    .title{
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+
+        >.index{
+            position: absolute;
+            color: rgba(39, 153, 237, 0.1);
+            font-weight: 900;
+            font-size: 70px;
+            left: -20px;
+            z-index: 1;
+        }
+
+        >h4{
+            z-index: 2;
+        }
+
+        >img{
+            height: 50px;
+            width: 50px;
+        }
+
+    }
+
+    .description{
+
+        >p{
+            margin-top: 0;
+            font-size: 0.9em;
+            color: #262626;
+        }
+    }
+}

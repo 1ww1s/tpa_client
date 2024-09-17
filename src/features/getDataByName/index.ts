@@ -1,0 +1,1 @@
+export { GetDataByName } from "./components/GetDataByName";

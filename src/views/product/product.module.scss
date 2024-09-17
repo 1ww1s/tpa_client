@@ -1,0 +1,24 @@
+.product{
+    width: 100%;
+    padding-bottom: 40px;
+
+    .content{
+        display: flex;
+        justify-content: space-between;
+
+        .productCard{
+            width: 840px;
+            margin-top: 40px;
+        }
+    
+        .rightBar{
+            width: 300px;
+            margin-top: 40px;
+        }
+
+        .loader{
+            width: 100%;
+            height: 400px;
+        }
+    }
+}

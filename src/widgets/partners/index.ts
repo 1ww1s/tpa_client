@@ -1,0 +1,1 @@
+export { PartnersList as default } from "./components/partnersList/PartnersList";

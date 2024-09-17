@@ -1,0 +1,15 @@
+.selectDiv {
+    width: 600px;
+    position: relative;
+}
+
+
+.empty{
+    position: absolute;
+    bottom: -15px;
+    width: 100%;
+    height: 12px;
+    line-height: 12px;
+    font-size: 12px;
+    color: red;
+}

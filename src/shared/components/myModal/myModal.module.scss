@@ -1,0 +1,36 @@
+.myModal{
+    position: fixed;
+    overflow: hidden;
+    z-index: 1111;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100%;
+    top:0;
+    left: 0;   
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.myModal.open{
+    display: flex;
+}
+
+.content{
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 85vh;
+    max-width: 90vw;
+    border-radius: 6px;
+
+    >img{
+        
+        position:  absolute;
+        z-index: 111;
+        cursor: pointer;
+        width: 16px;
+        top: 8px;
+        right: 8px;
+    }
+}

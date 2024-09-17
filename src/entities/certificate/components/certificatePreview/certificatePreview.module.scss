@@ -1,0 +1,52 @@
+
+.productPreview{
+    position: relative;
+    width: 100%;
+
+    .content{
+        display: flex;
+        height: 100%;
+        width: 100%;
+
+        .image{
+            display: flex;
+            align-self: start;
+            justify-content: center;
+            width: 200px;
+            height: 200px;
+    
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+    
+        .caption{
+            display: flex;
+            flex-direction: column;
+            margin-left: 30px;
+            width: 400px;
+    
+            .name{
+                font-weight: 500;
+                font-size: 17px;
+                
+                >span{
+                    font-weight: 400;
+                }
+            }
+    
+            .endDate{
+                margin-top: 12px;
+                font-weight: 500;
+                font-size: 17px;
+
+                >span{
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+
+}

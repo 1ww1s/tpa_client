@@ -1,0 +1,29 @@
+.imagesDiv{
+    display: flex;
+    align-items: center;
+    height: 150px;
+
+    .addImages {
+        display: flex;
+        align-items: center;
+        height: 40px;
+        cursor: pointer;
+       
+        >img{
+            height: 44px;
+            width: 44px;
+        }
+    
+        >input{
+            display: none;
+        }
+        >p{
+            margin: 0 0 0 12px;
+        }
+    }
+
+    .imageList{
+        margin-left: 40px;
+    }
+    
+}

@@ -1,0 +1,48 @@
+.info{
+    ul.links{
+        padding: 0;
+        
+        li{
+            list-style: none;
+            margin-top: 12px;
+            a{
+                display: flex;
+                align-items: center;
+                color: #AAAAAA;
+                transition: all 0.25s ease-in-out;
+    
+                svg{
+                    stroke: #AAAAAA;
+                    width: 16px;
+                    height: 16px;
+                    transition: all 0.25s ease-in-out;
+                }
+    
+                span{
+                    margin-left: 12px;
+                }
+    
+              
+            }
+    
+            &:hover{
+    
+                a{
+                    color: #2799ED;
+                    transition: all 0.25s ease-in-out;
+    
+                    svg{
+                        stroke: #2799ED;
+                        transition: all 0.25s ease-in-out;
+                    }
+                }
+            }
+        }
+    }
+    
+    .hrImg{
+        width: 50px;
+        margin: 16px 0 12px 0;
+    }
+
+}

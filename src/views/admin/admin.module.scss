@@ -1,0 +1,23 @@
+.admin {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 60px;
+
+    div[data-actions]{
+        margin-left: 20px;
+    }
+
+    h4 {
+        margin: 10px 0 10px 8px;
+    }
+
+    img[data-type="icon"]{
+        height: 14px;
+        width: 14px;
+    }
+
+    .logout{
+        margin-top: 40px;
+    }
+}

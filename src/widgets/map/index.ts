@@ -1,0 +1,1 @@
+export { MapCompany as Map } from "./components/Map";

@@ -1,0 +1,17 @@
+.productCatalog{
+    width: 100%;
+
+    .content{
+        display: flex;
+        justify-content: space-between;
+
+        .productCatalog{
+            width: 840px;
+            margin-top: 40px;
+        }
+        .rightBar{
+            width: 300px;
+            margin-top: 40px;
+        }
+    }
+}

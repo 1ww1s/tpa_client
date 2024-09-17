@@ -1,0 +1,24 @@
+.caption{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 220px;
+    color: #FFFFFF;
+
+    .title{
+        font-size: 42px;
+    }
+
+    .sign{
+        margin-top: 20px;
+        width: 340px;
+        font-size: 16px;
+    }
+
+    .action{
+        margin-top: 30px;
+        font-size: 12px;
+        cursor: no-drop;
+    }
+}

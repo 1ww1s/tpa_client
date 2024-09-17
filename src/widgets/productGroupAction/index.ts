@@ -1,0 +1,1 @@
+export { ProductGroupAction } from "./components/productGroupAction/ProductGroupAction";

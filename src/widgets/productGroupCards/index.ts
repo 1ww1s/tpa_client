@@ -1,0 +1,1 @@
+export { ProductGroupCards as default } from "./components/ProductGroupCards";

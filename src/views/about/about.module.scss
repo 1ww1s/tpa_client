@@ -1,0 +1,17 @@
+.about {
+    width: 100%;
+
+    .content{
+        display: flex;
+        justify-content: space-between;
+
+        .aboutText{
+            width: 840px;
+        }
+    
+        .rightBar{
+            margin-top: 40px;
+            width: 300px;
+        }
+    }
+}

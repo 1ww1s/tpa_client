@@ -1,0 +1,1 @@
+export { ChangingCertificate } from "./components/ChangingCertificate";

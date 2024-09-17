@@ -1,0 +1,19 @@
+.modificationsDiv{
+    width: 100%;
+    display: none;
+
+    &.open{
+        display: block;
+    }
+
+    
+
+    .removeTC{
+        position: relative;
+
+        >img{
+            width: 16px;
+        }
+    }
+
+}

@@ -1,0 +1,25 @@
+.contactCard{
+    display: flex;
+    flex-direction: column;
+    width: 260px; 
+
+    .icon{
+        display: flex;
+        margin-top: 12px;
+        line-height: 28px;
+        font-size: 14px;
+
+        .imgDiv{
+            display: flex;
+            align-items: center;
+            height: 28px;
+
+            >img{
+                width: 20px;
+                height: 20px;
+                margin-right: 8px;
+                object-fit: contain;
+            }
+        }
+    }
+}

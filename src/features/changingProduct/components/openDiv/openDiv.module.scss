@@ -1,0 +1,15 @@
+.openBox{
+    display: flex;
+}
+
+.openDiv{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &.open{
+        >img{
+            transform: rotate(180deg);
+        }
+    }
+}
