@@ -15,16 +15,16 @@ export default async function ProductCatalog() {
                 <div className="wrapper">
                     <div className={classes.content}>
                         <div className={classes.productCatalog}>
-                            {/* <Suspense fallback={<ProductPreviewLayout loaderDiv={<LoaderDiv />} numb={4}/>}> */}
+                            <Suspense fallback={<ProductPreviewLayout loaderDiv={<LoaderDiv />} numb={4}/>}>
                                 <ProductCatalogCards />                   
-                            {/* </Suspense> */}
+                            </Suspense>
                         </div>
                         <div className={classes.rightBar}>
-                            {/* <Suspense fallback={<LoaderDiv height={466} />}> */}
+                            <Suspense fallback={<LoaderDiv height={466} />}>
                                 <div className={classes.latestDevelopments}>
                                     <LatestDevelopments />
                                 </div>
-                            {/* </Suspense> */}
+                            </Suspense>
                         </div>
                     </div>
                 </div>

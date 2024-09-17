@@ -43,11 +43,11 @@ export default async function Product({slug}: ProductProps) {
                             <ProductCardFull slug={slug} />
                         </div>
                         <div className={classes.rightBar}>
-                            {/* <Suspense fallback={<LoaderDiv height={466} />}> */}
+                            <Suspense fallback={<LoaderDiv height={466} />}>
                                 <div className={classes.latestDevelopments}>
                                     <LatestDevelopments />
                                 </div>
-                            {/* </Suspense> */}
+                            </Suspense>
                         </div>
                     </div>
                 </div>

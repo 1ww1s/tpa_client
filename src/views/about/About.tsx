@@ -17,11 +17,11 @@ export default async function About() {
                         <AboutCompany />
                     </div>
                     <div className={classes.rightBar}>
-                        {/* <Suspense fallback={<LoaderDiv height={466} />}> */}
+                        <Suspense fallback={<LoaderDiv height={466} />}>
                             <div className={classes.latestDevelopments}>
                                 <LatestDevelopments />
                             </div>
-                        {/* </Suspense> */}
+                        </Suspense>
                     </div>
                 </div>
             </div>

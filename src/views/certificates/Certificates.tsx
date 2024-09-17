@@ -12,9 +12,9 @@ export default async function Certificates() {
             <div className={classes.certificates}>
                 <div className="wrapper">
                     <div className={classes.content}>
-                        {/* <Suspense fallback={<LoaderDiv height={460} />}> */}
+                        <Suspense fallback={<LoaderDiv height={460} />}>
                             <CertificateList />
-                        {/* </Suspense> */}
+                        </Suspense>
                     </div>
                 </div>
             </div>

@@ -5,8 +5,8 @@ import { LoadingScreen } from "@/src/shared/components/loadingScreen/LoadingScre
 export default function HomePage() {
 
   return (
-    // <Suspense fallback={<LoadingScreen />}>
+    <Suspense fallback={<LoadingScreen />}>
       <Home />    
-    // </Suspense>
+    </Suspense>
   );
 }

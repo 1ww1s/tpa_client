@@ -12,15 +12,15 @@ export const ProductCardFull: FC<ProductCardFullProps> = async ({slug}) => {
 
     return (
         <div className={classes.productCardFull}>
-            {/* <Suspense fallback={<LoaderDiv height={460} />}> */}
+            <Suspense fallback={<LoaderDiv height={460} />}>
                 <ProductImages slug={slug} />
-            {/* </Suspense> */}
+            </Suspense>
             <div className={classes.productCard}>
                 
             </div>
-            {/* <Suspense fallback={<LoaderDiv height={600} />}> */}
+            <Suspense fallback={<LoaderDiv height={600} />}>
                 <ProductCardData slug={slug} />
-            {/* </Suspense> */}
+            </Suspense>
         </div>
     )
 }

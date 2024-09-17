@@ -16,16 +16,16 @@ export default async function Requisites() {
                 <div className="wrapper">
                     <div className={classes.content}>
                         <div className={classes.productCatalog}>
-                            {/* <Suspense fallback={<LoaderDiv height={600} />}> */}
+                            <Suspense fallback={<LoaderDiv height={600} />}>
                                 <RequisitesTable />
-                            {/* </Suspense> */}
+                            </Suspense>
                         </div>
                         <div className={classes.rightBar}>
-                            {/* <Suspense fallback={<LoaderDiv height={466} />}> */}
+                            <Suspense fallback={<LoaderDiv height={466} />}>
                                 <div className={classes.latestDevelopments}>
                                     <LatestDevelopments />
                                 </div>
-                            {/* </Suspense> */}
+                            </Suspense>
                         </div>
                     </div>
                 </div>

@@ -40,14 +40,14 @@ export default async function ProductGroup({slug}: ProductProps) {
                 <div className="wrapper">
                     <div className={classes.content}>
                         <div className={classes.productPreview}>
-                            {/* <Suspense fallback={<ProductPreviewLayout loaderDiv={<LoaderDiv />} numb={4}/>}> */}
+                            <Suspense fallback={<ProductPreviewLayout loaderDiv={<LoaderDiv />} numb={4}/>}>
                                 <ProductGroupCards slug={slug} />
-                            {/* </Suspense> */}
+                            </Suspense>
                         </div>
                         <div className={classes.rightBar}>
-                            {/* <Suspense fallback={<LoaderDiv height={466} />}> */}
+                            <Suspense fallback={<LoaderDiv height={466} />}>
                                 <LatestDevelopments />
-                            {/* </Suspense> */}
+                            </Suspense>
                         </div>
                     </div>
                 </div>
