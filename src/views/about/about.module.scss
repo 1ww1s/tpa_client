@@ -1,5 +1,6 @@
 .about {
     width: 100%;
+    margin: 40px 0;
 
     .content{
         display: flex;
@@ -10,8 +11,24 @@
         }
     
         .rightBar{
-            margin-top: 40px;
             width: 300px;
         }
     }
+}
+
+
+
+@media (max-width: 950px) {
+    .about{
+        .content{
+            flex-direction: column;
+            .aboutText{
+                width: 100%;
+            }
+            .rightBar{
+                width: 100%;
+            }
+        }
+    }    
+
 }

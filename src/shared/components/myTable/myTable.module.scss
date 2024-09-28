@@ -7,10 +7,12 @@
     th{
         padding: 10px;
         background-color: #dce9f9;
+        font-size: 15px;
     }
 
     td{
         padding:  8px 10px;
+        font-size: 15px;
     }
 
     th,
@@ -19,6 +21,20 @@
 
         &:nth-child(n + 2){
             text-align: center;
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    .myTable{
+        th{
+            padding: 8px;
+            font-size: 14px;
+        }
+    
+        td{
+            padding:  6px 8px;
+            font-size: 14px;
         }
     }
 }

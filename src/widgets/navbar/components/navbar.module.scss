@@ -1,7 +1,65 @@
 .Navbar{
-    width: 100%;
-
+    
+    position: relative;
     a{
         text-decoration: none;
     }
+
+    .navigationMobile{
+        display: none;
+    }
+
+    .navigationDesktop{
+        display: block;
+    }
+
+    
+    .burger{
+        display: none;
+    }
+}
+
+@media (max-width: 650px) {
+   
+    .Navbar{
+        max-width: 100%;
+
+        .callUs{
+            position: fixed;
+            width: 100%;
+            z-index: 11;
+        }
+
+        .burger{
+            display: block;
+            position: fixed;
+            margin-top: 18px;  // (60 - 24) / 2
+            z-index: 999;
+            right: 20px;
+        }
+
+        .darken{
+
+            background-color: rgba(0, 0, 0, 0.75);
+            position: fixed;
+            z-index: 99;
+            opacity: 0;
+            transition: opacity ease-in-out 0.4s;
+
+            &.open{
+                height: 100%;
+                width: 100%;
+                opacity: 1;   
+            }
+        }    
+
+        .navigationMobile{
+            display: block;
+        }
+    
+        .navigationDesktop{
+            display: none;
+        }
+    }
+
 }

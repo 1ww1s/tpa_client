@@ -23,3 +23,30 @@
         }
     }
 }
+
+@media (max-width: 650px) {
+    .contactCard{
+        width: 220px; 
+
+        .icon{
+            display: flex;
+            margin-top: 8px;
+            line-height: 24px;
+            font-size: 13px;
+        }
+    }
+}
+
+
+@media (max-width: 500px) {
+    .contactCard{
+        width: 100%; 
+
+        .icon{
+            display: flex;
+            margin-top: 8px;
+            line-height: 24px;
+            font-size: 13px;
+        }
+    }
+}

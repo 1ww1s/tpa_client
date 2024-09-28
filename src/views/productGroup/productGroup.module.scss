@@ -4,16 +4,32 @@
 
     .content{
         display: flex;
+        width: 100%;
         justify-content: space-between;
+        margin: 40px 0;
 
         .productPreview{
-            margin-top: 40px;
             width: 900px;
         }
     
         .rightBar{
-            margin-top: 40px;
             width: 300px;
         }
     }
+}
+
+@media (max-width: 950px) {
+    .productGroup{
+        .content{
+            flex-direction: column;
+            .productPreview{
+                width: 100%;
+            }
+            .rightBar{
+                width: 100%;
+                margin-top: 20px;
+            }
+        }
+    }    
+
 }

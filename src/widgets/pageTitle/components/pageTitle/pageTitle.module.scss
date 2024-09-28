@@ -30,3 +30,25 @@
         z-index: 2;
     }
 }
+
+
+
+@media (max-width: 950px) {
+    .pageTitle{
+        height: 180px;    
+        .title{
+            width: 100%;
+            font-size: 28px;
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    .pageTitle{
+        height: 160px;    
+        .title{
+            width: 100%;
+            font-size: 24px;
+        }
+    }
+}

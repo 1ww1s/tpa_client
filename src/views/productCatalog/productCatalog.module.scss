@@ -3,15 +3,32 @@
 
     .content{
         display: flex;
+        width: 100%;
         justify-content: space-between;
+        margin: 40px 0;
 
         .productCatalog{
-            width: 840px;
-            margin-top: 40px;
+            width: 900px;
         }
         .rightBar{
             width: 300px;
-            margin-top: 40px;
         }
     }
+}
+
+
+@media (max-width: 950px) {
+    .productCatalog{
+        .content{
+            flex-direction: column;
+            .productCatalog{
+                width: 100%;
+            }
+            .rightBar{
+                width: 100%;
+                margin-top: 20px;
+            }
+        }
+    }    
+
 }

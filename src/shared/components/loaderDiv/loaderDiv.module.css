@@ -7,7 +7,7 @@
     border-radius: 5px;
     background-size: 200% 100%;
     animation: 1.5s shine linear infinite;
-    z-index: 100;
+    z-index: 10;
 }
 
 

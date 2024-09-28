@@ -7,7 +7,8 @@
     background-color: #F0F0F0;
     justify-content: center;
     padding: 100px 0;
-    
+    overflow: hidden;
+
     .boxes{
         display: flex;
         flex-wrap: wrap;
@@ -17,6 +18,15 @@
 
         .box{
             display: flex;
+            margin-top: 20px;
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    .latestDevelopments{
+        padding: 40px 0;
+        .boxes{
             margin-top: 20px;
         }
     }

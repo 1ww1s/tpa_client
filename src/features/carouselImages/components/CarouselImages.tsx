@@ -1,7 +1,7 @@
 "use client"
 
 import { IImage } from "@/src/entities/image";
-import { FC, ReactElement, useRef, useState } from "react";
+import { FC, ReactElement, useEffect, useRef, useState } from "react";
 import classes from './carouselImages.module.scss'
 import arrow from '@/src/shared/lib/assets/arrow-down.png'
 
@@ -47,6 +47,7 @@ export const CarouselImages: FC<CarouselImagesProps> = ({images, children}) => {
         }
     }
 
+
     return (
         <div className={classes.switchImages}>
             <div className={classes.imagesBlock}>
@@ -65,12 +66,12 @@ export const CarouselImages: FC<CarouselImagesProps> = ({images, children}) => {
                         </div>
                     )}
                     {children.map((c, ind) => 
-                        <div key={ind + 'a'} style={{width: initialStyle.width, margin: initialStyle.marginRirht}}  className={classes.image}>
+                        <div key={ind + 'b'} style={{width: initialStyle.width, margin: initialStyle.marginRirht}}  className={classes.image}>
                             {c}
                         </div>
                     )}
                       {children.map((c, ind) => 
-                        <div key={ind + 'a'} style={{width: initialStyle.width, margin: initialStyle.marginRirht}}  className={classes.image}>
+                        <div key={ind + 'c'} style={{width: initialStyle.width, margin: initialStyle.marginRirht}}  className={classes.image}>
                             {c}
                         </div>
                     )}

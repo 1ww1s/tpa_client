@@ -1,4 +1,5 @@
 .caption{
+    width: 100%;
 
     .title{
         height: 20px;
@@ -16,5 +17,11 @@
 
     .link{
         height: 44px;
+    }
+}
+
+@media (max-width: 650px) {
+    .hr{
+        display: none;  // для pp2 !!!!!
     }
 }

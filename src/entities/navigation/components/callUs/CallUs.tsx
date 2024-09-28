@@ -1,12 +1,13 @@
-import { FC } from "react";
-import classes from './navbar.module.scss'
+import { FC, ReactElement } from "react";
+import classes from './callUs.module.scss'
 import { IContact } from "@/src/entities/contact";
 import Link from "next/link";
 import logo from '@/src/shared/lib/assets/logo.png'
 import mail from '@/src/shared/lib/assets/mail.png'
 import tele from '@/src/shared/lib/assets/phone-call.png'
 import Image from "next/image";
-import { HOME_ROUTE } from "../model/links";
+import { HOME_ROUTE } from "../../model/links";
+import { NavigationMobile } from "../navigationMobile/NavigationMobile";
 
 interface CallUsProps {
     contactEmail: IContact | undefined;
@@ -17,7 +18,7 @@ export const CallUs: FC<CallUsProps> = ({contactEmail, contactTelephone}) => {
 
     return (
         <div className={classes.CallUs}>
-            <div className={classes.wrapper}>
+            <div className="wrapper">
                 <div className={classes.content}>
                     <div className={classes.title}>
                         <Link href={HOME_ROUTE}><Image src={logo.src} width={80} height={40} alt="логотип" /></Link>

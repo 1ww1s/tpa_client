@@ -38,3 +38,21 @@
     }
 
 }
+
+@media (max-width: 1240px) {
+    .switchImages{
+        width: 900px;
+    }
+}
+
+@media (max-width: 940px) {
+    .switchImages{
+        width: 600px;
+    }
+}
+
+@media (max-width: 640px) {
+    .switchImages{
+        width: 300px;
+    }
+}

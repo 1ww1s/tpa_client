@@ -1,7 +1,7 @@
 "use client"
 
 import { FC, ReactElement } from "react"
-import classes from '../productPreview/productPreview.module.scss'
+import classes from '../productPreview/pp2.module.scss'
 import classes2 from './productPreviewLayout.module.scss'
 
 interface ProductPreviewLayoutProps{
@@ -28,6 +28,7 @@ export const ProductPreviewLayout: FC<ProductPreviewLayoutProps> = ({loaderDiv, 
                             <div className={classes.title + ' ' + classes2.title}>{loaderDiv}</div>
                             <div className={classes2.hr}>{loaderDiv}</div>
                             <div className={classes.info + ' ' + classes2.info}>{loaderDiv}</div>
+                            <div className={classes.infoShort + ' ' + classes2.info}>{loaderDiv}</div>
                             <div className={classes.link + ' ' + classes2.link}>{loaderDiv}</div>
                         </div>
                     </div>

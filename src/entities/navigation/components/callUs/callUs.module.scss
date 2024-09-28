@@ -1,0 +1,122 @@
+
+.CallUs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    background-color: white;
+
+    .content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .title{
+            display: flex;
+    
+            p{
+                font-size: 18px;
+                margin-left: 20px;
+                font-weight: 600;
+            }
+            
+            a{
+                display: flex;
+                align-items: center;
+                color: #262626;
+            }
+        }
+
+        .contacts{
+            display: flex;
+
+            .email{
+                display: flex;
+                align-items: center;
+                margin-right: 20px;
+            }
+            
+            .telephone{
+                display: flex;
+                align-items: center;
+            }
+
+            span{
+                font-size: 14px;
+            }
+
+            img{
+                margin-right: 4px;    
+            }
+        }
+
+        .burger{
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 950px) {
+   
+    .CallUs{
+        height: 60px;
+
+        .content{
+
+            .title{
+                p{
+                    font-size: 16px;
+                    margin-left: 16px;
+                }   
+                img{
+                    height: 35px;
+                    width: 70px;
+                }
+            }
+            .contacts{
+                span{
+                    font-size: 12px;
+                }
+                
+                img{
+                    margin-right: 2px;    
+                }
+
+                img{
+                    height: 14px;
+                    width: 14px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 650px) {
+   
+    .CallUs{
+        .content{
+
+            .contacts{
+                display: none;
+            }        
+
+            .burger{
+                display: flex;
+                margin-left: 200px;
+                background-color: blue;
+            }
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    .CallUs{
+        .content{
+            p{
+                display: none;
+
+            }
+        }
+
+    }
+}

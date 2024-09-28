@@ -1,7 +1,9 @@
 .myTableDashed{
+    width: 100%;
+    overflow: auto;
 
     ul{
-        width: 100%;
+        min-width: 500px;
         padding: 0;
         margin: 20px 0 0 0;
         color: #4C4C4C;
@@ -16,6 +18,8 @@
             width: 100%;
             list-style: none;
             padding: 2px 0;
+            overflow: hidden;
+
 
             span[data-cell] {
                 display: flex;
@@ -23,6 +27,7 @@
                 justify-content: space-between;
                 background-color: #FFF;
                 margin: 0;
+                padding: 0 6px;
                 position: relative;
 
                 &:nth-child(1){
@@ -42,11 +47,8 @@
                     margin-left: 0;
                     top: 18px;
                     border-bottom: 1px dashed #cecece;
-
                 }
             }
-
-
         }
     }
 }

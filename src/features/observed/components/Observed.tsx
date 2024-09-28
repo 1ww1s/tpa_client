@@ -2,6 +2,7 @@
 
 import { useObserver } from "@/src/shared/lib/hooks/useObserver";
 import { FC, PropsWithChildren, useRef } from "react";
+import classes from './observed.module.scss'
 
 interface ObservedProps {
     classesObserved: string;
@@ -16,7 +17,7 @@ export const Observed: FC<PropsWithChildren & ObservedProps> = ({classesObserved
     useObserver(ref, (elem: Element) => elem.classList.add(classesObserved), classesTarget)
 
     return (
-        <div ref={ref}>
+        <div ref={ref} className={classes.observed}>
             {children}
         </div>
     )

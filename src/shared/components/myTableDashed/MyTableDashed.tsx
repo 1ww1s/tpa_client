@@ -28,7 +28,6 @@ export const MyTableDashed: FC<MyTableDashedProps> = ({rows, columns}) => {
                                     <span data-value>
                                         {r}
                                         { i !== (rs.length - 1) &&  <span data-dashed></span> }  
-                                        {/* (rs[i + 1] !== '') && */}
                                     </span>
                                 </span>
                         )}

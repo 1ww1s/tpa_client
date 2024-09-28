@@ -1,5 +1,4 @@
 .nav{
-
     ul{
         margin-top: 12px;
         padding: 0;
@@ -11,6 +10,7 @@
             a{
                 text-decoration: none;
                 color: #AAAAAA;
+                font-size: 14px;
             }
         }
         
@@ -19,5 +19,23 @@
     .hrImg{
         width: 50px;
         margin: 16px 0 12px 0;
+    }
+}
+
+
+@media (max-width: 650px) {
+    .nav{
+        ul{
+            margin-top: 8px;
+            li{
+                a{
+                    font-size: 13px;
+                }
+            }
+        }
+        .hrImg{
+            width: 40px;
+            margin: 12px 0 6px 0;
+        }
     }
 }

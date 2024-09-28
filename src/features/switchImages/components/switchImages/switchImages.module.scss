@@ -52,3 +52,33 @@
         outline: 1px solid black;
     }
 }
+
+@media (max-width: 650px) {
+    .switchImages{
+        width: 74px;
+
+        .slider{
+            width: 70px;
+        }
+
+        img{
+            width: 70px;
+            height: 70px;
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    .switchImages{
+        width: 64px;
+
+        .slider{
+            width: 60px;
+        }
+
+        img{
+            width: 60px;
+            height: 60px;
+        }
+    }
+}

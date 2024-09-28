@@ -29,7 +29,7 @@ export const CertificateCarousel: FC<CertificateCarouselProps> = ({certificates}
             
             <CarouselImages images={certificates.map(c => c.img)} children={
                 certificates.map((certificate, ind) => 
-                    <div className={classes.certificate}>
+                    <div key={ind} className={classes.certificate}>
                         <OpenFullScreen highlight open={open} key={ind} setIndex={setCurrentImage} index={ind} setOpen={setOpen} >
                             <ImageCard img={certificate.img} />
                         </OpenFullScreen>

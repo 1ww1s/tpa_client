@@ -10,7 +10,7 @@ export const TitleWithSeparator: FC<TitleWithSeparatorProps> = ({title}) => {
     return (
         <div className={classes.titleWithSeparator}>
             <div className={classes.title}>
-                    <span>{title}</span>
+                    <h1>{title}</h1>
             </div>
             <div className={classes.separator}>
                 <img src={separator.src} />

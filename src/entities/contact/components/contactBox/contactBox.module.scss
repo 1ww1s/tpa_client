@@ -6,16 +6,17 @@
     width: 230px;
     height: 180px;
     padding: 20px;
+    margin: 10px;
     border: 1px solid #e0e0e0;
     border-radius: 3px;
     text-align: center;
-    transition: all 0.25s ease-in-out;
+    transition: background-color 0.25s ease-in-out, border 0.25s ease-in-out;
 
 
     &:hover{
         border: 1px solid #2799ED;
         background-color: #2799ED;
-        transition: all 0.25s ease-in-out;
+        transition: background-color 0.25s ease-in-out, border 0.25s ease-in-out;
 
         >span[data-title]{
             color: #FFFFFF;
@@ -69,7 +70,53 @@
     >span[data-description]{
         height: 40px;
         margin-top: 12px;
+        font-size: 15px;
         color: #656565;
         transition: all 0.25s ease-in-out;
+    }
+}
+
+
+@media (max-width: 1230px) {
+    .contactBox{
+        width: 200px;
+    }
+}
+
+@media (max-width: 1130px) {
+    .contactBox{
+        width: 180px;
+
+        >.imgDiv{
+            img{
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        >span[data-title]{
+            margin-top: 20px;
+            height: 20px;
+            font-size: 18px;
+        }
+    
+        >span[data-description]{
+            height: 30px;
+            font-size: 13px;
+        }
+    }
+}
+
+@media (max-width: 1030px) {
+    .contactBox{
+        width: 162px;
+        margin: 8px;
+    }
+}
+
+@media (max-width: 930px) {
+    .contactBox{
+        width: 230px;
+        margin: 12px;
     }
 }

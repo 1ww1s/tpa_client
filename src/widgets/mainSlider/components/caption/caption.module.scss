@@ -5,6 +5,7 @@
     justify-content: center;
     margin-top: 220px;
     color: #FFFFFF;
+    overflow: hidden;
 
     .title{
         font-size: 42px;
@@ -17,8 +18,46 @@
     }
 
     .action{
+        display: flex;
         margin-top: 30px;
         font-size: 12px;
         cursor: no-drop;
+    }
+}
+
+
+@media (max-width:650px) {
+    .caption{
+        .title{
+            // font-size: 20px;
+            width: 100%;
+        }
+        .sign{
+            width: 100%;
+        }
+    
+    }
+}
+
+@media (max-width:650px) {
+    .caption{
+        .title{
+            font-size: 36px;
+            width: 100%;
+        }
+        .sign{
+            width: 60%;
+            margin-top: 24px;
+            font-size: 15px;
+        }
+    
+    }
+}
+
+@media (max-width:500px) {
+    .caption{
+        .sign{
+            width: 80%;
+        }
     }
 }

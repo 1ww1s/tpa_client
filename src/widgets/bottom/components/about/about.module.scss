@@ -8,7 +8,21 @@
         opacity: 0.8;
     }
 
-    >span{
+    >p{
         margin-top: 24px;
+    }
+}
+
+
+
+@media (max-width: 900px) {
+    .About {
+        width: 100%;
+        padding-right: 20%;
+        padding-bottom: 20px;
+
+        >img{
+            width: 110px;
+        }
     }
 }

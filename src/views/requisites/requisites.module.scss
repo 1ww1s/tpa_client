@@ -5,16 +5,31 @@
     .content{
         display: flex;
         justify-content: space-between;
+        margin: 40px 0;
 
-        .productCatalog{
-            margin-top: 40px;
-            width: 840px;
+        .requisites{
+            width: 900px;
         }
 
         .rightBar{
-            margin-top: 40px;
             width: 300px;
         }
     }
+
+}
+
+@media (max-width: 950px) {
+    .requisite{
+        .content{
+            flex-direction: column;
+            .requisites{
+                width: 100%;
+            }
+            .rightBar{
+                width: 100%;
+                margin-top: 20px;
+            }
+        }
+    }    
 
 }

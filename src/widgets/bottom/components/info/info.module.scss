@@ -1,7 +1,7 @@
 .info{
     ul.links{
         padding: 0;
-        
+        margin: 0;
         li{
             list-style: none;
             margin-top: 12px;
@@ -45,4 +45,26 @@
         margin: 16px 0 12px 0;
     }
 
+}
+
+@media (max-width: 650px) {
+    .info{
+        ul.links{
+            li{
+                margin-top: 8px;
+            }
+        }
+
+        .hrImg{
+            width: 40px;
+            margin: 12px 0 6px 0;
+        }
+    }
+}
+
+
+@media (max-width: 500px) {
+    .info{
+        margin-left: 60px;
+    }
 }

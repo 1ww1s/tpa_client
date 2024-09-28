@@ -5,6 +5,8 @@
 
 .myButton {
     position: relative;
+    margin: 2px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,5 +25,13 @@
         background-color: rgba(39, 153, 237, 0);
         color: rgba(39, 153, 237, 1);
         transition: all 0.15s ease-out;
+    }
+}
+
+@media (max-width:650px) {
+    .myButton {
+        min-height: 40px;
+        padding: 10px 24px;
+        font-size: 12px;
     }
 }

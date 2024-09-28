@@ -3,13 +3,15 @@
     justify-content: center;
     box-sizing: border-box;
     padding: 80px 0;
-    height: 440px;
+    min-height: 440px;
     width: 100%;
     background-color: #242424;
+    overflow: hidden;
 
     .content{
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
         font-size: 14px;
         font-weight: 400;
         line-height: 26px;
@@ -18,11 +20,41 @@
         h3{
             color: #FFFFFF;    
             margin: 0;
+            font-size: 16px;
         }
     }   
 
+        
     .hrImg{
         width: 50px;
         margin: 16px 0 12px 0;
+    }
+
+}
+
+@media (max-width: 650px) {
+    .Bottom{
+
+        .content{
+            line-height: 24px;
+            h3{
+                font-size: 14px;
+            }
+        }
+    
+        .hrImg{
+            width: 40px;
+            margin: 12px 0 6px 0;
+        }
+    }
+}
+
+
+@media (max-width: 500px) {
+    .Bottom{
+        padding: 60px 0;
+        .content{
+            justify-content: start;
+        }
     }
 }

@@ -1,11 +1,11 @@
 body{
   margin: 0;
   padding: 0;
-  
 }
 
 .content{
   min-height: 100vh;
+  overflow: hidden;
 }
 
 .not-found{
@@ -16,13 +16,76 @@ body{
 
 .wrapper{
   width: 1200px;
+  max-width: 95%;
   margin: 0 auto;
 }
 
 ul{
-  
-
+  font-size: 15px;
   li{
     list-style: inside;
   }
+}
+
+h1{
+  font-size: 32px;
+}
+
+h2{
+  font-size: 24px;
+}
+
+h3{
+  font-size: 18px;
+}
+
+p{
+  font-size: 15px;
+  line-height: 28px;
+}
+
+@media (max-width: 950px) { 
+
+  h1{
+    font-size: 28px;
+  }
+  
+  h2{
+    font-size: 20px;
+  }
+  
+  h3{
+    font-size: 16px;
+  }
+
+}
+
+
+@media (max-width: 650px) { 
+   
+  .content{
+    padding-top: 60px;  // navbar -> fixed height 60px
+  }
+
+  h1{
+    font-size: 24px;
+  }
+  
+  h2{
+    font-size: 18px;
+  }
+  
+  h3{
+    font-size: 15px;
+  }
+
+  p{
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  ul{
+    font-size: 14px;
+  }
+
 }

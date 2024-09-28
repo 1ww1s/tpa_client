@@ -1,3 +1,11 @@
 .requisitesTable{
+    box-sizing: border-box;
     width: 100%;
+    padding-right: 40px;
+}
+
+@media (max-width: 950px) {
+    .requisitesTable{
+        padding-right: 0;
+    }
 }
