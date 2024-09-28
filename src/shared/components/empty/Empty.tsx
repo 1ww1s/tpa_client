@@ -10,7 +10,9 @@ export const Empty: FC = () => {
             <div className="wrapper">
                 <div className={classes.content}>
                     <h2>В этом разделе ничего не найдено</h2>
-                    <ClickOnButton title="Перейти в каталог" link={process.env.NEXT_PUBLIC_CLIENT_URL + '/product-catalog'} />
+                    <div className={classes.button}>
+                        <ClickOnButton title="Перейти в каталог" link={process.env.NEXT_PUBLIC_CLIENT_URL + '/product-catalog'} />
+                    </div>
                 </div>
             </div>
         </div>
