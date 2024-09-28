@@ -18,16 +18,16 @@ export const Navbar: FC<PropsWithChildren> = ({children}) => {
     const [open, setOpen] = useState<boolean>(false)
 
     const pathname = usePathname()
-    if(pathname === '/login' || pathname === '/registration') return <></>
-
 
     useEffect(() => {
         closeMenu()
     }, [pathname])
-
+    
     const closeMenu = () => {
         setOpen(false)
     }
+
+    if(pathname === '/login' || pathname === '/registration') return <></>
 
     return (
         <div className={classes.Navbar}>
