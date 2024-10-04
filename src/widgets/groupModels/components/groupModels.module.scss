@@ -1,0 +1,42 @@
+.groupModels{
+    h2{
+        font-size: 18px;
+        margin: 0;
+        height: 25px;
+    }
+
+    .hrImg{
+        margin: 12px 0;
+    }
+
+    .groupModel{
+        margin-top: 6px;
+        a{
+            display: flex;
+            justify-content: space-between;
+            color: black;
+            transition: color 0.25s ease-in-out;
+            
+            span{
+                font-size: 15px;
+                line-height: 24px;
+                width: 270px;
+
+            }
+        }
+
+        svg{
+            stroke: #2799ED;
+            padding: 2px;
+            width: 20px;
+            height: 20px;
+        }
+
+        &:hover{
+            a{                
+                color: #2799ED;
+                transition: color 0.25s ease-in-out;
+            }
+        }
+    }
+}

@@ -2,7 +2,15 @@
 .form{
     position: relative;
     background-color: #FFFFFF;
-    padding: 40px 60px;    
-    min-height: 300px;
+    box-sizing: border-box;
+    padding: 40px 60px;
+    overflow: auto;
     min-width: 600px;
 }
+
+// @media (max-width: 1200px) {
+//     .form{
+//         width: calc(90vw - 40px);
+//         padding: 40px 60px;
+//     }
+// }

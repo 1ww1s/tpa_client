@@ -2,7 +2,7 @@ import { ILatestDevelopment, LatestDevelopmentCard, latestDevelopmentsService } 
 import { FC } from "react";
 import classes from './latestDevelopments.module.scss'
 import { TitleWithSeparator } from "@/src/shared/components/titleWithSeparator/components/TitleWithSeparator";
-import { ClickLatestDevelopment } from "@/src/features/clickLatestDevelopment";
+import { ClickOnLink } from "@/src/features/clickOnLink";
 import { CarouselImages } from "@/src/features/carouselImages";
 import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
 
@@ -33,9 +33,9 @@ export const LatestDevelopmentsHome: FC = async () => {
                         images={latestDevelopments.map(l => l.img)} 
                         children={
                             latestDevelopments.map(l =>
-                                <ClickLatestDevelopment key={l.name} latestDevelopmentPreview={l}>
+                                <ClickOnLink key={l.name} href={process.env.NEXT_PUBLIC_CLIENT_URL + '/product-catalog/' + l.slug}>
                                     <LatestDevelopmentCard latestDevelopment={l} />
-                                </ClickLatestDevelopment>
+                                </ClickOnLink>
                             )
                         }
                     />

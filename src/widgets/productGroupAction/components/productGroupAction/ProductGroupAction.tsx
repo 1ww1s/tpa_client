@@ -10,9 +10,10 @@ import { Delete } from "../delete/Delete";
 import { SuccessAction } from "@/src/shared/components/successAction/SuccessAction";
 import { ChangingProductGroupAndSendData } from "../changingProductGroupAndSendData/ChangingProductGroupAndSendData";
 import { initialStateProductGroup, IProductGroup } from "@/src/entities/productGroup";
+import { Swap } from "../swap/Swap";
 
 interface ProductGroupActionProps {
-    action: 'create' | 'update' | 'delete'
+    action: 'create' | 'update' | 'delete' | 'swap'
 }
 
 export const ProductGroupAction: FC<ProductGroupActionProps> = ({action}) => {
@@ -22,8 +23,8 @@ export const ProductGroupAction: FC<ProductGroupActionProps> = ({action}) => {
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [open, setOpen] = useState<boolean>(false)
 
-    const actionName = action === 'create' ? 'Добавить' : action === 'update' ? 'Обновить' : 'Удалить';
-    const actionNameSuccess = action === 'create' ? 'добавлен' : action === 'update' ? 'обновлен' : 'удален';
+    const actionName = action === 'create' ? 'Добавить' : action === 'update' ? 'Обновить' : action ==='delete' ? 'Удалить' : 'Поменять местами';
+    const actionNameSuccess = action === 'create' ? 'добавлен' : action === 'update' ? 'обновлен' : action === 'delete' ? 'удален' : 'поменяны';
 
     useEffect(() => {
         setProductGroup(initialStateProductGroup)
@@ -32,43 +33,58 @@ export const ProductGroupAction: FC<ProductGroupActionProps> = ({action}) => {
 
     return (
         <div data-actions>
-            <OpenModal title={actionName + ' раздел продукции'} iconSrc={plus.src} openGlobal={open} setOpenGlobal={setOpen} >
+            <OpenModal title={actionName + ` раздел${action === 'swap' ? 'ы' : ''} продукции`} iconSrc={plus.src} openGlobal={open} setOpenGlobal={setOpen} >
                 <div className={classes.form}>
                     <Timeline 
                         selectedWidget={selectedWidget}
                         setSelectedWidget={setSelectedWidget}
                         isLoading={isLoading}
                         widgets={
-                            [...chooseWidgets(action, 
-                                <SearchAndSelection 
-                                    isLoading={isLoading}
-                                    setIsLoading={setIsLoading}
-                                    setProductGroup={setProductGroup}
-                                    selectedWidget={selectedWidget}
-                                    setSelectedWidget={setSelectedWidget}
-                                />,
-                                <ChangingProductGroupAndSendData 
-                                    title={actionName + ' раздел продукции'}
-                                    productGroup={productGroup}
-                                    setProductGroup={setProductGroup}
-                                    action={action}
-                                    isLoading={isLoading}
-                                    setIsLoading={setIsLoading}
-                                    selectedWidget={selectedWidget}
-                                    setSelectedWidget={setSelectedWidget}
-                                />,
-                                <Delete 
-                                    productGroup={productGroup}
-                                    selectedWidget={selectedWidget}
-                                    setSelectedWidget={setSelectedWidget}
-                                    isLoading={isLoading}
-                                    setIsLoading={setIsLoading}
-                                />
-                            ),
-                                <div className={classes.successAction}>
-                                    <SuccessAction title={`Раздел продукции успешно ${actionNameSuccess}`} />
-                                </div>
-                            ] 
+                                action==='swap'
+                                    ?
+                                [
+                                    <Swap 
+                                        isLoading={isLoading}
+                                        setIsLoading={setIsLoading}
+                                        selectedWidget={selectedWidget}
+                                        setSelectedWidget={setSelectedWidget}
+                                    />,
+                                    <div className={classes.successAction}>
+                                        <SuccessAction title={`Разделы продукции успешно ${actionNameSuccess}`} />
+                                    </div>
+                                ]
+                                    :
+                                [
+                                    ...chooseWidgets(action, 
+                                        <SearchAndSelection 
+                                            isLoading={isLoading}
+                                            setIsLoading={setIsLoading}
+                                            setProductGroup={setProductGroup}
+                                            selectedWidget={selectedWidget}
+                                            setSelectedWidget={setSelectedWidget}
+                                        />,
+                                        <ChangingProductGroupAndSendData 
+                                            title={actionName + ' раздел продукции'}
+                                            productGroup={productGroup}
+                                            setProductGroup={setProductGroup}
+                                            action={action}
+                                            isLoading={isLoading}
+                                            setIsLoading={setIsLoading}
+                                            selectedWidget={selectedWidget}
+                                            setSelectedWidget={setSelectedWidget}
+                                        />,
+                                        <Delete 
+                                            productGroup={productGroup}
+                                            selectedWidget={selectedWidget}
+                                            setSelectedWidget={setSelectedWidget}
+                                            isLoading={isLoading}
+                                            setIsLoading={setIsLoading}
+                                        />
+                                    ),
+                                    <div className={classes.successAction}>
+                                        <SuccessAction title={`Раздел продукции успешно ${actionNameSuccess}`} />
+                                    </div>
+                                ] 
                         } 
                     />
                 </div>

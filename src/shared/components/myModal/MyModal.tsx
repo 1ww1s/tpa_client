@@ -5,11 +5,12 @@ import classes from './myModal.module.scss'
 import x_close from '@/src/shared/lib/assets/x-close.png'
 
 interface MyModalProps {
-    open: boolean
-    close: () => void
+    open: boolean;
+    close: () => void;
+    maxWidth?: number;
 }
 
-export const MyModal: FC<PropsWithChildren<MyModalProps>> = ({children, open, close}) => {
+export const MyModal: FC<PropsWithChildren<MyModalProps>> = ({children, open, maxWidth, close}) => {
 
     const myModalRef = useRef<HTMLDivElement>(null)
     useEffect(() => {
@@ -32,7 +33,7 @@ export const MyModal: FC<PropsWithChildren<MyModalProps>> = ({children, open, cl
 
     return (
         <div onClick={closeModal} ref={myModalRef} className={classes.myModal}>
-            <div className={classes.content}>
+            <div className={classes.content} style={{maxWidth: maxWidth}}>
                 <img onClick={closeModal} src={x_close.src} alt="close" />
                 {open && children}
             </div>

@@ -1,13 +1,22 @@
-.send{
+.sendDetailedData{
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-}
-
-.error{
     width: 100%;
-    height: 12px;
-    line-height: 22px;
-    font-size: 12px;
-    color: red;
+
+    .send{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    .error{
+        width: 100%;
+        min-height: 22px;
+        line-height: 22px;
+        font-size: 12px;
+        color: red;
+    }
+
 }

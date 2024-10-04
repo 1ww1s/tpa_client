@@ -82,6 +82,37 @@ class ProductService {
         return productsPreview
     }
 
+    async fetchProductsOfGroup(slug: string) {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL_API}/site/product/itemsByProduct/${slug}`, {
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            next: {revalidate: 300},
+            credentials: 'include',
+        })
+        const items: IProductItem[] = await res.json()
+        if(!res.ok) throw new Error(res.statusText)
+        return items
+    }
+
+    async getItemsOfGroup(slug: string) {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL_API}/site/product/itemsByGroup/${slug}`, {
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            cache: 'no-store',
+            credentials: 'include',
+        })
+        const items: IProductItem[] = await res.json()
+        if(!res.ok) throw new Error(res.statusText)
+        return items
+    }
+
+
     async get(slug: string): Promise<IProduct> { 
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL_API}/site/product/data/${slug}`, {
             method: "GET",
@@ -158,6 +189,11 @@ class ProductService {
 
     async delete(productId: number) {
         const res = await $authHost.post<string>(`${process.env.NEXT_PUBLIC_SERVER_URL_API}/admin/product/delete`, {productId})
+        return res.data
+    }
+
+    async swap(items: IProductItem[]) {
+        const res = await $authHost.post<string>(`${process.env.NEXT_PUBLIC_SERVER_URL_API}/admin/product/swap`, {items})
         return res.data
     }
 }

@@ -9,9 +9,10 @@ interface OpenModalProps {
     title: string
     openGlobal?: boolean;
     setOpenGlobal?: (val: boolean) => void;
+    maxWidth?: number;
 }
 
-export const OpenModal: FC<OpenModalProps & PropsWithChildren> = ({title, iconSrc, children, openGlobal, setOpenGlobal}) => {
+export const OpenModal: FC<OpenModalProps & PropsWithChildren> = ({title, iconSrc, children, openGlobal, maxWidth, setOpenGlobal}) => {
 
     const [open, setOpen] = ((openGlobal !== undefined) && setOpenGlobal) ? [openGlobal, setOpenGlobal] : useState<boolean>(false);
 
@@ -21,7 +22,7 @@ export const OpenModal: FC<OpenModalProps & PropsWithChildren> = ({title, iconSr
                 <img src={iconSrc} />
                 <h4>{title}</h4>
             </div>
-            <MyModal open={open} close={() => setOpen(false)}>
+            <MyModal open={open} close={() => setOpen(false)} maxWidth={maxWidth}>
                 {children}
             </MyModal>
         </div>

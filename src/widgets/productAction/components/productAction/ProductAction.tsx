@@ -10,9 +10,10 @@ import { SearchAndSelection } from "../searchAndSelection/SearchAndSelection";
 import { Delete } from "../delete/Delete";
 import { SuccessAction } from "@/src/shared/components/successAction/SuccessAction";
 import { ChangingProductAndSendData } from "../changingProductAndSendData/ChangingProductAndSendData";
+import { Swap } from "../swap/Swap";
 
 interface ProductActionsProps {
-    action: 'create' | 'update' | 'delete'
+    action: 'create' | 'update' | 'delete' | 'swap'
 }
 
 export const ProductAction: FC<ProductActionsProps> = ({action}) => {
@@ -23,8 +24,8 @@ export const ProductAction: FC<ProductActionsProps> = ({action}) => {
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [open, setOpen] = useState<boolean>(false)
 
-    const actionName = action === 'create' ? 'Добавить' : action === 'update' ? 'Обновить' : 'Удалить';
-    const actionNameSuccess = action === 'create' ? 'добавлен' : action === 'update' ? 'обновлен' : 'удален';
+    const actionName = action === 'create' ? 'Добавить' : action === 'update' ? 'Обновить' : action === 'delete' ? 'Удалить' : 'Поменять местами';
+    const actionNameSuccess = action === 'create' ? 'добавлен' : action === 'update' ? 'обновлен' : action === 'delete' ? 'удален' : 'поменяны';
 
     useEffect(() => {
         setProductPreview(initialStateProductPreview)
@@ -34,45 +35,56 @@ export const ProductAction: FC<ProductActionsProps> = ({action}) => {
 
     return (
         <div data-actions>
-            <OpenModal title={actionName + ' продукт'} iconSrc={plus.src} openGlobal={open} setOpenGlobal={setOpen} >
+            <OpenModal title={actionName + ` продукт${action === 'swap' ? 'ы' : ''}`} iconSrc={plus.src} openGlobal={open} setOpenGlobal={setOpen} >
                 <div className={classes.form}>
                     <Timeline 
                         selectedWidget={selectedWidget}
                         setSelectedWidget={setSelectedWidget}
                         isLoading={isLoading}
                         widgets={
-                            [...chooseWidgets(action, 
-                                <SearchAndSelection 
-                                    action={action}
-                                    setProduct={setProduct}
-                                    selectedWidget={selectedWidget}
-                                    setProductPreview={setProductPreview}
-                                    setSelectedWidget={setSelectedWidget}
-                                    isLoading={isLoading}
-                                    setIsLoading={setIsLoading}
-                                />,
-                                <ChangingProductAndSendData 
-                                    title={actionName + ' продукт'}
-                                    product={product}
-                                    setProduct={setProduct}
-                                    action={action}
-                                    isLoading={isLoading}
-                                    setIsLoading={setIsLoading}
-                                    selectedWidget={selectedWidget}
-                                    setSelectedWidget={setSelectedWidget}
-                                />,
-                                <Delete 
-                                    productPreview={productPreview}
-                                    selectedWidget={selectedWidget}
-                                    setSelectedWidget={setSelectedWidget}
-                                    isLoading={isLoading}
-                                    setIsLoading={setIsLoading}
-                                />
-                            ),
+                            action === 'swap'
+                                ?
+                            [
+                                <Swap isLoading={isLoading} setIsLoading={setIsLoading} selectedWidget={selectedWidget} setSelectedWidget={setSelectedWidget} />,
                                 <div className={classes.successAction}>
-                                    <SuccessAction title={`Продукт успешно ${actionNameSuccess}`} />
+                                        <SuccessAction title={`Продукты успешно ${actionNameSuccess}`} />
                                 </div>
-                            ] 
+                            ]
+                                :
+
+                            [
+                                ...chooseWidgets(action, 
+                                    <SearchAndSelection 
+                                        action={action}
+                                        setProduct={setProduct}
+                                        selectedWidget={selectedWidget}
+                                        setProductPreview={setProductPreview}
+                                        setSelectedWidget={setSelectedWidget}
+                                        isLoading={isLoading}
+                                        setIsLoading={setIsLoading}
+                                    />,
+                                    <ChangingProductAndSendData 
+                                        title={actionName + ' продукт'}
+                                        product={product}
+                                        setProduct={setProduct}
+                                        action={action}
+                                        isLoading={isLoading}
+                                        setIsLoading={setIsLoading}
+                                        selectedWidget={selectedWidget}
+                                        setSelectedWidget={setSelectedWidget}
+                                    />,
+                                    <Delete 
+                                        productPreview={productPreview}
+                                        selectedWidget={selectedWidget}
+                                        setSelectedWidget={setSelectedWidget}
+                                        isLoading={isLoading}
+                                        setIsLoading={setIsLoading}
+                                    />
+                                ),
+                                    <div className={classes.successAction}>
+                                        <SuccessAction title={`Продукт успешно ${actionNameSuccess}`} />
+                                    </div>
+                                ] 
                         } 
                     />
                 </div>

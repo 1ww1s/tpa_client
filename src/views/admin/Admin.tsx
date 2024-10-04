@@ -15,6 +15,7 @@ import { setErrorTime } from "@/src/shared/lib/helpers/setErrorTime";
 import { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
 import { RequisiteAction } from "@/src/widgets/requisiteAction";
+import { LatestDevelopmentsAction } from "@/src/widgets/latestDevelopmentsAction";
  
 export const Admin: FC = () => {
 
@@ -49,12 +50,19 @@ export const Admin: FC = () => {
                     <ProductAction action='create' />
                     <ProductAction action='update' />
                     <ProductAction action='delete' />
+                    <ProductAction action='swap' />
                 </div>
                 <div>
                     <h3>Раздел продукции</h3>
                     <ProductGroupAction action='create' />
                     <ProductGroupAction action='update' />
                     <ProductGroupAction action='delete' />
+                    <ProductGroupAction action='swap' />
+                </div>
+                <div>
+                    <h3>Последние разработки</h3>
+                    <LatestDevelopmentsAction action='create' />
+                    <LatestDevelopmentsAction action='delete' />
                 </div>
                 <div>
                     <h3>Сертификаты</h3>

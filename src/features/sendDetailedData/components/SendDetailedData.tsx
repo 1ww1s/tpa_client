@@ -42,7 +42,7 @@ export const SendDetailedData: FC<SendDetailedDataProps> = ({validation, sendDat
     }
 
     return (
-        <div>
+        <div className={classes.sendDetailedData}>
             <div className={classes.send}>
                 <MyButton 
                     disabled={isLoading || Boolean(error)} 

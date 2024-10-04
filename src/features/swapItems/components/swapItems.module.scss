@@ -1,0 +1,15 @@
+.swapItems{
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 0;
+    ol{
+        margin: 0;
+        li{
+            cursor: pointer;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+    }
+}

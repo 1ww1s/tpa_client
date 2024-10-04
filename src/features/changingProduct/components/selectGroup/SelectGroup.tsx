@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, use, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import classes from './selectGroup.module.scss'
 import { productGroupService } from "@/src/entities/productGroup";
 import { MySelect } from "@/src/shared/components/mySelect/MySelect";
@@ -9,9 +9,10 @@ interface SelectGroupProps {
     groupName: string;
     setGroupName: (groupName: string) => void;
     required?: boolean;
+    disabled?: boolean;
 }
 
-export const SelectGroup: FC<SelectGroupProps> = ({groupName, setGroupName, required = false}) => {
+export const SelectGroup: FC<SelectGroupProps> = ({groupName, setGroupName, required = false, disabled = false}) => {
 
     const [groupNames, setGroupNames] = useState<{value: string, name: string}[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true)
@@ -41,7 +42,7 @@ export const SelectGroup: FC<SelectGroupProps> = ({groupName, setGroupName, requ
             <p data-title="title">Группа продукции</p>
             <div className={classes.selectDiv}>
                 <MySelect 
-                    disabled={isLoading}
+                    disabled={isLoading || disabled}
                     defaultValue={'Выберите группу'} 
                     value={groupName} 
                     change={val => {setGroupName(val)}} 

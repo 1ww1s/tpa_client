@@ -16,7 +16,7 @@ export default async function Requisites() {
                 <div className="wrapper">
                     <div className={classes.content}>
                         <div className={classes.requisites}>
-                            <Suspense fallback={<LoaderDiv height={600} />}>
+                            <Suspense fallback={<div className={classes.loaderDiv}><LoaderDiv height={600} /></div>}>
                                 <RequisitesTable />
                             </Suspense>
                         </div>

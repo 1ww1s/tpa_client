@@ -11,6 +11,7 @@ const columns: string[] = ['Наименование', 'Значение']
 const getData = async () => {
     let requisites: IRequisite[] = [];
     try{
+        await new Promise(resolve => setTimeout(resolve, 3000))
         requisites = await requisiteService.fetchGetAll()
     }
     catch(error){
@@ -37,7 +38,9 @@ export default async function RequisitesTable() {
 
     return (
         <div className={classes.requisitesTable}>
-            <MyTable rows={rows} columns={columns} />
+            <div className={classes.table}>
+                <MyTable rows={rows} columns={columns} />
+            </div>
         </div>
     )
 }

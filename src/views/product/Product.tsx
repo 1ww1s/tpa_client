@@ -7,6 +7,7 @@ import { LoaderDiv } from "@/src/shared/components/loaderDiv/LoaderDiv";
 import {LatestDevelopments} from "@/src/widgets/latestDevelopments";
 import { NotFound } from "@/src/widgets/not-found";
 import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
+import { GroupModels } from "@/src/widgets/groupModels";
 
 
 interface ProductProps {    
@@ -48,6 +49,11 @@ export default async function Product({slug}: ProductProps) {
                                     <LatestDevelopments />
                                 </div>
                             </Suspense>
+                            <div className={classes.groupModels}>
+                                <Suspense fallback={<LoaderDiv height={200} />}>
+                                    <GroupModels slug={slug}/>
+                                </Suspense>
+                            </div>
                         </div>
                     </div>
                 </div>

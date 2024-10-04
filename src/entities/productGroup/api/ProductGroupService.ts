@@ -20,6 +20,11 @@ class ProductGroupService {
         return res.data
     }
 
+    async swap(items: IProductGroupItem[]){
+        const res = await $authHost.post<string>('/admin/productGroup/swap', {items})
+        return res.data
+    }
+
     async fetchGetAll() {
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL_API}/site/productGroup`, {
             method: "GET",
@@ -64,6 +69,21 @@ class ProductGroupService {
         return productGroupItems
     }
 
+    async getItems(){
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL_API}/site/productGroup/itemNames`, {
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            cache: 'no-store',
+        })
+        const productGroupItems: IProductGroupItem[] = await res.json()
+        if(!res.ok) throw new Error(res.statusText)
+        return productGroupItems
+    }
+    
     async get(slug: string){
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL_API}/site/productGroup/data/${slug}`, {
             method: "GET",

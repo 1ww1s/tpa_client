@@ -1,4 +1,4 @@
-import { Auth } from "@/src/widgets/auth";
+import { Login } from "@/src/views/login/Login";
 import { Metadata, NextPage } from "next";
 import React from "react";
 
@@ -12,7 +12,7 @@ const LoginPage: NextPage = () => {
 
     return (
         <div>
-            <Auth />
+            <Login />
         </div>
     )
 }
