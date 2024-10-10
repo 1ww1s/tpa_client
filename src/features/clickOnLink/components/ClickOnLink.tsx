@@ -1,6 +1,9 @@
+"use client"
+
 import { FC, PropsWithChildren } from "react";
 import classes from './clickOnLink.module.scss'
 import { MyLink } from "@/src/shared/components/myLink/MyLink";
+import Link from "next/link";
 
 interface ClickOnLinkProps {
     href: string;
@@ -8,9 +11,11 @@ interface ClickOnLinkProps {
 
 export const ClickOnLink: FC<ClickOnLinkProps & PropsWithChildren> = ({href, children}) => {
 
+    // вместо Link был MyLink
+
     return (
-        <MyLink className={classes.link} href={href}>
+        <Link className={classes.link} href={href}>  
             {children}
-        </MyLink>
+        </Link>
     )
 }

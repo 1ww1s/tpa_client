@@ -28,8 +28,6 @@ interface GroupModelsProps {
 export const GroupModels: FC<GroupModelsProps> = async ({slug}) => {
     
     const groupModels = await getData(slug)
-    
-    console.log(groupModels)
 
     return (
         <div className={classes.groupModels}>

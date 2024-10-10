@@ -11,7 +11,6 @@ interface ProductGroupCardsProps {
 const getData = async (slug: string): Promise<IProductPreview[]> => {
     let productsPreview: IProductPreview[] = [];
     try{
-        await new Promise(resolve => setTimeout(resolve, 3000))
         productsPreview = await productService.fetchPreviews(slug)
     }
     catch(e){
