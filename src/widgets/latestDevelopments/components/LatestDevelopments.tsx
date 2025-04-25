@@ -25,6 +25,8 @@ export const LatestDevelopments: FC = async () => {
     const latestDevelopments = await getData()
     
     return (
+        latestDevelopments.length !== 0
+            &&
         <div className={classes.latestDevelopments}>
             <h2>НАШИ ПОСЛЕДНИЕ<br /> РАЗРАБОТКИ</h2>
             <img className={classes.hrImg} src={hrImg.src} />

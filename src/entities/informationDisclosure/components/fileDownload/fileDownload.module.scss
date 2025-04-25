@@ -1,0 +1,24 @@
+
+
+
+
+.file{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    .nameBox{
+        display: flex;
+        gap: 20px;
+        height: 24px;
+        align-items: center;
+        cursor: pointer;
+        color: black;
+        transition: color .15s ease-in-out;
+    
+        &:hover{
+            color: var(--hover-blue);
+        }
+    }
+}

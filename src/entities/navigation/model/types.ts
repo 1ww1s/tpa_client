@@ -1,4 +1,4 @@
-import { ABOUT_ROUTE, CERTIFICATES_ROUTE, CONTACTS_ROUTE, HOME_ROUTE, PRODUCTS_ROUTE, REQUISITES_ROUTE } from "./links"
+import { ABOUT_ROUTE, CERTIFICATES_ROUTE, CONTACTS_ROUTE, HOME_ROUTE, INFORMATION_ROUTE, PRODUCTS_ROUTE, REQUISITES_ROUTE } from "./links"
 
 
 export interface TSection {
@@ -34,6 +34,10 @@ export const sections: TSection = {
                     {
                         name: 'Реквизиты',
                         link: REQUISITES_ROUTE
+                    },
+                    {
+                        name: 'Раскрытие информации',
+                        link: INFORMATION_ROUTE
                     }
                 ]
             }

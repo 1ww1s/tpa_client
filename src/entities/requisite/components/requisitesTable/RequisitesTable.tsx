@@ -1,5 +1,4 @@
 import { MyTable } from "@/src/shared/components/myTable/MyTable";
-import { FC } from "react";
 import { IRequisite } from "../../model/types";
 import classes from './requisitesTable.module.scss'
 import { requisiteService } from "../../api/RequisiteService";
@@ -11,7 +10,6 @@ const columns: string[] = ['Наименование', 'Значение']
 const getData = async () => {
     let requisites: IRequisite[] = [];
     try{
-        await new Promise(resolve => setTimeout(resolve, 3000))
         requisites = await requisiteService.fetchGetAll()
     }
     catch(error){

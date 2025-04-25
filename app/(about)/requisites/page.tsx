@@ -1,6 +1,5 @@
-import { IRequisite, requisiteService } from "@/src/entities/requisite";
 import Requisites from "@/src/views/requisites/Requisites";
-import { Metadata, NextPage } from "next";
+import { Metadata } from "next";
 import React from "react";
 
 

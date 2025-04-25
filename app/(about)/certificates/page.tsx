@@ -1,5 +1,5 @@
 import Certificates from "@/src/views/certificates/Certificates";
-import { Metadata, NextPage } from "next";
+import { Metadata } from "next";
 import React from "react";
 
 

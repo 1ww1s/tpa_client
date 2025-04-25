@@ -15,7 +15,6 @@ export const Caption: FC<CaptionProps> = ({children}) => {
                 <div className={classes.sign}>
                     <span>систем управления и автоматики судовых дизелей, систем ДАУ ГД, электронного и щитового оборудования</span>
                 </div>
-
                 <div className={classes.action}>
                     {children}
                 </div>

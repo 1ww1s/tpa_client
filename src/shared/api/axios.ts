@@ -2,7 +2,6 @@ import {
     InternalAxiosRequestConfig,
 } from "axios";
   
-
 import axios from 'axios'
 
 const $host = axios.create({

@@ -30,6 +30,8 @@ export const GroupModels: FC<GroupModelsProps> = async ({slug}) => {
     const groupModels = await getData(slug)
 
     return (
+        groupModels.length !== 0
+            &&
         <div className={classes.groupModels}>
             <h2>МОДЕЛИ ЭТОЙ ГРУППЫ</h2>
             <img className={classes.hrImg} src={hrImg.src} />

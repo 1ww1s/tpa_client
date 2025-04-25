@@ -70,7 +70,6 @@ export const CertificateAction: FC<CertificateActionProps> = ({action}) => {
                         } 
                     />
                 </div>
-        
             </OpenModal>
         </div>
     )

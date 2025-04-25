@@ -1,7 +1,7 @@
-import { IProductItem, productService } from "@/src/entities/product";
+import { IProductPreview, productService } from "@/src/entities/product";
 import Product from "@/src/views/product/Product";
 import { NextPage } from "next";
-import React, { Suspense } from "react";
+import React from "react";
 
 type Props = {
     params: { product: string }
@@ -21,13 +21,14 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props) {
 
-    let productItem: IProductItem | null = null;
+    let productPrev: IProductPreview | null = null;
     try{
-      productItem = await productService.fetchNameBySlug(params.product)
+      productPrev = await productService.getPreview(params.product)
     }
     catch(e){}
     return {
-      title: productItem?.name || '',
+      title: productPrev?.title || '',
+      description: productPrev?.info || '',
     }
 }
 

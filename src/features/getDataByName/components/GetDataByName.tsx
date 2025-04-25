@@ -23,7 +23,6 @@ export const GetDataByName = <T extends Q, >(props: GetDataByNameProps<T>) => {
         try{
             props.setIsLoading(true)
             const items = await searchByNameService.get(name, props.getData)
-            console.log(123412, items)
             props.setItems(items)
         }
         catch(e){

@@ -1,0 +1,40 @@
+.information{
+    width: 100%;
+    padding-bottom: 40px;
+    
+    .content{
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+        margin: 40px 0;
+
+        .requisites{
+            width: 100%;
+
+            .loaderDiv{
+                margin-right: 20px;
+            }
+        }
+
+        .rightBar{
+            width: 300px;
+        }
+    }
+
+}
+
+@media (max-width: 950px) {
+    .information{
+        .content{
+            flex-direction: column;
+            .requisites{
+                width: 100%;
+            }
+            .rightBar{
+                width: 100%;
+                margin-top: 20px;
+            }
+        }
+    }    
+
+}

@@ -1,0 +1,1 @@
+export { InformationDisclosureAction } from "./components/informationDisclosureAction/InformationDisclosureAction";

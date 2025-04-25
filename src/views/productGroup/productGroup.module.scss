@@ -1,19 +1,20 @@
 .productGroup{
-    width: 100%;
     padding-bottom: 40px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
 
     .content{
         display: flex;
-        width: 100%;
         justify-content: space-between;
         margin: 40px 0;
 
         .productPreview{
-            width: 900px;
+            width: 100%;
         }
     
         .rightBar{
-            width: 300px;
+            min-width: 300px;
         }
     }
 }
@@ -27,7 +28,7 @@
             }
             .rightBar{
                 width: 100%;
-                margin-top: 20px;
+                margin-top: 40px;
             }
         }
     }    

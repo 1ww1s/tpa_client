@@ -16,6 +16,7 @@ import { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
 import { RequisiteAction } from "@/src/widgets/requisiteAction";
 import { LatestDevelopmentsAction } from "@/src/widgets/latestDevelopmentsAction";
+import { InformationDisclosureAction } from "@/src/widgets/informationDisclosureAction";
  
 export const Admin: FC = () => {
 
@@ -69,6 +70,12 @@ export const Admin: FC = () => {
                     <CertificateAction action='create' />
                     <CertificateAction action='update' />
                     <CertificateAction action='delete' />
+                </div>
+                <div>
+                    <h3>Раскрытие информации</h3>
+                    <InformationDisclosureAction action='create' />
+                    <InformationDisclosureAction action='update' />
+                    <InformationDisclosureAction action='delete' />
                 </div>
                 <div>
                     <h3>Реквизиты</h3>
