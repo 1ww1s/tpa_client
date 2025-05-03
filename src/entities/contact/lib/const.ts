@@ -19,7 +19,7 @@ export const contacts: IContact[] = [
         description: 'Пн-Пт с 9:00 до 17:00',
     },
     {
-        title: 'Адресс',
+        title: 'Адрес',
         description: '170017, г. Тверь, ул. Коняевская, д.10, офис 2',
     },
 ]

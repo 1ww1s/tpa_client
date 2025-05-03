@@ -35,6 +35,14 @@ export const Info: FC = () => {
                     <span>Реквизиты</span>
                     </Link>
                 </li>
+                <li>
+                    <Link href={process.env.NEXT_PUBLIC_CLIENT_URL + '/information'}>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                    <span>Раскрытие информации</span>
+                    </Link>
+                </li>
             </ul>
         </div>
     )
