@@ -1,7 +1,7 @@
 import { IProductGroup, productGroupService, useProductGroupActions, validationProductGroup } from "@/src/entities/productGroup";
 import { ChangingProductGroup } from "@/src/features/changingProductGroup";
 import { SendDetailedData } from "@/src/features/sendDetailedData";
-import { UploadImage } from "@/src/features/uploadImage";
+import { UploadImageFile } from "@/src/features/uploadImage";
 import { FC } from "react";
 
 interface ChangingProductGroupAndSendDataProps {
@@ -21,13 +21,23 @@ export const ChangingProductGroupAndSendData: FC<ChangingProductGroupAndSendData
 
     const {setImg} = useProductGroupActions(productGroup, setProductGroup)
 
+    const handleSubmit = async () => {
+        const formData = new FormData();
+        if(productGroup.img.file){
+            formData.append("image", productGroup.img.file);
+        }
+        formData.append("name", productGroup.img.name);
+        formData.append("data", JSON.stringify({...productGroup, img: {id: productGroup.img.id, name: productGroup.img.name}}));
+        return action === 'create' ? await productGroupService.create(formData) : await productGroupService.update(formData)
+    };
+
     return (
         <div>
             <h3>{title}</h3>
             <ChangingProductGroup 
                 productGroup={productGroup}
                 setProductGroup={setProductGroup}
-                uploadImage={<UploadImage image={productGroup.img} setImage={setImg}/>}
+                uploadImage={ <UploadImageFile image={productGroup.img} setImage={setImg}/> }
             />
             <hr />
             <SendDetailedData 
@@ -35,7 +45,7 @@ export const ChangingProductGroupAndSendData: FC<ChangingProductGroupAndSendData
                 validation={setError => validationProductGroup(productGroup, setError)}
                 isLoading={isLoading}
                 setIsLoading={setIsLoading}
-                sendData={async () => action === 'create' ? await productGroupService.create(productGroup) : await productGroupService.update(productGroup)}
+                sendData={handleSubmit}
                 onEnd={() => setSelectedWidget(selectedWidget + 1)} 
             />
         </div>

@@ -16,7 +16,6 @@ interface CertificateActionProps {
 }
 
 export const CertificateAction: FC<CertificateActionProps> = ({action}) => {
-
     const [certificate, setCertificate] = useState<ICertificate>(initialStateCertificate)
     const [selectedWidget, setSelectedWidget] = useState<number>(0)
     const [isLoading, setIsLoading] = useState<boolean>(false)

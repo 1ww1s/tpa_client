@@ -11,7 +11,7 @@ export const ImageCard: FC<ImageCardProps> = ({img}) => {
 
     return (
         <div className={classes.imageCard}>
-            <img src={img.value} alt={img.name} />
+            <img src={`${process.env.NEXT_PUBLIC_SERVER_URL}${img.url}`} alt={img.name} />
         </div>
     )
 }

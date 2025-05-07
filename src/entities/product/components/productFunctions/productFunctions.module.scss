@@ -1,8 +1,10 @@
 .ProductFunctions {
-    ul{
-        padding-left: 30px;
-        li{
-            margin-top: 8px;
+    .list{
+        >ul{
+            padding-left: 30px;
+            li{
+                margin-top: 3px;
+            }
         }
     }
 }

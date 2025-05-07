@@ -6,6 +6,7 @@ import { Contacts } from "./contacts/Contacts"
 import { Info } from "./info/Info"
 import { usePathname } from "next/navigation";
 import { Nav } from './nav/Nav'
+import { Copyright } from './copyright/Copyright'
 
 
 export function Bottom() {
@@ -20,9 +21,11 @@ export function Bottom() {
                 <div className={classes.content}>
                     <About />
                     <Nav />
-                    <Info />
+                    {/* <Info /> */}
                     <Contacts />
                 </div>
+                <hr className={classes.hr} />
+                <Copyright />
             </div>
         </div>
     )

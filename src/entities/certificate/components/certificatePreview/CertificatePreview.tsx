@@ -13,7 +13,7 @@ export const CertificatePreview: FC<CertificatePreviewProps> = ({certificate}) =
         <div className={classes.productPreview}>
             <div className={classes.content}>
                 <div className={classes.image}>
-                    <Image src={certificate.img.value} width={200} height={200} alt={certificate.img.name} />
+                    <Image src={`${process.env.NEXT_PUBLIC_SERVER_URL}${certificate.img.url}`} width={200} height={200} alt={certificate.img.name} />
                 </div>
                 <div className={classes.caption}>
                     <div className={classes.name}>Название: <span>{certificate.name}</span></div>

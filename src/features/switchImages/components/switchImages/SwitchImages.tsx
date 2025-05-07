@@ -3,9 +3,10 @@ import { FC, useRef } from "react";
 import arrow from '../../lib/assets/arrow-blue.png'
 import classes from './switchImages.module.scss'
 import Image from "next/image";
+import { IProduct } from "@/src/entities/product";
 
 interface SwitchImagesProps {
-    images: IImage[];
+    images: IProduct['images'];
     currentImage: number;
     setCurrentImage: (currentImage: number) => void;
 }
@@ -43,7 +44,7 @@ export const SwitchImages: FC<SwitchImagesProps> = ({images, currentImage, setCu
                         className={ind === currentImage ? classes.currentImage : ''} 
                         onClick={() => chooseImage(ind)}
                         key={ind} 
-                        src={img.value} 
+                        src={`${process.env.NEXT_PUBLIC_SERVER_URL}${img.url ? img.url : ''}`} 
                         alt={img.name}
                         width={100}
                         height={100}

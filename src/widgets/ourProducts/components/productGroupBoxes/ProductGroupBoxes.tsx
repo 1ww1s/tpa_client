@@ -1,8 +1,7 @@
 import { FC } from "react";
 import classes from './productGroupBoxes.module.scss'
-import { IProductGroup, ProductGroupCard, productGroupService } from "@/src/entities/productGroup";
+import { IProductGroup, ProductGroupCard } from "@/src/entities/productGroup";
 import { ClickOnButton } from "@/src/features/clickOnButton";
-import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
 import { Observed } from "@/src/features/observed";
 
 interface ProductGroupBoxesProps {

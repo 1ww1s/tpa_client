@@ -29,6 +29,7 @@ export const SearchAndSelection: FC<SearchProps> = ({setCertificate, selectedWid
         try{    
             setIsLoading(true)
             const certificates = await certificateService.getAll()
+            console.log(certificates)
             setCertificatesInitial(certificates)
             setCertificatesSearch(certificates)
             setCertificatesSearchAndSort(certificates)
@@ -45,11 +46,11 @@ export const SearchAndSelection: FC<SearchProps> = ({setCertificate, selectedWid
         getCertificates()
     }, [])
 
-    const expirationDate = (date: string): boolean => {
-        const isOk = true;
-        console.log(Math.floor((new Date(date).getTime() - Date.now()) / 86400000).toLocaleString("ru"))
-        return isOk;    
-    }
+    // const expirationDate = (date: string): boolean => {
+    //     const isOk = true;
+    //     console.log(Math.floor((new Date(date).getTime() - Date.now()) / 86400000).toLocaleString("ru"))
+    //     return isOk;    
+    // }
 
     return (
         <div className={classes.search}>
@@ -81,7 +82,7 @@ export const SearchAndSelection: FC<SearchProps> = ({setCertificate, selectedWid
                 />
                 <ul className={classes.endDate}>
                     {certificatesSearchAndSort.map(c => 
-                        <li key={c.id}>{new Date(c.endDate).toLocaleDateString("ru")}{expirationDate(c.endDate)}</li>
+                        <li key={c.id}>{new Date(c.endDate).toLocaleDateString("ru")}</li>
                     )}
                 </ul>
             </div>

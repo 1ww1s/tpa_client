@@ -23,7 +23,6 @@ interface ProductImagesProps{
 export default async function ProductImages({slug}: ProductImagesProps) {
 
     const images = await getData(slug)
-
     if(!images) return <></>
 
     return (

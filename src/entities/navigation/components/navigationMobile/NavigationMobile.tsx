@@ -17,8 +17,6 @@ export const NavigationMobile: FC<NavigationMobileProps> = ({open=false}) => {
 
     const pathname = usePathname()
 
-    console.log(pathname)
-
     return (
         <div className={classes.navigationMobile}>
             <div className={open ? classes.navigation + ' ' + classes.open : classes.navigation}>

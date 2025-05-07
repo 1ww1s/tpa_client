@@ -13,9 +13,8 @@ interface ProductImagesProps {
     setGlobalError?: (error: string) => void;
     addImg: React.ReactElement
 }
- 
-export const ProductImages: FC<ProductImagesProps> = ({images, setImages, required = false, setGlobalError = () => {}, addImg}) => {
 
+export const ProductImages: FC<ProductImagesProps> = ({images, setImages, required = false, setGlobalError = () => {}, addImg}) => {
 
     async function convertImages(e: ChangeEvent<HTMLInputElement>){
         const files = e.target.files;
@@ -27,7 +26,7 @@ export const ProductImages: FC<ProductImagesProps> = ({images, setImages, requir
             const reader = new FileReader()
             reader.readAsDataURL(file)
             const base64: string = await new Promise(resolve => {reader.onload = () => resolve(reader.result as string)})
-            imgs = [...imgs, {name: file.name.replace(/\.[^/.]+$/, ""), value: base64}];
+            imgs = [...imgs, {name: file.name.replace(/\.[^/.]+$/, ""), value: base64, file}];
         }    
         setImages(imgs)
     }
@@ -35,7 +34,7 @@ export const ProductImages: FC<ProductImagesProps> = ({images, setImages, requir
     useEffect(() => {
         if(!images.length) setGlobalError('Заполните обязательные поля')
     }, [images.length])
-    
+
     return (
         <div className={classes.productImages}>
             <p data-title="title">Фотографии</p>

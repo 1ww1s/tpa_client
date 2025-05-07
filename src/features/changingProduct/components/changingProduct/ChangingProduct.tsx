@@ -1,6 +1,6 @@
 "use client"
 
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 import classes from './changingProduct.module.scss'
 import { IProduct, useProductActions } from "@/src/entities/product";
 import { ProductName } from "../productName/ProductName";
@@ -18,7 +18,6 @@ interface ChangingProductProps {
     setProduct: (product: IProduct) => void;
     addImg: React.ReactElement
 }
-
 
 export const ChangingProduct: FC<ChangingProductProps> = ({product, setProduct, addImg}) => {
     

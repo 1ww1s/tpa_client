@@ -14,10 +14,15 @@ export const LatestDevelopmentPreview: FC<LatestDevelopmentPreviewProps> = ({lat
         <div>
             <div className={classes.latestDevelopmentPreview}>
                 <div className={classes.image}>
-                    <Image src={latestDevelopmentPreview.img.value} width={90} height={90} alt={latestDevelopmentPreview.img.name} />
+                    <Image 
+                        src={`${process.env.NEXT_PUBLIC_SERVER_URL}${latestDevelopmentPreview.img.url ? latestDevelopmentPreview.img.url : ''}`} 
+                        width={90} 
+                        height={90} 
+                        alt={latestDevelopmentPreview.title} 
+                    />
                 </div>
                 <div className={classes.title}>
-                    <span>{latestDevelopmentPreview.name}</span>
+                    <span>{latestDevelopmentPreview.title}</span>
                 </div>
             </div>
     </div>

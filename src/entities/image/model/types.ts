@@ -4,5 +4,6 @@
 
 export interface IImage {
     name: string;
-    value: string;
+    value?: string;
+    url?: string;
 }

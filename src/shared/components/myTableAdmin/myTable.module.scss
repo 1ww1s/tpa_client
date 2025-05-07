@@ -1,9 +1,14 @@
 
 .myTable {    
-    margin-top: 20px;
     
     >td, th {
         text-align: start;
         width: 260px;
     }
+    thead::after {
+        content: "";
+        display: block;
+        height: 4px; /* Высота отступа */
+        background: transparent;
+      }
 }

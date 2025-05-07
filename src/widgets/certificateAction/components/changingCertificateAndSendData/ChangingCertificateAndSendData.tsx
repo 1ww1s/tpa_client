@@ -1,7 +1,7 @@
 import { certificateService, ICertificate, useCertificateActions, validationCertificate } from "@/src/entities/certificate";
 import { ChangingCertificate } from "@/src/features/changingCertificate";
 import { SendDetailedData } from "@/src/features/sendDetailedData";
-import { UploadImage } from "@/src/features/uploadImage";
+import { UploadImageFile } from "@/src/features/uploadImage";
 import { FC } from "react";
 
 interface ChangingCertificateAndSendDataProps {
@@ -21,13 +21,23 @@ export const ChangingCertificateAndSendData: FC<ChangingCertificateAndSendDataPr
 
     const {setImg} = useCertificateActions(certificate, setCertificate)
 
+    const handleSubmit = async () => {
+        const formData = new FormData();
+        if(certificate.img.file){
+            formData.append("image", certificate.img.file);
+        }
+        formData.append("name", certificate.img.name);
+        formData.append("data", JSON.stringify({...certificate, img: {name: certificate.img.name}}));
+        return action === 'create' ? await certificateService.create(formData) : await certificateService.update(formData)
+    };
+
     return (
         <div>
             <h3>{title}</h3>
             <ChangingCertificate 
                 certificate={certificate}
                 setCertificate={setCertificate}
-                uploadImage={<UploadImage image={certificate.img} setImage={setImg}/>}
+                uploadImage={<UploadImageFile image={certificate.img} setImage={setImg}/>}
             />
             <hr />
             <SendDetailedData 
@@ -35,7 +45,7 @@ export const ChangingCertificateAndSendData: FC<ChangingCertificateAndSendDataPr
                 validation={setError => validationCertificate(certificate, setError)}
                 isLoading={isLoading}
                 setIsLoading={setIsLoading}
-                sendData={async () => action === 'create' ? await certificateService.create(certificate) : await certificateService.update(certificate)}
+                sendData={handleSubmit}
                 onEnd={() => setSelectedWidget(selectedWidget + 1)} 
             />
         </div>

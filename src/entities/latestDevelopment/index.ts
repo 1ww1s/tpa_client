@@ -1,4 +1,6 @@
+export { validationLatestDevelopment } from './lib/helpers/validation'
+export { initialLatestDevelopment } from './model/initialState'
 export { LatestDevelopmentPreview } from './components/latestDevelopmentPreview/LatestDevelopmentPreview'
 export { LatestDevelopmentCard } from './components/latestDevelopmentCard/LatestDevelopmentCard'
 export { latestDevelopmentsService } from './api/LatestDevelopmentsService'
-export type { ILatestDevelopment } from './model/types'
+export type { ILatestDevelopment, ILatestItem } from './model/types'

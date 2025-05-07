@@ -7,6 +7,7 @@
     width: 100%;
     background-color: #242424;
     overflow: hidden;
+    color: #AAAAAA;
 
     .content{
         display: flex;
@@ -16,7 +17,6 @@
         font-size: 14px;
         font-weight: 400;
         line-height: 26px;
-        color: #AAAAAA;
 
         h3{
             color: #FFFFFF;    
@@ -25,6 +25,13 @@
         }
     }   
 
+    .hr{
+        margin: 20px 0 10px 0;
+        height: 0;
+        border: none;
+        width: 100%;
+        border-top: 1px solid #AAAAAA;
+    }
         
     .hrImg{
         width: 50px;
@@ -35,7 +42,6 @@
 
 @media (max-width: 650px) {
     .Bottom{
-
         .content{
             line-height: 24px;
             h3{

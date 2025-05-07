@@ -4,6 +4,8 @@
     width: 100%;
     height: 640px;
     background-color: #000000;
+    overflow: hidden;
+    position: relative;
 
     img{
         object-fit: cover;

@@ -2,8 +2,8 @@
 
 
 export interface ICertificate {
-    id: number;
+    id?: number;
     name: string;
-    img: {name: string, value: string};
+    img: {id?: number, name: string, url?: string, value?: string, file?: File};
     endDate: string;
 }

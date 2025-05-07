@@ -17,7 +17,6 @@ interface ProductActionsProps {
 }
 
 export const ProductAction: FC<ProductActionsProps> = ({action}) => {
-
     const [productPreview, setProductPreview] = useState<IProductPreview>(initialStateProductPreview)
     const [product, setProduct] = useState<IProduct>(initialStateProduct)
     const [selectedWidget, setSelectedWidget] = useState<number>(0)

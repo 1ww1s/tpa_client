@@ -4,8 +4,6 @@ import { ChangingProduct } from "@/src/features/changingProduct";
 import { SendDetailedData } from "@/src/features/sendDetailedData";
 import { FC } from "react";
 
-
-
 interface ChangingProductAndSendDataProps {
     product: IProduct;
     setProduct: (product: IProduct) => void;
@@ -17,10 +15,23 @@ interface ChangingProductAndSendDataProps {
     title: string;
 }
 
-
-export const ChangingProductAndSendData: FC<ChangingProductAndSendDataProps> = ({title, product, setProduct, action, isLoading, setIsLoading, selectedWidget, setSelectedWidget}) => {
+export const ChangingProductAndSendData: FC<ChangingProductAndSendDataProps> = (
+    {title, product, setProduct, action, isLoading, setIsLoading, selectedWidget, setSelectedWidget}
+) => {
 
     const {setImages} = useProductActions(product, setProduct)
+
+    const handleSubmit = async () => {
+        const formData = new FormData();
+        product.images.forEach(image => {
+            if(image.file){
+                formData.append("images", image.file);
+                formData.append("name", image.name);
+            }
+        })
+        formData.append("data", JSON.stringify({...product, images: product.images.map(image => ({id: image.id, name: image.name}))}));
+        return action === 'create' ? await productService.create(formData) : await productService.update(formData) // заменить update
+    };
 
     return (
         <div>
@@ -36,7 +47,7 @@ export const ChangingProductAndSendData: FC<ChangingProductAndSendDataProps> = (
                 validation={setError => validationProduct(product, setError)}
                 isLoading={isLoading}
                 setIsLoading={setIsLoading}
-                sendData={async () => action === 'create' ? await productService.create(product) : await productService.update(product)}
+                sendData={handleSubmit}
                 onEnd={() => setSelectedWidget(selectedWidget + 1)} 
             />
         </div>

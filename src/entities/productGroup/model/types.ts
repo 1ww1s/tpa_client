@@ -1,14 +1,13 @@
 
 
-export interface IProductGroup{
+export interface IProductGroup {
     id: number;
     title: string;
     info: string;
-    img: {name: string, value: string};
+    img: {id?: number, name: string, url?: string, value?: string, file?: File};
     slug: string;
     index?: number;
 }
-
 
 export interface IProductGroupItem {
     name: string;

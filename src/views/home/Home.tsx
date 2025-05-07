@@ -5,7 +5,6 @@ import OurProducts from "@/src/widgets/ourProducts";
 import LatestDevelopments from "@/src/widgets/latestDevelopmentsHome";
 import PartnersList from "@/src/widgets/partners";
 
-
 export default async function Home() {
 
     return (

@@ -6,36 +6,55 @@
 
     .content{
         display: flex;
+        justify-content: space-between;
+        gap: 30px;
         width: 100%;
         margin-top: 30px;
 
-        .details{
-            width: 40%;
-        }
+
         .whyUs{
-            display: flex;
+            display: grid;
+            height: 100%;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 60px;
+            margin-right: 20px;
             justify-content: space-between;
-            flex-wrap: wrap;
-            width: 60%;
-            margin-left: 40px;
         }
     }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 1000px) {
     .whyChooseUs{
-        padding: 40px 0;
         .content{
             flex-direction: column;
-            margin-top: 10px;
-            .details{
-                width: 100%;
-            }
+
             .whyUs{
-                width: 100%;
-                margin: 20px 0 0 0;
+                margin-right: 60px;
+                column-gap: 40px;
             }
         }
     }
-        
+}
+
+
+@media (max-width: 670px) {
+    .whyChooseUs{
+        .content{
+            margin-top: 10px;
+           
+            .whyUs{
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    .whyChooseUs{
+        .content{
+            .whyUs{
+                margin-right: 30px;
+            }
+        }
+    }
 }

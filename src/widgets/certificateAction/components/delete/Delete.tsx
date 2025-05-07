@@ -24,7 +24,7 @@ export const Delete: FC<DeleteProps> = ({certificate, selectedWidget, setSelecte
                     action='delete'
                     isLoading={isLoading} 
                     setIsLoading={setIsLoading} 
-                    sendData={async () => await certificateService.delete(certificate.id)}
+                    sendData={async () => await certificateService.delete(certificate.id || 0)}
                 />
             </div>
         </div>

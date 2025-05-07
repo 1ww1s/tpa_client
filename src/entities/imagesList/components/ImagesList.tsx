@@ -1,12 +1,11 @@
 "use client"
 
-import React, { ChangeEvent, ReactElement } from "react";
+import React, { ReactElement } from "react";
 import classes from './imagesList.module.scss'
 import remove from '@/src/shared/lib/assets/x-close.png'
 import Image from "next/image";
-import plus from '@/src/shared/lib/assets/plus.png'
 
-type T = {name: string, value: string}
+type T = {name: string, url?: string, value?: string, file?: File}
 
 interface ImageListProps {
     images: T[];
@@ -16,13 +15,12 @@ interface ImageListProps {
 
 export const ImageList = (props: ImageListProps) => {
 
-
     const removeImage = (index: number) => {
         let imgs = [...props.images];
         imgs.splice(index, 1)
         props.setImages(imgs)
     }
-    
+
     return (
         <div className={classes.listBox}>
             {props.images.map((image, ind) => 
@@ -35,7 +33,10 @@ export const ImageList = (props: ImageListProps) => {
                         src={remove.src} 
                         onClick={() => removeImage(ind)}
                     />
-                    <img className={classes.image} src={image.value} />
+                    <img 
+                        src={image ? image.value ? image.value : `${process.env.NEXT_PUBLIC_SERVER_URL}${image.url}` : ''} 
+                        className={classes.image} 
+                    />
                     <p>{image.name}</p>
                 </div>
             )}

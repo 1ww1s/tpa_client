@@ -18,8 +18,8 @@ export const ProductPreviewLayout: FC<ProductPreviewLayoutProps> = ({loaderDiv, 
 
     return (
         <>
-            {mas.map(() => 
-                <div className={classes.productPreview}>
+            {mas.map((m, ind) => 
+                <div className={classes.productPreview} key={ind}>
                     <div className={classes.content}>
                         <div className={classes.image}>
                             {loaderDiv}

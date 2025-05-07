@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { IProduct, IProductItem, IProductPreview } from '../model/types'
+import { IImage, IProduct, IProductItem, IProductPreview } from '../model/types'
 import { $authHost } from '@/src/shared/api/axios'
 
 
@@ -22,7 +22,7 @@ class ProductService {
         return product
     }
 
-    async fetchImages(slug: string): Promise<IProduct['images']> { 
+    async fetchImages(slug: string): Promise<IImage[]> { 
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL_API}/site/product/images/${slug}`, {
             method: "GET",
             headers: {
@@ -32,7 +32,7 @@ class ProductService {
             credentials: 'include',
             next: {revalidate: 300}
         })
-        const images: IProduct['images'] = await res.json()
+        const images: IImage[] = await res.json()
         if(!res.ok) throw new Error(res.statusText)
         return images
     }
@@ -177,13 +177,21 @@ class ProductService {
         return products
     }
 
-    async create(product: IProduct) {
-        const res = await $authHost.post<string>(`${process.env.NEXT_PUBLIC_SERVER_URL_API}/admin/product/create`, {product})
+    async create(formData: FormData) {
+        const res = await $authHost.post<string>(`${process.env.NEXT_PUBLIC_SERVER_URL_API}/admin/product/create`, formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+        })
         return res.data
     }
 
-    async update(product: IProduct) {
-        const res = await $authHost.post<string>(`${process.env.NEXT_PUBLIC_SERVER_URL_API}/admin/product/update`, {product})
+    async update(formData: FormData) {
+        const res = await $authHost.post<string>(`${process.env.NEXT_PUBLIC_SERVER_URL_API}/admin/product/update`, formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+        })
         return res.data
     }
 

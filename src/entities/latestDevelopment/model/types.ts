@@ -2,7 +2,13 @@
 
 
 export interface ILatestDevelopment {
-    name: string;
-    slug: string;
-    img: { name: string, value: string };
+    id?: number;
+    title: string;
+    link: string;
+    img: {id?: number, value?:string, file?: File, url?: string };
+}
+
+
+export interface ILatestItem {
+    title: string;
 }

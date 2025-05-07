@@ -12,7 +12,7 @@ interface UploadImageProps {
 
 export const UploadImage: FC<UploadImageProps> = ({image, setImage}) => {
 
-    const [images, setImages] = useState<{name: string, value: string}[]>([])
+    const [images, setImages] = useState<{name: string, value?: string}[]>([])
 
     useEffect(() => {
         if(image?.value){
@@ -23,10 +23,10 @@ export const UploadImage: FC<UploadImageProps> = ({image, setImage}) => {
     useEffect(() => {
         if(images.length > 1) {
             setImages([images[1]])
-            setImage(images[1])
+            setImage(images[1] as T)
         }
         else{
-            setImage(images[0])
+            setImage(images[0] as T)
         }
     }, [images])
 
@@ -35,6 +35,7 @@ export const UploadImage: FC<UploadImageProps> = ({image, setImage}) => {
         if(!files?.length) return
         const file = files[0]
         const reader = new FileReader()
+    
         reader.readAsDataURL(file)
         reader.onload = () => { 
             setImages([{name: file.name.replace(/\.[^/.]+$/, ""), value: reader.result as string}])

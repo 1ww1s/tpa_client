@@ -13,12 +13,20 @@
         gap: 20px;
         height: 24px;
         align-items: center;
-        cursor: pointer;
-        color: black;
-        transition: color .15s ease-in-out;
-    
-        &:hover{
-            color: var(--hover-blue);
+        
+        .name{
+            text-decoration: none;
+            color: black;
+            transition: color .15s ease-in-out;
+            cursor: pointer;
+            
+            &:hover{
+                color: var(--hover-blue);
+            }
+
+            .type{
+                color: var(--hover-blue);
+            }
         }
     }
 }

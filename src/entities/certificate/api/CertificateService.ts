@@ -34,13 +34,21 @@ class CertificateService {
         return certificates
     }
 
-    async create(certificate: ICertificate) {
-        const res = await $authHost.post<string>(`${process.env.NEXT_PUBLIC_SERVER_URL_API}/admin/certificate/create`, {certificate})
+    async create(formData: FormData) {
+        const res = await $authHost.post<string>(`${process.env.NEXT_PUBLIC_SERVER_URL_API}/admin/certificate/create`, formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+        })
         return res.data
     }
 
-    async update(certificate: ICertificate) {
-        const res = await $authHost.post<string>(`${process.env.NEXT_PUBLIC_SERVER_URL_API}/admin/certificate/update`, {certificate})
+    async update(formData: FormData) {
+        const res = await $authHost.post<string>(`${process.env.NEXT_PUBLIC_SERVER_URL_API}/admin/certificate/update`, formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+        })
         return res.data
     }
 

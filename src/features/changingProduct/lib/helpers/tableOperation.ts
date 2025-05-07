@@ -1,6 +1,3 @@
-import { IProduct } from "@/src/entities/product";
-
-
 
 export const SetData = <F>(target: F[], setDataTarget: (o: F[]) => void) => {
     return function(newValue: any, field: Exclude<keyof F, "id">, ind: number){
@@ -19,6 +16,14 @@ export const AddRow = <F>(target: F[], initial: F, setDataTarget: (o: F[]) => vo
     }
 }
 
+
+export const SetRow = <F>(target: F[], initial: F, setDataTarget: (o: F[]) => void) => {
+    return function(index: number){
+        const newRow: F[] = JSON.parse(JSON.stringify(target));
+        newRow.splice(index + 1, 0, initial)
+        setDataTarget(newRow);
+    }
+}
 
 export const RemoveRow = <F>(target: F[], setDataTarget: (o: F[]) => void) => {
     return function(i: number){

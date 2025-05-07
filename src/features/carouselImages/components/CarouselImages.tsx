@@ -1,10 +1,9 @@
 "use client"
 
 import { IImage } from "@/src/entities/image";
-import { DragEvent, FC, MouseEvent, PointerEvent, ReactElement, useEffect, useRef, useState } from "react";
+import { DragEvent, FC, ReactElement, useRef, useState } from "react";
 import classes from './carouselImages.module.scss'
 import arrow from '@/src/shared/lib/assets/arrow-down.png'
-import { style } from "framer-motion/client";
 
 interface CarouselImagesProps {
     images: IImage[];

@@ -2,8 +2,11 @@
 export interface IImage {
     id?: number;
     name: string;
-    value: string;
+    url?: string;
+    value?: string;
+    file?: File;
 }
+
 
 export interface IDeliverySet {
     id: number;
@@ -47,7 +50,7 @@ export interface IProductPreview{
     id: number;
     title: string;
     info: string;
-    img: {name: string, value: string};
+    img: {name: string, url: string};
     slug: string;
 }
 

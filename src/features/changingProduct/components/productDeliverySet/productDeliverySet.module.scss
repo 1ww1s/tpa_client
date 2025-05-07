@@ -8,9 +8,19 @@
 
     .removeTC{
         position: relative;
+        cursor: pointer;
 
         >img{
             width: 16px;
+        }
+    }
+
+    .setTC{
+        position: relative;
+        cursor: pointer;
+
+        >img{
+            width: 24px;
         }
     }
 

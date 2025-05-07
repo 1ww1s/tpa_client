@@ -6,9 +6,10 @@ import { SwitchArrows, SwitchImages } from "@/src/features/switchImages";
 import { MyFullScreen } from "@/src/shared/components/myFullScreen/MyFullScreen";
 import { FC, useState } from "react";
 import classes from './imageCards.module.scss'
+import { IProduct } from "@/src/entities/product";
 
 interface ImagesCardProps {
-    images: IImage[]
+    images: IProduct['images']
 }
 
 export const ImageCards: FC<ImagesCardProps> = ({images}) => {

@@ -4,6 +4,11 @@ import teamwork from '../lib/assets/teamwork.png'
 import growth from '../lib/assets/growth.png'  
 import documentKey from '../lib/assets/documentKey.png'
 
+const getYear = () => {
+    const year = +(new Date).toLocaleDateString('ru', {year: 'numeric'}) - 2006;
+    return year - year % 5
+}
+
 export const whyUs: IWhyUs[] = [
     {
         title: 'Индивидуальный подход',
@@ -16,7 +21,7 @@ export const whyUs: IWhyUs[] = [
         iconSrc: teamwork.src,
     },
     {
-        title: '15 лет опыта',
+        title: `Более ${getYear()} лет опыта`,
         description: 'Наша компания присутствует на рынке судовых систем управления и автоматики с 2006 года.',
         iconSrc: growth.src,
     },

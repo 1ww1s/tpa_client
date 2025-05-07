@@ -25,7 +25,6 @@ const getData = async (slug: string): Promise<IProductPreview[]> => {
 export const ProductGroupCards: FC<ProductGroupCardsProps> = async ({slug}) => {
 
     const productsPreview = await getData(slug)
-
     if(!productsPreview.length) return <Empty />
 
     return (

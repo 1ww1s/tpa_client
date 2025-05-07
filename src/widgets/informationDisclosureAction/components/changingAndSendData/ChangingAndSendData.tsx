@@ -27,6 +27,18 @@ export const ChangingAndSendData: FC<Props> = (
         clone.splice(ind, 1)
         setFiles(clone)
     }
+
+    const handleSubmit = async () => {
+            const formData = new FormData();
+            informationDisclosure.files.forEach(file => {
+                if(file.file){
+                    formData.append("pdfFiles", file.file);
+                    formData.append("name", file.name);
+                }
+            })
+            formData.append("data", JSON.stringify({...informationDisclosure, files: informationDisclosure.files.map(file => ({id: file.id, name: file.name}))}));
+            return action === 'create' ? await informationDisclosureService.create(formData) : await informationDisclosureService.update(formData) // заменить update
+        };
     
     return (
         <div>
@@ -50,9 +62,7 @@ export const ChangingAndSendData: FC<Props> = (
                 action={action}
                 isLoading={isLoading}
                 setIsLoading={setIsLoading}
-                sendData={async () => action === 'create' 
-                    ? await informationDisclosureService.create(informationDisclosure) 
-                    : await informationDisclosureService.update(informationDisclosure)}
+                sendData={handleSubmit}
                 onEnd={() => setSelectedWidget(selectedWidget + 1)} 
             />
         </div>

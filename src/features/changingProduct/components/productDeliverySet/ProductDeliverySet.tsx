@@ -4,9 +4,10 @@ import { OpenDiv } from "../openDiv/OpenDiv";
 import classes from './productDeliverySet.module.scss'
 import { MyTableAdmin } from "@/src/shared/components/myTableAdmin/MyTableAdmin";
 import { MyInput } from "@/src/shared/components/myInput/MyInput";
-import { AddRow, RemoveRow, SetData } from "../../lib/helpers/tableOperation";
+import { AddRow, RemoveRow, SetData, SetRow } from "../../lib/helpers/tableOperation";
 import { MyButton } from "@/src/shared/components/myButtonAdmin/MyButtonAdmin";
 import remove from '@/src/shared/lib/assets/x-close.png'
+import plus from '@/src/shared/lib/assets/plus.png'
 
 interface ProductDeliverySetProps {
     deliverySet: IProduct['deliverySet'];
@@ -19,7 +20,7 @@ export const ProductDeliverySet: FC<ProductDeliverySetProps> = ({deliverySet, se
     const setData = SetData(deliverySet, setDeliverySet)
     const addRow = AddRow(deliverySet, {id: -1, name: '', numb: '1', note: ''}, setDeliverySet)
     const removeRow = RemoveRow(deliverySet, setDeliverySet)
-
+    const setRow = SetRow(deliverySet, {id: -1, name: '', numb: '1', note: ''}, setDeliverySet)
 
     return (
         <div> 
@@ -34,6 +35,7 @@ export const ProductDeliverySet: FC<ProductDeliverySetProps> = ({deliverySet, se
                                 <td><MyInput value={d.name} setValue={val => setData(val, 'name', ind)}></MyInput></td>
                                 <td><MyInput type="number" value={d.numb} setValue={val => setData(val, 'numb', ind)}></MyInput></td>
                                 <td><MyInput value={d.note} setValue={val => setData(val, 'note', ind)}></MyInput></td>
+                                <td className={classes.setTC}><img src={plus.src} onClick={() => setRow(ind)} /></td>
                                 <td className={classes.removeTC}><img src={remove.src} onClick={() => removeRow(ind)} /></td>
                             </tr>
                         )

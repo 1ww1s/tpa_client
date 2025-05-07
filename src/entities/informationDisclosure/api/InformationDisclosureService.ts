@@ -8,13 +8,23 @@ class InformationDisclosureService {
     
     controller: AbortController = new AbortController();
 
-    async create(informationDisclosure: IInformationDisclosure){
-        const res = await $authHost.post<string>('/admin/informationDisclosure/create', {informationDisclosure})
+    async create(formData: FormData){
+        console.log(formData)
+        const res = await $authHost.post<string>('/admin/informationDisclosure/create', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+        })
         return res.data
     }
 
-    async update(informationDisclosure: IInformationDisclosure){
-        const res = await $authHost.post<string>('/admin/informationDisclosure/update', {informationDisclosure})
+    async update(formData: FormData){
+        console.log(formData)
+        const res = await $authHost.post<string>('/admin/informationDisclosure/update', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+        })
         return res.data
     }
 

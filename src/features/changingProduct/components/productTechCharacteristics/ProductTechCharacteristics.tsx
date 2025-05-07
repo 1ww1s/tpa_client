@@ -3,10 +3,11 @@ import { OpenDiv } from "../openDiv/OpenDiv";
 import classes from './productTechCharacteristics.module.scss'
 import { IProduct, ITechCharacteristic } from "@/src/entities/product";
 import { MyInput } from "@/src/shared/components/myInput/MyInput";
-import plus from '@/src/shared/lib/assets/plus-square.png'
+import plusSquare from '@/src/shared/lib/assets/plus-square.png'
+import plus from '@/src/shared/lib/assets/plus.png'
 import remove from '@/src/shared/lib/assets/x-close.png'
 import { MyButton } from "@/src/shared/components/myButtonAdmin/MyButtonAdmin";
-import { ISelectUnit, IUnit } from "@/src/entities/unit/model/types";
+import { IUnit } from "@/src/entities/unit/model/types";
 import { unitService } from "@/src/entities/unit";
 import { MySelect } from "@/src/shared/components/mySelect/MySelect";
 
@@ -56,7 +57,6 @@ export const ProductTechCharacteristics: FC<ProductTechCharacteristicsProps> = (
         setTechCharacteristics({ items: newTCItems, data: newTCData })
     }
 
-
     const setData = (newVal: string, field: Exclude<keyof ITechCharacteristic, "id">, indRow: number, indCol = 0) => {
         const newTCData: IProduct['techCharacteristics']['data'] = JSON.parse(JSON.stringify(techCharacteristics.data));
         if(field === 'value'){
@@ -75,6 +75,13 @@ export const ProductTechCharacteristics: FC<ProductTechCharacteristicsProps> = (
         setTechCharacteristics({items: techCharacteristics.items, data: newTCData})
     }
 
+    const setTC = (ind: number) => {
+        const newTCData: IProduct['techCharacteristics']['data'] = [...techCharacteristics.data];
+        let newValues = techCharacteristics.items.map((): ITechCharacteristic['value'][0] => { return {id: -1, value: ''}})
+        newTCData.splice(ind + 1, 0, {id: -1, name: '', unit: '', value: newValues})
+        setTechCharacteristics({items: techCharacteristics.items, data: newTCData})
+    }
+
     const removeTC = (i: number) => {
         const newTCData: IProduct['techCharacteristics']['data'] = [...techCharacteristics.data];
         newTCData.splice(i, 1)
@@ -87,7 +94,7 @@ export const ProductTechCharacteristics: FC<ProductTechCharacteristicsProps> = (
             <div ref={refTechCharacteristics} className={classes.techCharacteristicsDiv}>
 
                 <div className={classes.products}>
-                    <p>Продукция</p>
+                    <span>Продукция</span>
                     <p className={classes.sign}>*В случае, если нужны характеристики для нескольких товаров, идущих в комплекте.</p>
                     <div className={classes.addItem}>
                         { 
@@ -103,7 +110,7 @@ export const ProductTechCharacteristics: FC<ProductTechCharacteristicsProps> = (
                                 </div>    
                             )
                         }
-                        <img onClick={addItem} src={plus.src} />
+                        <img onClick={addItem} src={plusSquare.src} />
                     </div>
                     <div className={classes.characteristics}>
                         <table>
@@ -136,6 +143,7 @@ export const ProductTechCharacteristics: FC<ProductTechCharacteristicsProps> = (
                                                     <td key={indCol}><MyInput value={d.value[indCol]?.value} setValue={val => setData(val, "value", ind, indCol)} /></td>
                                                 )
                                             }
+                                            <td className={classes.setTC}><img src={plus.src} onClick={() => setTC(ind)} /></td>
                                             <td className={classes.removeTC}><img src={remove.src} onClick={() => removeTC(ind)} /></td>
                                         </tr>
                                     )

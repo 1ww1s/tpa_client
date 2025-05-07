@@ -5,7 +5,7 @@ export const validationProductGroup = (productGroup: IProductGroup, setError: (e
     let isOk = true;
     if(!productGroup.title) isOk = false
     if(!productGroup.info) isOk = false
-    if(!productGroup.img) isOk = false
+    if(!productGroup.img.value && !productGroup.img.url) isOk = false
     if(!isOk) 
         setError('Заполните обязательные поля')
     return isOk

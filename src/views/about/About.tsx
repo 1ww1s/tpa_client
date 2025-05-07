@@ -1,5 +1,5 @@
 import { PageTitle } from "@/src/widgets/pageTitle";
-import { FC, Suspense } from "react";
+import { Suspense } from "react";
 import classes from './about.module.scss'
 import AboutCompany from "@/src/widgets/aboutCompany";
 import { LoaderDiv } from "@/src/shared/components/loaderDiv/LoaderDiv";

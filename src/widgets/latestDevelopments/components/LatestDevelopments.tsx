@@ -5,7 +5,6 @@ import { ILatestDevelopment, LatestDevelopmentPreview, latestDevelopmentsService
 import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
 import hrImg from '@/src/shared/lib/assets/hr.png'
 
-
 const getData = async () =>  {
     let latestDevelopments: ILatestDevelopment[] = [];
     try{
@@ -31,8 +30,8 @@ export const LatestDevelopments: FC = async () => {
             <h2>НАШИ ПОСЛЕДНИЕ<br /> РАЗРАБОТКИ</h2>
             <img className={classes.hrImg} src={hrImg.src} />
             {latestDevelopments.map(l => 
-                <div key={l.name} className={classes.latestDevelopment}>
-                    <ClickOnLink href={process.env.NEXT_PUBLIC_CLIENT_URL + '/product-catalog/' + l.slug}>
+                <div key={l.title} className={classes.latestDevelopment}>
+                    <ClickOnLink href={l.link}>
                         <LatestDevelopmentPreview latestDevelopmentPreview={l} />
                     </ClickOnLink>
                 </div>

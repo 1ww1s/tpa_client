@@ -1,33 +1,31 @@
 "use client"
 
-import { IProductItem, IProductPreview, productService } from "@/src/entities/product";
-import { GetDataByName } from "@/src/features/getDataByName";
-import { SelectFromList } from "@/src/features/selectFromList";
 import { FC, useEffect, useState } from "react";
 import classes from './searchAndSelection.module.scss'
-import { SearchByName } from "@/src/features/searchByName";
-import { latestDevelopmentsService } from "@/src/entities/latestDevelopment";
+import { ILatestDevelopment, ILatestItem, latestDevelopmentsService } from "@/src/entities/latestDevelopment";
+import { GetDataByName } from "@/src/features/getDataByName";
+import { SelectFromList } from "@/src/features/selectFromList";
 
 interface SearchProps {
     action: 'create' | 'delete';
     isLoading: boolean; 
     setIsLoading: (isLoading: boolean) => void;
-    setProductPreview: (productPreview: IProductPreview) => void;
+    setLatestDevelopment: (latestDevelopment: ILatestDevelopment) => void;
     setSelectedWidget: (selectedWidget: number) => void;
     selectedWidget: number;
 }
 
-export const SearchAndSelection: FC<SearchProps> = ({action, isLoading, setIsLoading, setProductPreview, selectedWidget, setSelectedWidget}) => {
+export const SearchAndSelection: FC<SearchProps> = ({action, isLoading, setIsLoading, setLatestDevelopment, selectedWidget, setSelectedWidget}) => {
 
-    const [products, setProducts] = useState<IProductItem[]>([])
-    const [productsSearch, setProductsSearch] = useState<IProductItem[]>([])
+    const [items, setItems] = useState<ILatestItem[]>([])
+    const [itemsSearch, setItemsSearch] = useState<ILatestItem[]>([])
 
     const getLatestDevelopments = async () => {
         try{    
             setIsLoading(true)
             const latestDevelopments = await latestDevelopmentsService.getItems()
-            setProducts(latestDevelopments)
-            setProductsSearch(latestDevelopments)
+            setItems(latestDevelopments)
+            setItemsSearch(latestDevelopments)
         }
         catch(e){
             console.log(e)
@@ -37,11 +35,11 @@ export const SearchAndSelection: FC<SearchProps> = ({action, isLoading, setIsLoa
         }
     }
 
-    const onSelected = async (selected: IProductItem) => {
+    const onSelected = async (selected: ILatestItem) => {
         try{
             setIsLoading(true)
-            const productPreview = await productService.getPreview(selected.slug)
-            setProductPreview(productPreview)
+            const latestDevelopment = await latestDevelopmentsService.get(selected)
+            setLatestDevelopment(latestDevelopment)
             setSelectedWidget(selectedWidget + 1)
         }
         catch(e){
@@ -61,26 +59,9 @@ export const SearchAndSelection: FC<SearchProps> = ({action, isLoading, setIsLoa
     return (
         <div className={classes.search}>
             <h3>Найти продукт</h3>
-            {
-                action === 'create'
-                    ?
-                <GetDataByName 
-                    isLoading={isLoading}
-                    setIsLoading={setIsLoading}
-                    getData={async (name: string) => await productService.getArrayByName<IProductItem>(name)}
-                    setItems={setProductsSearch}
-                />
-                    :
-                <SearchByName 
-                    items={products}
-                    setItems={setProductsSearch}
-                    field={'name'}
-                />
-            }
-            <hr />
             <SelectFromList 
-                items={productsSearch}
-                field={'name'}
+                items={items}
+                field={'title'}
                 onSelected={onSelected}
                 isLoading={isLoading}
             />

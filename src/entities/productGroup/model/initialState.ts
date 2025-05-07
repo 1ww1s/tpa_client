@@ -5,6 +5,8 @@ export const initialStateProductGroup: IProductGroup = {
     title: '',
     info: '',
     slug: '',
-    img: {name: '', value: ''},
+    img: {
+        name: '',
+    },
     index: -1,
 }

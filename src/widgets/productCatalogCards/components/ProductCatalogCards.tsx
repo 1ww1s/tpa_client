@@ -9,7 +9,6 @@ import classes from './productCatalogCards.module.scss'
 const getData = async () =>  {
     let productGroup: IProductGroup[] = [];
     try{
-        // await new Promise(resolve => setTimeout(resolve, 4000))
         productGroup = await productGroupService.fetchGetAll()
     }
     catch(e){
@@ -24,7 +23,6 @@ const getData = async () =>  {
 export const ProductCatalogCards: FC = async () => {
 
     const productGroup = await getData()
-
     if(!productGroup.length) return <Empty />
 
     return (

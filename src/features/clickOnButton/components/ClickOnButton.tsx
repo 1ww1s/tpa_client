@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { FC } from "react";
 import classes from './clickOnButton.module.scss'
 import { MyButton } from "@/src/shared/components/myButton/MyButton";
@@ -11,8 +10,6 @@ interface ClickOnButtonProps {
 
 export const ClickOnButton: FC<ClickOnButtonProps> = ({title, link}) => {
     
-    
-
     return (
         <MyLink className={classes.link} href={link}>
             <MyButton><span className={classes.text}>{title}</span></MyButton>

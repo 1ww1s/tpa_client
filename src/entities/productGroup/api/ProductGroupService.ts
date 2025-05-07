@@ -5,13 +5,21 @@ class ProductGroupService {
     
     controller: AbortController = new AbortController();
 
-    async create(productGroup: IProductGroup){
-        const res = await $authHost.post<string>('/admin/productGroup/create', {productGroup})
+    async create(formData: FormData){
+        const res = await $authHost.post<string>('/admin/productGroup/create', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+        })
         return res.data
     }
 
-    async update(productGroup: IProductGroup){
-        const res = await $authHost.post<string>('/admin/productGroup/update', {productGroup})
+    async update(formData: FormData){
+        const res = await $authHost.post<string>('/admin/productGroup/update', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+        })
         return res.data
     }
 
@@ -115,7 +123,6 @@ class ProductGroupService {
             signal: this.controller.signal
         })
         const productGroup: IProductGroup[] = await res.json()
-
         return productGroup
     }
 

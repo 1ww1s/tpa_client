@@ -12,7 +12,6 @@ interface WhyUsCardProps {
 export const WhyUsCard: FC<WhyUsCardProps> = ({title, description, ind, iconSrc}) => {
 
     
-    
     return (
         <div className={classes.whyUsCard}>
             <div className={classes.title}>

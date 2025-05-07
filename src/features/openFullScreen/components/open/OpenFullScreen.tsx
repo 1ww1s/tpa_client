@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, PropsWithChildren
+import { FC, MouseEvent, PropsWithChildren
     
  } from "react";
 import classes from './openFullScreen.module.scss'
@@ -15,13 +15,15 @@ interface OpenFullScreenProps{
 
 export const OpenFullScreen: FC<OpenFullScreenProps & PropsWithChildren> = ({open, index, setIndex, setOpen, children, highlight = false}) => {
 
-    const onOpen = () => {
+    const onOpen = (e: MouseEvent) => {
+        const target = e.target as HTMLSpanElement;
+        if(target.dataset.name) return
         setOpen(true)
         setIndex(index)
     }
 
     return (
-        <div onClick={onOpen} className = {classes.open} data-highlight = {highlight}>
+        <div onClick={(e) => onOpen(e)} className = {classes.open} data-highlight = {highlight}>
             <div className={classes.plus}></div>
             {children}
         </div>

@@ -19,7 +19,11 @@ export const FileDownload: FC<IProps & PropsWithChildren> = ({file, children}) =
     return (
         <div className={classes.file}>
             <div onClick={download} className={classes.nameBox}>
-                <p className={classes.name}>{file.name}</p>
+                <p 
+                    className={classes.name}
+                >
+                    <span className={classes.type}>Скачать</span> {file.name}
+                </p>
             </div>
             {children}
         </div>

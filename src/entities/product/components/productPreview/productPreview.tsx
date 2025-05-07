@@ -9,7 +9,7 @@ import { useObserver } from "@/src/shared/lib/hooks/useObserver";
 interface ProductPreviewProps {
     title: string;
     info: string;
-    img: {name: string, value: string};
+    img: {name: string, url?: string};
     loaderDiv?: ReactElement;
     observed?: boolean; 
 }
@@ -35,7 +35,14 @@ export const ProductPreview: FC<ProductPreviewProps & PropsWithChildren> = ({tit
             <div className={classes.content}>
                 <div className={classes.image}>
                     {loaderDiv}
-                    <Image ref={ref} className={observed ? classes.img : ''} src={img.value} width={340} height={340} alt={img.name} />
+                    <Image 
+                        ref={ref} 
+                        className={observed ? classes.img : ''} 
+                        src={`${process.env.NEXT_PUBLIC_SERVER_URL}${img.url ? img.url : ''}`} 
+                        width={340} 
+                        height={340} 
+                        alt={img.name} 
+                    />
                 </div>
                 <div className={classes.caption}>
                     <div className={classes.title}>{title}</div>

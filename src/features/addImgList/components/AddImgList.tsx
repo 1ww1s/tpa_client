@@ -3,7 +3,7 @@ import plus from '@/src/shared/lib/assets/plus.png'
 import classes from './addImgList.module.scss'
 import { LoaderSpinner } from "@/src/shared/components/loaderSpinner/LoaderSpinner";
 
-type T = {name: string, value: string}
+type T = {name: string, url?: string, value?: string, file?: File}
 
 interface AddImgProps {
     images: T[];
@@ -21,15 +21,17 @@ export const AddImgList: FC<AddImgProps> = ({images, setImages, accept="image/*"
         if(!files?.length) return
         setIsLoading(true)
         const file = files[0]
+        console.log(file)
         const reader = new FileReader()
         reader.readAsDataURL(file)
         reader.onload = () => { 
             setIsLoading(false)
+            console.log(file)
             reverse
                 ?
-            setImages([{name: file.name.replace(/\.[^/.]+$/, ""), value: reader.result as string}, ...images])
+            setImages([{name: file.name.replace(/\.[^/.]+$/, ""), value: reader.result as string, file}, ...images])
                 :
-            setImages([...images, {name: file.name.replace(/\.[^/.]+$/, ""), value: reader.result as string}])
+            setImages([...images, {name: file.name.replace(/\.[^/.]+$/, ""), value: reader.result as string, file}])
         }
     }
 
