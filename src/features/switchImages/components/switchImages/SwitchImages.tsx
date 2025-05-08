@@ -44,7 +44,7 @@ export const SwitchImages: FC<SwitchImagesProps> = ({images, currentImage, setCu
                         className={ind === currentImage ? classes.currentImage : ''} 
                         onClick={() => chooseImage(ind)}
                         key={ind} 
-                        src={`${process.env.NEXT_PUBLIC_SERVER_URL}${img.url ? img.url : ''}`} 
+                        src={`${process.env.NEXT_PUBLIC_SERVER_URL_API}${img.url ? img.url : ''}`} 
                         alt={img.name}
                         width={100}
                         height={100}

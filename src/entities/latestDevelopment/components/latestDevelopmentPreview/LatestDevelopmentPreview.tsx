@@ -15,7 +15,7 @@ export const LatestDevelopmentPreview: FC<LatestDevelopmentPreviewProps> = ({lat
             <div className={classes.latestDevelopmentPreview}>
                 <div className={classes.image}>
                     <Image 
-                        src={`${process.env.NEXT_PUBLIC_SERVER_URL}${latestDevelopmentPreview.img.url ? latestDevelopmentPreview.img.url : ''}`} 
+                        src={`${process.env.NEXT_PUBLIC_SERVER_URL_API}${latestDevelopmentPreview.img.url ? latestDevelopmentPreview.img.url : ''}`} 
                         width={90} 
                         height={90} 
                         alt={latestDevelopmentPreview.title} 

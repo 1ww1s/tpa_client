@@ -11,7 +11,7 @@ export const ImageJust: FC<ImageJustProps> = ({image}) => {
     return (
         <div className={classes.imageJust}>
             <img 
-                src={`${process.env.NEXT_PUBLIC_SERVER_URL}${image?.url ? image.url : ''}`} 
+                src={`${process.env.NEXT_PUBLIC_SERVER_URL_API}${image?.url ? image.url : ''}`} 
                 alt={image?.name}
             />
             {/* <span data-name={true} className={classes.name}>{image.name}</span> */}

@@ -38,7 +38,7 @@ export const ProductPreview: FC<ProductPreviewProps & PropsWithChildren> = ({tit
                     <Image 
                         ref={ref} 
                         className={observed ? classes.img : ''} 
-                        src={`${process.env.NEXT_PUBLIC_SERVER_URL}${img.url ? img.url : ''}`} 
+                        src={`${process.env.NEXT_PUBLIC_SERVER_URL_API}${img.url ? img.url : ''}`} 
                         width={340} 
                         height={340} 
                         alt={img.name} 

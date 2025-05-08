@@ -17,7 +17,7 @@ export const ProductGroupCard: FC<ProductGroupCardProps & PropsWithChildren> = (
             <div className={classes.productGroupCard}>
                 <Link href={process.env.NEXT_PUBLIC_CLIENT_URL + `/product-catalog/${productGroup.slug}`} className={classes.image}>
                     <Image 
-                        src={`${process.env.NEXT_PUBLIC_SERVER_URL}${productGroup.img.url ? productGroup.img.url : ''}`} 
+                        src={`${process.env.NEXT_PUBLIC_SERVER_URL_API}${productGroup.img.url ? productGroup.img.url : ''}`} 
                         width={360} 
                         height={360} 
                         alt={productGroup.img.name} 

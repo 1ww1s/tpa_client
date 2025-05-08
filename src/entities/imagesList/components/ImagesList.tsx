@@ -34,7 +34,7 @@ export const ImageList = (props: ImageListProps) => {
                         onClick={() => removeImage(ind)}
                     />
                     <img 
-                        src={image ? image.value ? image.value : `${process.env.NEXT_PUBLIC_SERVER_URL}${image.url}` : ''} 
+                        src={image ? image.value ? image.value : `${process.env.NEXT_PUBLIC_SERVER_URL_API}${image.url}` : ''} 
                         className={classes.image} 
                     />
                     <p>{image.name}</p>

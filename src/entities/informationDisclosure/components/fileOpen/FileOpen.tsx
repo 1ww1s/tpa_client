@@ -13,7 +13,7 @@ export const FileOpen: FC<IProps & PropsWithChildren> = ({file, children}) => {
             <div className={classes.nameBox}>
                 <a 
                     className={classes.name}
-                    href={`${process.env.NEXT_PUBLIC_SERVER_URL}${file.url}`} 
+                    href={`${process.env.NEXT_PUBLIC_SERVER_URL_API}${file.url}`} 
                     target="_blank" rel="noopener noreferrer"
                 >
                     <span className={classes.type}>Открыть</span> {file.name}
