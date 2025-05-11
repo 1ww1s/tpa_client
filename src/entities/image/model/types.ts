@@ -4,6 +4,6 @@
 
 export interface IImage {
     name: string;
-    value?: string;
+    blobUrl?: string;
     url?: string;
 }

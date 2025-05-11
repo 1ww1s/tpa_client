@@ -18,7 +18,11 @@ export const ProductDeliverySet: FC<ProductDeliverySetProps> = ({deliverySet}) =
     return (
         <div>
             <h2>Комплект поставки</h2>
-            <MyTableDashed columns={columns} rows={rows} />
+            <MyTableDashed 
+                deliverySet={true}
+                columns={columns} 
+                rows={rows} 
+            />
         </div>
     )
 }

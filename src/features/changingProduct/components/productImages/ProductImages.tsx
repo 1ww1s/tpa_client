@@ -23,10 +23,8 @@ export const ProductImages: FC<ProductImagesProps> = ({images, setImages, requir
         setGlobalError('')
         for(let i = 0; i < files.length; i++){
             const file = files[i];
-            const reader = new FileReader()
-            reader.readAsDataURL(file)
-            const base64: string = await new Promise(resolve => {reader.onload = () => resolve(reader.result as string)})
-            imgs = [...imgs, {name: file.name.replace(/\.[^/.]+$/, ""), value: base64, file}];
+            const blobUrl = URL.createObjectURL(file)
+            imgs = [...imgs, {name: file.name.replace(/\.[^/.]+$/, ""), blobUrl, file}];
         }    
         setImages(imgs)
     }

@@ -4,7 +4,7 @@ export interface IProductGroup {
     id: number;
     title: string;
     info: string;
-    img: {id?: number, name: string, url?: string, value?: string, file?: File};
+    img: {id?: number, name: string, url?: string, blobUrl?: string, file?: File};
     slug: string;
     index?: number;
 }

@@ -12,6 +12,7 @@ import { ProductTechCharacteristics } from "../productTechCharacteristics/Produc
 import { ProductModifications } from "../productModifications/ProductModifications";
 import { ProductDeliverySet } from "../productDeliverySet/ProductDeliverySet";
 import { SelectGroup } from "../selectGroup/SelectGroup";
+import { Size } from "../size/Size";
 
 interface ChangingProductProps {
     product: IProduct;
@@ -31,19 +32,21 @@ export const ChangingProduct: FC<ChangingProductProps> = ({product, setProduct, 
         setModifications,
         setDeliverySet,
         setPoductGroup,
+        setSize,
     } = useProductActions(product, setProduct)
 
     return (
         <div className={classes.form}>
             <SelectGroup groupName={product.groupName} setGroupName={setPoductGroup} required />
-            <ProductName name={product.name} setName={setName} required  />
+            <ProductName name={product.name} setName={setName} required />
             <ProductInfo info={product.info} setInfo={setInfo} required />
-            <ProductImages images={product.images} setImages={setImages} addImg={addImg} required  />
+            <ProductImages images={product.images} setImages={setImages} addImg={addImg} required />
             <ProductFucntions functions={product.functions} setFunctions={setFunctions} />
             <ProductMonAndIndParams monAndIndParams={product.monAndIndParams} setMonAndIndParams={setMonAndIndParams} />
             <ProductTechCharacteristics techCharacteristics={product.techCharacteristics} setTechCharacteristics={setTechCharacteristics} />
             <ProductModifications modifications={product.modifications} setModifications={setModifications} />
             <ProductDeliverySet deliverySet={product.deliverySet} setDeliverySet={setDeliverySet} />
+            <Size size={product.size} setSize={setSize} />
         </div>
     )
 }

@@ -15,7 +15,6 @@ interface ChangingCertificateAndSendDataProps {
     title: string;
 }
 
-
 export const ChangingCertificateAndSendData: FC<ChangingCertificateAndSendDataProps> = (
     {certificate, setCertificate, action, isLoading, setIsLoading, selectedWidget, setSelectedWidget, title}) => {
 

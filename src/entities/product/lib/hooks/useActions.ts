@@ -37,7 +37,9 @@ export const useProductActions = (product: IProduct, setProduct: (product: IProd
         },
         refreshProduct(){
             setProduct({...initialStateProduct})
+        },
+        setSize(size: IProduct['size']){
+            setProduct({...product, size})
         }
-        
     }
 }

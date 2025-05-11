@@ -1,9 +1,9 @@
 import { ImageList } from "@/src/entities/imagesList";
-import { ChangeEvent, FC, useState } from "react";
+import { ChangeEvent, FC } from "react";
 import classes from './uploadImage.module.scss'
 import imagePlus from '@/src/shared/lib/assets/image-plus.png'
 
-type TFile = {name: string, value?: string, url?: string, file?: File}
+type TFile = {name: string, blobUrl?: string, url?: string, file?: File}
 
 interface UploadImageProps {
     image: TFile;
@@ -17,13 +17,8 @@ export const UploadImageFile: FC<UploadImageProps> = ({image, setImage}) => {
         if(!files?.length) return
         
         const file = files[0];
-        
-        const reader = new FileReader()
-        
-        reader.readAsDataURL(file)
-        reader.onload = () => { 
-            setImage({name: file.name.replace(/\.[^/.]+$/, ""), file: file, value: reader.result as string})
-        }
+        const blobUrl = URL.createObjectURL(file)
+        setImage({name: file.name.replace(/\.[^/.]+$/, ""), file: file, blobUrl})
     }
 
     const setImg = (imgs: TFile[]) => {
@@ -38,7 +33,7 @@ export const UploadImageFile: FC<UploadImageProps> = ({image, setImage}) => {
                 <input onChange={convertImages} type='file' accept="image/*" />
             </label>
             <div className={classes.imageList}>
-                <ImageList images={(image.value || image.url) ? [image] : []} setImages={setImg} />
+                <ImageList images={(image.blobUrl || image.url) ? [image] : []} setImages={setImg} />
             </div>
         </div>
     )

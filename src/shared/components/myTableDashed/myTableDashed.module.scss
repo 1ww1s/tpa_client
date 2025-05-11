@@ -39,6 +39,12 @@
                     position: relative;
                     padding: 0;
                     margin: 0;
+
+                    .value{
+                        position: relative;
+                        background-color: #FFF;
+                        z-index: 29;
+                    }
                 }
 
                 span[data-dashed]{
@@ -51,4 +57,33 @@
             }
         }
     }
+
+    &.isSimple{
+        ul{
+            li{
+                span[data-cell] {
+                    width: 50%;
+
+                    &:nth-child(1){
+                        width: 50%;
+                    }
+                }
+            }
+        }
+    }
+
+    &.deliverySet{
+        ul{
+            li{
+                span[data-cell] {
+                    width: 40%;
+
+                    &:nth-child(2){
+                        width: 20%;
+                    }
+                }
+            }
+        }
+    }
 }
+

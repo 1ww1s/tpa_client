@@ -1,5 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { IImage, IProduct, IProductItem, IProductPreview } from '../model/types'
+import { IFile, IProduct, IProductItem, IProductPreview } from '../model/types'
 import { $authHost } from '@/src/shared/api/axios'
 
 
@@ -22,7 +21,7 @@ class ProductService {
         return product
     }
 
-    async fetchImages(slug: string): Promise<IImage[]> { 
+    async fetchImages(slug: string): Promise<IFile[]> { 
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL_API}/site/product/images/${slug}`, {
             method: "GET",
             headers: {
@@ -32,7 +31,7 @@ class ProductService {
             credentials: 'include',
             next: {revalidate: 300}
         })
-        const images: IImage[] = await res.json()
+        const images: IFile[] = await res.json()
         if(!res.ok) throw new Error(res.statusText)
         return images
     }

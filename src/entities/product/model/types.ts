@@ -1,12 +1,11 @@
 
-export interface IImage {
+export interface IFile {
     id?: number;
     name: string;
     url?: string;
-    value?: string;
+    blobUrl?: string;
     file?: File;
 }
-
 
 export interface IDeliverySet {
     id: number;
@@ -35,7 +34,8 @@ export interface IProduct {
     groupName: string;
     info: string;
     slug: string;
-    images: IImage[];
+    images: IFile[];
+    size: IFile;
     functions: string;
     monAndIndParams: string;
     deliverySet: IDeliverySet[];

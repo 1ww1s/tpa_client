@@ -40,7 +40,7 @@ export const Changing: FC<Props> = (
             <ChangingLatestDevelopment
                 latestDevelopment={latestDevelopment}
                 setLatestDevelopment={setLatestDevelopment}
-                uploadImage={ <UploadImageFile image={{...latestDevelopment.img, name: ''}} setImage={setImg}/> }
+                uploadImage={ <UploadImageFile image={latestDevelopment.img} setImage={setImg}/> }
             />
             <hr />
             <SendDetailedData 

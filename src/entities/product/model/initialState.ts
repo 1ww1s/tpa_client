@@ -6,7 +6,7 @@ export const initialStateProductPreview: IProductPreview = {
     title: '',
     slug: '',
     info: '',
-    img: {value: '', name: ''}
+    img: {name: '', url: ''}
 }
 
 export const initialStateProduct: IProduct = {
@@ -16,6 +16,7 @@ export const initialStateProduct: IProduct = {
     info: '',
     slug: '',
     images: [],
+    size: {name: ''},
     functions: '',
     monAndIndParams: '',
     deliverySet: [],

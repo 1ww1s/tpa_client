@@ -29,6 +29,9 @@ export const ChangingProductAndSendData: FC<ChangingProductAndSendDataProps> = (
                 formData.append("name", image.name);
             }
         })
+        if(product.size?.file) {
+            formData.append('size', product.size.file)
+        }
         formData.append("data", JSON.stringify({...product, images: product.images.map(image => ({id: image.id, name: image.name}))}));
         return action === 'create' ? await productService.create(formData) : await productService.update(formData) // заменить update
     };

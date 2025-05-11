@@ -5,7 +5,7 @@ import classes from './imagesList.module.scss'
 import remove from '@/src/shared/lib/assets/x-close.png'
 import Image from "next/image";
 
-type T = {name: string, url?: string, value?: string, file?: File}
+type T = {name: string, url?: string, blobUrl?: string, file?: File}
 
 interface ImageListProps {
     images: T[];
@@ -17,6 +17,10 @@ export const ImageList = (props: ImageListProps) => {
 
     const removeImage = (index: number) => {
         let imgs = [...props.images];
+        const img = imgs[index]
+        if(img.blobUrl) {
+            URL.revokeObjectURL(img.blobUrl)
+        }
         imgs.splice(index, 1)
         props.setImages(imgs)
     }
@@ -34,7 +38,7 @@ export const ImageList = (props: ImageListProps) => {
                         onClick={() => removeImage(ind)}
                     />
                     <img 
-                        src={image ? image.value ? image.value : `${process.env.NEXT_PUBLIC_SERVER_URL_API}${image.url}` : ''} 
+                        src={image ? image.blobUrl ? image.blobUrl : `${process.env.NEXT_PUBLIC_SERVER_URL_API}${image.url}` : ''} 
                         className={classes.image} 
                     />
                     <p>{image.name}</p>

@@ -4,6 +4,7 @@ import { FC } from "react";
 import classes from './changingProductGroup.module.scss'
 import { MyInput } from "@/src/shared/components/myInput/MyInput";
 import { IProductGroup } from "@/src/entities/productGroup";
+import { MyTextatea } from "@/src/shared/components/myTextarea/MyTextarea";
 
 interface ChangingProductGroupProps {
     productGroup: IProductGroup;
@@ -24,10 +25,9 @@ export const ChangingProductGroup: FC<ChangingProductGroupProps> = ({productGrou
                 required
             />
             <p data-title="title">Введите описание раздела</p>
-            <MyInput 
+            <MyTextatea 
                 value={productGroup.info} 
                 setValue={(info => setProductGroup({...productGroup, info}))} 
-                type='text' 
                 placeholder="Описание" 
                 required
             />

@@ -43,7 +43,10 @@ export const ProductTechCharacteristics: FC<ProductTechCharacteristicsProps> = (
     return (
         <div className={classes.ProductTechCharacteristics}>
             <h2>Технические характеристики</h2>
-            <MyTableDashed columns={columns} rows={getRows()} />
+            <MyTableDashed 
+                columns={columns} 
+                rows={getRows()} 
+            />
         </div>
     )
 }

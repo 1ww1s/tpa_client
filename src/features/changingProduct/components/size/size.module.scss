@@ -1,0 +1,18 @@
+
+
+.size{
+    width: 100%;
+
+    .sizeDiv{
+        display: none;
+        align-items: center;
+        height: 60px;
+        gap: 12px;
+        width: 50%;
+    
+        &.open{
+            display: flex;
+        }
+    }
+
+}

@@ -1,32 +1,26 @@
 import { FC } from "react";
-import { FileDownload } from "../fileDownload/FileDownload";
 import classes from './fileList.module.scss'
 import { DeleteItem } from "../fileDelete/DeleteItem";
 import { FileOpen } from "../fileOpen/FileOpen";
 
-type T = {name: string, value?: string, file?: File, url?: string}
+type T = {name: string, blobUrl?: string, file?: File, url?: string}
 
 interface IProps {
     files: T[]
     onDeleteFile?: (ind: number) => void;
+    sign?: string;
 }
 
-export const FileList: FC<IProps> = ({files, onDeleteFile}) => {
+export const FileList: FC<IProps> = ({files, onDeleteFile, sign}) => {
 
     return (
         <ul className={classes.list}>
             {files.map((file, ind) => 
                 <li className={classes.item} key={ind}>
                 {
-                    file.value
+                    file.blobUrl || file.url
                         ?
-                    <FileDownload file={file as {name: string, value: string}}>
-                        {onDeleteFile ? <DeleteItem onClick={() => onDeleteFile(ind)} /> : <></>}
-                    </FileDownload>
-                        :
-                    file.url
-                        ?
-                    <FileOpen file={file as {name: string, url: string}}>
+                    <FileOpen sign={sign} file={{name: file.name, url: file.blobUrl ? file.blobUrl as string : `${process.env.NEXT_PUBLIC_SERVER_URL_API}${file.url}`}}>
                         {onDeleteFile ? <DeleteItem onClick={() => onDeleteFile(ind)} /> : <></>}
                     </FileOpen>
                         :

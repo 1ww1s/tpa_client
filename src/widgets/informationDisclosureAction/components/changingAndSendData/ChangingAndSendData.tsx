@@ -23,7 +23,11 @@ export const ChangingAndSendData: FC<Props> = (
     }
 
     const deleteItem = (ind: number) => {
-        const clone: IInformationDisclosure['files'] = JSON.parse(JSON.stringify(informationDisclosure.files))
+        const clone: IInformationDisclosure['files'] = [...informationDisclosure.files]
+        const file = clone[ind]
+        if(file.blobUrl){
+            URL.revokeObjectURL(file.blobUrl)
+        }
         clone.splice(ind, 1)
         setFiles(clone)
     }

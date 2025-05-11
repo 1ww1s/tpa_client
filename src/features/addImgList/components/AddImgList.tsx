@@ -1,9 +1,8 @@
-import { ChangeEvent, FC, InputHTMLAttributes, useState } from "react";
+import { ChangeEvent, FC, InputHTMLAttributes } from "react";
 import plus from '@/src/shared/lib/assets/plus.png'
 import classes from './addImgList.module.scss'
-import { LoaderSpinner } from "@/src/shared/components/loaderSpinner/LoaderSpinner";
 
-type T = {name: string, url?: string, value?: string, file?: File}
+type T = {name: string, url?: string, blobUrl?: string, file?: File}
 
 interface AddImgProps {
     images: T[];
@@ -14,34 +13,19 @@ interface AddImgProps {
 
 export const AddImgList: FC<AddImgProps> = ({images, setImages, accept="image/*", reverse=false}) => {
 
-    const [isLoading, setIsLoading] = useState<boolean>(false)
-
     async function convertImages(e: ChangeEvent<HTMLInputElement>){
         const files = e.target.files;
         if(!files?.length) return
-        setIsLoading(true)
-        const file = files[0]
-        console.log(file)
-        const reader = new FileReader()
-        reader.readAsDataURL(file)
-        reader.onload = () => { 
-            setIsLoading(false)
-            console.log(file)
-            reverse
-                ?
-            setImages([{name: file.name.replace(/\.[^/.]+$/, ""), value: reader.result as string, file}, ...images])
-                :
-            setImages([...images, {name: file.name.replace(/\.[^/.]+$/, ""), value: reader.result as string, file}])
-        }
+        const file = files[0];
+        const blobUrl = URL.createObjectURL(file)
+        reverse
+            ?
+        setImages([{name: file.name.replace(/\.[^/.]+$/, ""), file, blobUrl}, ...images])
+            :
+        setImages([...images, {name: file.name.replace(/\.[^/.]+$/, ""), file, blobUrl}])
     }
 
     return (
-        isLoading
-            ?
-        <div className={classes.loaderBox}>
-            <LoaderSpinner />
-        </div>
-            :
         <label className={classes.addImage}>
             <input onChange={convertImages} type='file' accept={accept}  />
             <img src={plus.src} />
