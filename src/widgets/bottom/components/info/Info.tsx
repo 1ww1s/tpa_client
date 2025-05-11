@@ -9,7 +9,11 @@ export const Info: FC = () => {
     return (
         <div className={classes.info}>
             <h3>ИНФОРМАЦИЯ</h3>
-            <img className={classes.hrImg} src={hrImg.src} /> 
+            <img 
+                className={classes.hrImg} 
+                src={hrImg.src} 
+                alt="Разделитель" 
+            /> 
             <ul className={classes.links}>
                 <li>
                     <Link href={process.env.NEXT_PUBLIC_CLIENT_URL + '/certificates'}>

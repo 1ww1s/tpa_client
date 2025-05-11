@@ -13,7 +13,7 @@ export const TitleWithSeparator: FC<TitleWithSeparatorProps> = ({title}) => {
                     <h1>{title}</h1>
             </div>
             <div className={classes.separator}>
-                <img src={separator.src} />
+                <img src={separator.src} alt="Разделитель" />
             </div>
         </div>
     )

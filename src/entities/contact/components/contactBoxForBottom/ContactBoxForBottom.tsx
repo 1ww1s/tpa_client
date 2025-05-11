@@ -33,7 +33,12 @@ export const ContactBoxForBottom: FC<ContactBoxProps> = ({contact}) => {
 
     return(
         <div className={classes.contactCard}>
-            <div className={classes.icon}><div className={classes.imgDiv}><img src={imgSrc} /></div><span>{contact.description}</span></div>
+            <div className={classes.icon}>
+                <div className={classes.imgDiv}>
+                    <img src={imgSrc} alt={contact.title} />
+                </div>
+                <span>{contact.description}</span>
+            </div>
         </div>
     )
 }

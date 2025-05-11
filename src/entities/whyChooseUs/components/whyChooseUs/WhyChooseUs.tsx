@@ -8,7 +8,6 @@ import { WhyUsCard } from "../whyUsCard/WhyUsCard";
 
 export const WhyChooseUs: FC = () => {
     return (
-
         <div className={classes.whyChooseUs}>
             <div className="wrapper">
                 <TitleWithSeparator title="ПОЧЕМУ ВЫБИРАЮТ НАС" />

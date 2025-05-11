@@ -1,7 +1,7 @@
 import { FC } from "react";
 import classes from './pageTitle.module.scss'
-import controlPanel from '../../lib/assets/controlPanel.jpg'
-import certificate from '../../lib/assets/certificates.jpg'
+import controlPanel from '../../lib/assets/controlPanel.webp'
+import certificate from '../../lib/assets/certificates.webp'
 import product from '../../lib/assets/product.png'
 
 
@@ -30,7 +30,7 @@ export const PageTitle: FC<PageTitleProps> = ({title, image}) => {
 
     return (
         <div className={classes.pageTitle}>
-            {image && <img src={chooseImage()} />}
+            {image && <img src={chooseImage()} alt={image} />}
             <div className="wrapper">
                 <div className={classes.title}>{title}</div>
             </div>

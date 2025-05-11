@@ -43,8 +43,8 @@ export const ContactBox: FC<ContactBoxProps> = ({contact}) => {
         <div className={classes.contactBox}>
             {
                 <div className={classes.imgDiv}>
-                    <img className={classes.img} src={imgs.img} />
-                    <img className={classes.imgWhite} src={imgs.imgWhite} />
+                    <img className={classes.img} src={imgs.img} alt={contact.title} />
+                    <img className={classes.imgWhite} src={imgs.imgWhite} alt={contact.title} />
                 </div>
             }
             <span data-title>{contact.title}:</span>

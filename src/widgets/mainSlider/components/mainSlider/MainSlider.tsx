@@ -5,8 +5,6 @@ import { ClickOnButton } from "@/src/features/clickOnButton";
 
 export const MainSlider: FC = () => {
     return (
-        <div>
-            <MainSliderCard action={ <ClickOnButton title="К продукции" link="/product-catalog" />} />
-        </div>
+        <MainSliderCard action={ <ClickOnButton title="К продукции" link="/product-catalog" />} />
     )
 }

@@ -23,7 +23,10 @@ export const NavigationMobile: FC<NavigationMobileProps> = ({open=false}) => {
                 <nav>
                     <ul className={classes.links}>
                         {sections.map((s, i) =>
-                            <li key={i} className={s.link === pathname ? classes.highlight : ''}>
+                            <li 
+                                key={i} 
+                                className={((s.link === pathname) || ((s.link !== '/') && pathname.includes(s.link))) ? classes.highlight : ''}
+                            >
                                 <MyLink href={process.env.NEXT_PUBLIC_CLIENT_URL + s.link}>
                                     {s.name.toLocaleUpperCase()}
                                 </MyLink>

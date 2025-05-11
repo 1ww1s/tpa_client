@@ -9,7 +9,11 @@ export const Contacts: FC = () => {
     return (
         <div>
             <h3>КОНТАКТЫ</h3>
-            <img className={classes.hrImg} src={hrImg.src} /> 
+            <img 
+                className={classes.hrImg} 
+                src={hrImg.src} 
+                alt="Разделитель"
+            /> 
             {contacts.map(c => 
                 <ContactBoxForBottom key={c.title} contact={c} />
             )}
