@@ -48,8 +48,9 @@ export const Admin: FC = () => {
                 <h1>Админ панель</h1>
                 <div>
                     <h3>Продукт</h3>
-                    <ProductAction action='create' />
-                    <ProductAction action='update' />
+                    <ProductAction action='create' isBasic={true} />
+                    <ProductAction action='update' isBasic={true} />
+                    <ProductAction action='update' isBasic={false} />
                     <ProductAction action='delete' />
                     <ProductAction action='swap' />
                 </div>

@@ -21,8 +21,7 @@ export const ProductCard: FC<ProductCardProps> = ({product}) => {
             { Boolean(product.functions) && <ProductFunctions functions={product.functions} /> }
             { Boolean(product.monAndIndParams) && <ProductMonAndIndParams monAndIndParams={product.monAndIndParams} /> }
             { Boolean(product.techCharacteristics.data.length) && <ProductTechCharacteristics techCharacteristics={product.techCharacteristics} />}
-            { Boolean(product.modifications.length) && <ProductModifications modifications={product.modifications} /> }
-            { Boolean(product.deliverySet.length) && <ProductDeliverySet deliverySet={product.deliverySet} /> }
+            { Boolean(product.modifications.data.length) && <ProductModifications modifications={product.modifications} /> }
             { Boolean(product.deliverySet.length) && <ProductDeliverySet deliverySet={product.deliverySet} /> }
             { Boolean(product.size.url) && <ProductSize size={product.size} /> }
         </div>

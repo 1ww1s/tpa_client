@@ -6,6 +6,7 @@ import classes from './searchAndSelection.module.scss'
 
 interface SearchProps {
     action: 'create' | 'update' | 'delete';
+    isBasic?: boolean;
     isLoading: boolean; 
     setIsLoading: (isLoading: boolean) => void;
     setProductPreview: (productPreview: IProductPreview) => void;
@@ -14,7 +15,9 @@ interface SearchProps {
     selectedWidget: number;
 }
 
-export const SearchAndSelection: FC<SearchProps> = ({action, isLoading, setIsLoading, setProductPreview, setProduct, selectedWidget, setSelectedWidget}) => {
+export const SearchAndSelection: FC<SearchProps> = (
+    {action, isBasic, isLoading, setIsLoading, setProductPreview, setProduct, selectedWidget, setSelectedWidget}
+) => {
 
     const [products, setProducts] = useState<IProductItem[]>([])
 
@@ -26,9 +29,15 @@ export const SearchAndSelection: FC<SearchProps> = ({action, isLoading, setIsLoa
                 setProductPreview(productPreview)
             }
             else{
-                const product = await productService.get(selected.slug)
-                const images = await productService.getImages(selected.slug)
-                setProduct({...product, images})
+                if(action === 'update' && isBasic){
+                    const product = await productService.getBasic(selected.slug)
+                    const images = await productService.getImages(selected.slug)
+                    setProduct({...product, images})
+                }
+                else{
+                    const product = await productService.getOptions(selected.slug)
+                    setProduct(product)
+                }
             }
             setSelectedWidget(selectedWidget + 1)
         }

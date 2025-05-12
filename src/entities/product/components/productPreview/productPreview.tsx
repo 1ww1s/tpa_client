@@ -46,10 +46,9 @@ export const ProductPreview: FC<ProductPreviewProps & PropsWithChildren> = ({tit
                 </div>
                 <div className={classes.caption}>
                     <div className={classes.title}>{title}</div>
-                    <img className={classes.hrImg} src={hrImg.src} />
+                    <img className={classes.hrImg} src={hrImg.src} alt="Разделитель" />
                     <div className={classes.info}>{info}</div>
                     <div className={classes.info + ' ' + classes.infoShort}>{info.length >= 100 ? getShortString(info, 110) + '...' : info}</div>
-
                     <div className={classes.link}>
                             {children}
                     </div>

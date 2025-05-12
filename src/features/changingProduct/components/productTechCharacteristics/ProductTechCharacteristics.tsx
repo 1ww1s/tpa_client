@@ -92,25 +92,24 @@ export const ProductTechCharacteristics: FC<ProductTechCharacteristicsProps> = (
         <div>
             <OpenDiv title="Технические характеристики" toggleClasses={classes} refToggle={refTechCharacteristics} />
             <div ref={refTechCharacteristics} className={classes.techCharacteristicsDiv}>
-
                 <div className={classes.products}>
                     <span>Продукция</span>
                     <p className={classes.sign}>*В случае, если нужны характеристики для нескольких товаров, идущих в комплекте.</p>
                     <div className={classes.addItem}>
-                        { 
-                            techCharacteristics.items.map((t, i) => 
-                                <div key={i} className={classes.item}>
-                                    <MyInput 
-                                        onInput={(e) => e.currentTarget.focus()} 
-                                        value={t.name} 
-                                        setValue={(val: string) => {setItem(val, i)}}
-                                        placeholder="название..."
-                                    />
-                                    <img src={remove.src} onClick={removeItem(i)} />
-                                </div>    
-                            )
-                        }
-                        <img onClick={addItem} src={plusSquare.src} />
+                    { 
+                        techCharacteristics.items.map((t, i) => 
+                            <div key={i} className={classes.item}>
+                                <MyInput 
+                                    onInput={(e) => e.currentTarget.focus()} 
+                                    value={t.name} 
+                                    setValue={(val: string) => {setItem(val, i)}}
+                                    placeholder="название..."
+                                />
+                                <img src={remove.src} onClick={removeItem(i)} />
+                            </div>    
+                        )
+                    }
+                    <img onClick={addItem} src={plusSquare.src} />
                     </div>
                     <div className={classes.characteristics}>
                         <table>
@@ -126,28 +125,28 @@ export const ProductTechCharacteristics: FC<ProductTechCharacteristicsProps> = (
                                 </tr>
                             </thead>
                             <tbody>
-                                {
-                                    techCharacteristics.data.map((d, ind) => 
-                                        <tr key={ind}>  
-                                            <td><MyInput value={d.name} setValue={val => setData(val, "name", ind)} /></td>
-                                            <td>
-                                                <MySelect 
-                                                    defaultValue={'-'} 
-                                                    value={d.unit} 
-                                                    options={unit.map(u => { return {name: u.value, value: u.value}})} 
-                                                    change={value => setData(value, 'unit', ind)} 
-                                                />
-                                            </td>
-                                            {
-                                                techCharacteristics.items.map((_, indCol) => 
-                                                    <td key={indCol}><MyInput value={d.value[indCol]?.value} setValue={val => setData(val, "value", ind, indCol)} /></td>
-                                                )
-                                            }
-                                            <td className={classes.setTC}><img src={plus.src} onClick={() => setTC(ind)} /></td>
-                                            <td className={classes.removeTC}><img src={remove.src} onClick={() => removeTC(ind)} /></td>
-                                        </tr>
-                                    )
-                                }
+                            {
+                                techCharacteristics.data.map((d, ind) => 
+                                    <tr key={ind}>  
+                                        <td><MyInput value={d.name} setValue={val => setData(val, "name", ind)} /></td>
+                                        <td>
+                                            <MySelect 
+                                                defaultValue={'-'} 
+                                                value={d.unit} 
+                                                options={unit.map(u => { return {name: u.value, value: u.value}})} 
+                                                change={value => setData(value, 'unit', ind)} 
+                                            />
+                                        </td>
+                                        {
+                                            techCharacteristics.items.map((_, indCol) => 
+                                                <td key={indCol}><MyInput value={d.value[indCol]?.value} setValue={val => setData(val, "value", ind, indCol)} /></td>
+                                            )
+                                        }
+                                        <td className={classes.setTC}><img src={plus.src} onClick={() => setTC(ind)} /></td>
+                                        <td className={classes.removeTC}><img src={remove.src} onClick={() => removeTC(ind)} /></td>
+                                    </tr>
+                                )
+                            }
                             </tbody>
                         </table>
                         <div className={classes.addTC}>

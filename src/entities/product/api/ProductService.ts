@@ -127,6 +127,36 @@ class ProductService {
         return product
     }
 
+    async getBasic(slug: string): Promise<IProduct> { 
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL_API}/site/product/dataBasic/${slug}`, {
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            cache: 'no-store',
+            credentials: 'include',
+        })
+        const product: IProduct = await res.json()
+        if(!res.ok) throw new Error(res.statusText)
+        return product
+    }
+
+    async getOptions(slug: string): Promise<IProduct> { 
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL_API}/site/product/dataOptions/${slug}`, {
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            cache: 'no-store',
+            credentials: 'include',
+        })
+        const product: IProduct = await res.json()
+        if(!res.ok) throw new Error(res.statusText)
+        return product
+    }
+
     async getImages(slug: string): Promise<IProduct['images']> { 
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL_API}/site/product/images/${slug}`, {
             method: "GET",
@@ -191,6 +221,11 @@ class ProductService {
               'Content-Type': 'multipart/form-data'
             }
         })
+        return res.data
+    }
+
+    async updateOptions(product: IProduct) {
+        const res = await $authHost.post<string>(`${process.env.NEXT_PUBLIC_SERVER_URL_API}/admin/product/updateOptions`, {product})
         return res.data
     }
 

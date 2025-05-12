@@ -15,12 +15,13 @@ import { SelectGroup } from "../selectGroup/SelectGroup";
 import { Size } from "../size/Size";
 
 interface ChangingProductProps {
+    isBasic: boolean;
     product: IProduct;
     setProduct: (product: IProduct) => void;
     addImg: React.ReactElement
 }
 
-export const ChangingProduct: FC<ChangingProductProps> = ({product, setProduct, addImg}) => {
+export const ChangingProduct: FC<ChangingProductProps> = ({isBasic, product, setProduct, addImg}) => {
     
     const {
         setName,
@@ -37,16 +38,25 @@ export const ChangingProduct: FC<ChangingProductProps> = ({product, setProduct, 
 
     return (
         <div className={classes.form}>
-            <SelectGroup groupName={product.groupName} setGroupName={setPoductGroup} required />
-            <ProductName name={product.name} setName={setName} required />
-            <ProductInfo info={product.info} setInfo={setInfo} required />
-            <ProductImages images={product.images} setImages={setImages} addImg={addImg} required />
-            <ProductFucntions functions={product.functions} setFunctions={setFunctions} />
-            <ProductMonAndIndParams monAndIndParams={product.monAndIndParams} setMonAndIndParams={setMonAndIndParams} />
-            <ProductTechCharacteristics techCharacteristics={product.techCharacteristics} setTechCharacteristics={setTechCharacteristics} />
-            <ProductModifications modifications={product.modifications} setModifications={setModifications} />
-            <ProductDeliverySet deliverySet={product.deliverySet} setDeliverySet={setDeliverySet} />
-            <Size size={product.size} setSize={setSize} />
+        {
+            isBasic
+                ?
+            <>
+                <SelectGroup groupName={product.groupName} setGroupName={setPoductGroup} required />
+                <ProductName name={product.name} setName={setName} required />
+                <ProductInfo info={product.info} setInfo={setInfo} required />
+                <ProductImages images={product.images} setImages={setImages} addImg={addImg} required />
+                <ProductTechCharacteristics techCharacteristics={product.techCharacteristics} setTechCharacteristics={setTechCharacteristics} />
+                <ProductDeliverySet deliverySet={product.deliverySet} setDeliverySet={setDeliverySet} />
+                <Size size={product.size} setSize={setSize} />
+            </>
+                :
+            <>
+                <ProductFucntions functions={product.functions} setFunctions={setFunctions} />
+                <ProductMonAndIndParams monAndIndParams={product.monAndIndParams} setMonAndIndParams={setMonAndIndParams} />
+                <ProductModifications modifications={product.modifications} setModifications={setModifications} />
+            </>
+        }    
         </div>
     )
 }

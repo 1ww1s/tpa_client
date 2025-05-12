@@ -14,16 +14,17 @@ import { Swap } from "../swap/Swap";
 
 interface ProductActionsProps {
     action: 'create' | 'update' | 'delete' | 'swap'
+    isBasic?: boolean;
 }
 
-export const ProductAction: FC<ProductActionsProps> = ({action}) => {
+export const ProductAction: FC<ProductActionsProps> = ({isBasic = false, action}) => {
     const [productPreview, setProductPreview] = useState<IProductPreview>(initialStateProductPreview)
     const [product, setProduct] = useState<IProduct>(initialStateProduct)
     const [selectedWidget, setSelectedWidget] = useState<number>(0)
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [open, setOpen] = useState<boolean>(false)
 
-    const actionName = action === 'create' ? 'Добавить' : action === 'update' ? 'Обновить' : action === 'delete' ? 'Удалить' : 'Поменять местами';
+    const actionName = action === 'create' ? 'Добавить' : action === 'update' ? isBasic ? 'Обновить' : 'Обновить дополнительную информацию' : action === 'delete' ? 'Удалить' : 'Поменять местами';
     const actionNameSuccess = action === 'create' ? 'добавлен' : action === 'update' ? 'обновлен' : action === 'delete' ? 'удален' : 'поменяны';
 
     useEffect(() => {
@@ -34,7 +35,7 @@ export const ProductAction: FC<ProductActionsProps> = ({action}) => {
 
     return (
         <div data-actions>
-            <OpenModal title={actionName + ` продукт${action === 'swap' ? 'ы' : ''}`} iconSrc={plus.src} openGlobal={open} setOpenGlobal={setOpen} >
+            <OpenModal title={actionName + `${action === 'update' && !isBasic ? '' : ` продукт${action === 'swap' ? 'ы' : ''}`}`} iconSrc={plus.src} openGlobal={open} setOpenGlobal={setOpen} >
                 <div className={classes.form}>
                     <Timeline 
                         selectedWidget={selectedWidget}
@@ -46,7 +47,7 @@ export const ProductAction: FC<ProductActionsProps> = ({action}) => {
                             [
                                 <Swap isLoading={isLoading} setIsLoading={setIsLoading} selectedWidget={selectedWidget} setSelectedWidget={setSelectedWidget} />,
                                 <div className={classes.successAction}>
-                                        <SuccessAction title={`Продукты успешно ${actionNameSuccess}`} />
+                                    <SuccessAction title={`Продукты успешно ${actionNameSuccess}`} />
                                 </div>
                             ]
                                 :
@@ -54,6 +55,7 @@ export const ProductAction: FC<ProductActionsProps> = ({action}) => {
                             [
                                 ...chooseWidgets(action, 
                                     <SearchAndSelection 
+                                        isBasic={isBasic}
                                         action={action}
                                         setProduct={setProduct}
                                         selectedWidget={selectedWidget}
@@ -63,10 +65,11 @@ export const ProductAction: FC<ProductActionsProps> = ({action}) => {
                                         setIsLoading={setIsLoading}
                                     />,
                                     <ChangingProductAndSendData 
-                                        title={actionName + ' продукт'}
+                                        title={actionName + `${action === 'update' && !isBasic ? '' : ` продукт`}`}
                                         product={product}
                                         setProduct={setProduct}
                                         action={action}
+                                        isBasic={isBasic}
                                         isLoading={isLoading}
                                         setIsLoading={setIsLoading}
                                         selectedWidget={selectedWidget}
@@ -87,7 +90,6 @@ export const ProductAction: FC<ProductActionsProps> = ({action}) => {
                         } 
                     />
                 </div>
-        
             </OpenModal>
         </div>
     )

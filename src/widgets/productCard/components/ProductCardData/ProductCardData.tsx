@@ -5,7 +5,6 @@ const getData = async (slug: string) =>  {
     let productData: IProduct | null = null;
     try{
         productData = await productService.fetchProduct(slug)
-        console.log(JSON.stringify(productData.techCharacteristics.data))
     }
     catch(e){
         if (isDynamicServerError(e)) {

@@ -17,8 +17,7 @@ export interface IDeliverySet {
 export interface IModification {
     id: number;
     name: string;
-    diesel: string;
-    note: string
+    value: {id: number; value: string}[]
 }
 
 export interface ITechCharacteristic {
@@ -39,10 +38,13 @@ export interface IProduct {
     functions: string;
     monAndIndParams: string;
     deliverySet: IDeliverySet[];
-    modifications: IModification[];
+    modifications: {
+        items: { id: number; name: string }[];
+        data: IModification[];
+    }
     techCharacteristics: {
         items: { id: number; name: string }[];
-        data: ITechCharacteristic[]
+        data: ITechCharacteristic[];
     }
 }
 

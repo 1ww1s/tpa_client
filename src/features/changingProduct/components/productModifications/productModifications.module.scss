@@ -1,12 +1,62 @@
-.modificationsDiv{
+.techCharacteristicsDiv{
     width: 100%;
     display: none;
 
     &.open{
-        display: block;
+        display: flex;
     }
+}
 
+.products{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.sign{
+    margin: 0 0 16px 0;
+    color: #696969;
+    font-size: 12px;
+}
+
+.addItem{
+    display: flex;
+    align-items: center;
+
+    :nth-child(n){
+        margin-left: 20px;
+    }
+    :nth-child(1){
+        margin-left: 0;
+    }
     
+    > img{
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+}
+
+
+.item {
+    position: relative;
+
+    >img{
+        position: absolute;
+        width: 14px;
+        cursor: pointer;
+        right: -16px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+
+.characteristics{
+    
+    >table {    
+        margin-top: 20px;
+    }
 
     .removeTC{
         position: relative;
@@ -24,6 +74,16 @@
         >img{
             width: 24px;
         }
+    }
+
+    >td, th {
+        text-align: start;
+    }
+    >td:nth-child(n+3), th:nth-child(n+3){
+        width: 200px;
+    }
+    >td:nth-child(1), th:nth-child(1){
+        width: 300px;
     }
 
 }

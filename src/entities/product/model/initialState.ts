@@ -20,7 +20,10 @@ export const initialStateProduct: IProduct = {
     functions: '',
     monAndIndParams: '',
     deliverySet: [],
-    modifications: [],
+    modifications: {
+        items: [{id: -1, name: 'Значение'}],
+        data: []
+    },
     techCharacteristics: {
         items: [{id: -1, name: 'Значение'}],
         data: []

@@ -13,14 +13,45 @@ const columns = ['Обозначение', 'Дизель', 'Примечание
 
 export const ProductModifications: FC<ProductModificationsProps> = ({modifications}) => {
 
-    const rows: (string | number)[][] = getRows(modifications)
+    const getRowTh = (): string[] => { 
+        const row: string[] = [];
+        modifications.items.map(t => {
+            row.push(t.name)
+        })
+        return row; 
+    }
+
+    const getRowTd = (obj: {id: number, value: string}[]): string[] => {
+        const row: string[] = [];
+        obj.map(o => {
+            row.push(o.value)
+        })
+        return row;
+    }
+
+    const getRows = (): string[][] => {
+        const rows: string[][] = [[]];
+    
+        modifications.data.map(tc => {
+            const row: string[] = [];
+            row.push(tc.name,)
+            row.push(...getRowTd(tc.value))
+            rows.push(row)
+        })  
+
+        return rows;
+    }
+
+    const columns = ['Обозначение', ...getRowTh()]
 
     return (
-        <>
-        <div className={classes.ProductFunctions}>
+        <div className={classes.ProductTechCharacteristics}>
             <h2>Модификации</h2>
-            <MyTableDashed columns={columns} rows={rows} />
+            <MyTableDashed 
+                columns={columns} 
+                rows={getRows()} 
+            />
         </div>
-        </>
     )
 }
+
