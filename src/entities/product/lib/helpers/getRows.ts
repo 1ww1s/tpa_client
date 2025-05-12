@@ -2,7 +2,7 @@ import { IProduct } from "../../model/types";
 
 type T = string | number
 
-type Q = IProduct['deliverySet'] | IProduct['modifications']
+type Q = IProduct['deliverySet']
 
 export const getRows = (obj: Q): (string | number)[][] => {
     const rows: T[][] = [];
