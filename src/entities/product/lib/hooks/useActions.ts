@@ -32,8 +32,8 @@ export const useProductActions = (product: IProduct, setProduct: (product: IProd
         setModifications(modifications: IProduct['modifications']){
             setProduct({...product, modifications})
         },
-        setPoductGroup(groupName: IProduct['groupName']){
-            setProduct({...product, groupName})
+        setPoductGroup(groupSlug: IProduct['groupSlug']){
+            setProduct({...product, groupSlug})
         },
         refreshProduct(){
             setProduct({...initialStateProduct})

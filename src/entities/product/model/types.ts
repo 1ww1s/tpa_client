@@ -30,7 +30,7 @@ export interface ITechCharacteristic {
 export interface IProduct {
     id: number;
     name: string;
-    groupName: string;
+    groupSlug: string;
     info: string;
     slug: string;
     images: IFile[];

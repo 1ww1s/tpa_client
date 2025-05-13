@@ -42,7 +42,7 @@ export const ChangingProduct: FC<ChangingProductProps> = ({isBasic, product, set
             isBasic
                 ?
             <>
-                <SelectGroup groupName={product.groupName} setGroupName={setPoductGroup} required />
+                <SelectGroup groupName={product.groupSlug} setGroupName={setPoductGroup} required />
                 <ProductName name={product.name} setName={setName} required />
                 <ProductInfo info={product.info} setInfo={setInfo} required />
                 <ProductImages images={product.images} setImages={setImages} addImg={addImg} required />

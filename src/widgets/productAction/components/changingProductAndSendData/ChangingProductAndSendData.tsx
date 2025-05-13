@@ -24,7 +24,6 @@ export const ChangingProductAndSendData: FC<ChangingProductAndSendDataProps> = (
 
     const handleSubmit = async () => {
         if(action === 'update' && !isBasic){
-            alert(1)
             return await productService.updateOptions(product)
         }
         else{

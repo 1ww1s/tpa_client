@@ -1,8 +1,6 @@
-import { certificateService, ICertificate, useCertificateActions, validationCertificate } from "@/src/entities/certificate";
 import { IRequisite, requisiteService, useRequisiteActions, validationRequisite } from "@/src/entities/requisite";
 import { ChangingRequisite } from "@/src/features/changingRequisite";
 import { SendDetailedData } from "@/src/features/sendDetailedData";
-import { UploadImage } from "@/src/features/uploadImage";
 import { FC } from "react";
 
 interface ChangingRequisiteAndSendDataProps {

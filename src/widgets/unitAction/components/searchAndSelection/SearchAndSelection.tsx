@@ -1,6 +1,5 @@
 import { SelectFromList } from "@/src/features/selectFromList";
 import { FC, useState } from "react";
-import { IProductGroup, productGroupService } from "@/src/entities/productGroup";
 import { GetDataByName } from "@/src/features/getDataByName";
 import { IUnit, unitService } from "@/src/entities/unit";
 

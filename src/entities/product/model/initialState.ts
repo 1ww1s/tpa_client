@@ -11,7 +11,7 @@ export const initialStateProductPreview: IProductPreview = {
 
 export const initialStateProduct: IProduct = {
     id: 0,
-    groupName: '',
+    groupSlug: '',
     name: '',
     info: '',
     slug: '',

@@ -35,8 +35,6 @@ export const SelectGroup: FC<SelectGroupProps> = ({groupName, setGroupName, requ
         getGroupNames()
     }, [])
 
-
-
     return (
         <div className={classes.selectGroup}>
             <p data-title="title">Группа продукции</p>
@@ -46,7 +44,8 @@ export const SelectGroup: FC<SelectGroupProps> = ({groupName, setGroupName, requ
                     defaultValue={'Выберите группу'} 
                     value={groupName} 
                     change={val => {setGroupName(val)}} 
-                    options={groupNames} />
+                    options={groupNames} 
+                />
                 <div className={classes.empty}>{required && !Boolean(groupName) && '*Обязательное поле'}</div>
             </div>
         </div>

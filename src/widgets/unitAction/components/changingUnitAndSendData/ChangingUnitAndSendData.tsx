@@ -1,9 +1,6 @@
-import { IProductGroup, productGroupService, useProductGroupActions, validationProductGroup } from "@/src/entities/productGroup";
 import { IUnit, unitService, validationUnit } from "@/src/entities/unit";
-import { ChangingProductGroup } from "@/src/features/changingProductGroup";
 import { ChangingUnit } from "@/src/features/changingUnit";
 import { SendDetailedData } from "@/src/features/sendDetailedData";
-import { UploadImage } from "@/src/features/uploadImage";
 import { FC } from "react";
 
 interface ChangingUnitAndSendDataProps {
