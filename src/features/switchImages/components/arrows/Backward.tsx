@@ -17,7 +17,7 @@ export const Backward: FC<BackwardProps> = ({imagesLength, currentImage, setCurr
 
     return (
         <div className={classes.backward}>
-            <img onClick={backward} src={arrow.src} />
+            <img onClick={backward} src={arrow.src} alt="Назад" />
         </div>
     )
 }

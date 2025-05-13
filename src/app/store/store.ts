@@ -5,7 +5,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
 const rootReducer = combineReducers({
     UserReducer,
-    LoadingActionReducer
+    LoadingActionReducer,
 })
 
 export const setupStore = () => {

@@ -21,7 +21,7 @@ export const Burger: FC<BurgerProps> = ({open, setOpen}) => {
 
     return(
         <div onClick={toggleMenu} className={classes.burger}>
-            <Image src={burgerIcon.src} width={24} height={24} alt="открыть меню" />
+            <Image src={burgerIcon.src} width={24} height={24} alt="Открыть меню" />
         </div>
     )
 }

@@ -28,7 +28,7 @@ export const LatestDevelopments: FC = async () => {
             &&
         <div className={classes.latestDevelopments}>
             <h2>НАШИ ПОСЛЕДНИЕ<br /> РАЗРАБОТКИ</h2>
-            <img className={classes.hrImg} src={hrImg.src} />
+            <img className={classes.hrImg} src={hrImg.src} alt="Разделитель" />
             {latestDevelopments.map(l => 
                 <div key={l.title} className={classes.latestDevelopment}>
                     <ClickOnLink href={l.link}>

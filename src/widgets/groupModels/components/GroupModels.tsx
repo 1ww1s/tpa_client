@@ -34,7 +34,7 @@ export const GroupModels: FC<GroupModelsProps> = async ({slug}) => {
             &&
         <div className={classes.groupModels}>
             <h2>МОДЕЛИ ЭТОЙ ГРУППЫ</h2>
-            <img className={classes.hrImg} src={hrImg.src} />
+            <img className={classes.hrImg} src={hrImg.src} alt="Разделитель" />
             {groupModels.map(gm => 
             <div className={classes.groupModel}>
                     <Link href={gm.slug}>

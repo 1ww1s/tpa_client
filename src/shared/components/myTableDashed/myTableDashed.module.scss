@@ -20,18 +20,24 @@
             padding: 2px 0;
             overflow: hidden;
 
-
             span[data-cell] {
                 display: flex;
                 width: 40%;
+                box-sizing: border-box;
+                min-width: 100px;
                 justify-content: space-between;
                 background-color: #FFF;
-                margin: 0;
-                padding: 0 6px;
+                padding: 0 8px;
                 position: relative;
+                overflow: hidden;
 
-                &:nth-child(1){
+                &:first-child{
                     width: 80%;
+                    padding: 0 8px 0 0;
+                }
+
+                &:last-child{
+                    padding: 0 8px 0 0;
                 }
 
                 span[data-value]{

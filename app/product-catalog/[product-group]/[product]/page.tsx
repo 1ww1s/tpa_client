@@ -1,10 +1,9 @@
 import { IProductPreview, productService } from "@/src/entities/product";
 import Product from "@/src/views/product/Product";
-import { NextPage } from "next";
 import React from "react";
 
 type Props = {
-    params: { product: string }
+    params: { product: string, ['product-group']: string }
 }
  
 export const dynamicParams = true 
@@ -36,8 +35,9 @@ export async function generateMetadata({ params }: Props) {
 export default async function ProductPage (context: Props){
 
     const slug = context.params.product;
+    const productGroup = context.params["product-group"];
 
     return (
-        <Product slug={slug} />
+      <Product slug={slug} productGroupSlug={productGroup} />
     )
 }

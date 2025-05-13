@@ -13,7 +13,7 @@ export const Nav: FC = () => {
     return (
         <div className={classes.nav}>
             <h3>НАВИГАЦИЯ</h3>
-            <img className={classes.hrImg} src={hrImg.src} /> 
+            <img className={classes.hrImg} src={hrImg.src} alt="Разделитель" /> 
             <ul className={classes.links}>
                 {sections.map((s, i) =>
                     <li key={i}>

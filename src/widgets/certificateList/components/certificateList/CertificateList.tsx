@@ -25,9 +25,7 @@ export const CertificateList: FC = async () => {
     if(!certificates.length) return <Empty />
 
     return (
-        <div>
-            <CertificateCarousel certificates={certificates} />
-        </div>
+        <CertificateCarousel certificates={certificates} />
     )
 }
 

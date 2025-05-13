@@ -17,7 +17,7 @@ export const Forward: FC<ForwardProps> = ({imagesLength, currentImage, setCurren
 
     return (
         <div className={classes.forward}>
-            <img onClick={forward} src={arrow.src} />
+            <img onClick={forward} src={arrow.src} alt="Вперед" />
         </div>
     )
 }

@@ -20,9 +20,9 @@ export const ImageCards: FC<ImagesCardProps> = ({images}) => {
     return (
         <div>
             <MyFullScreen open={open} setOpen={setOpen}>
-                    <SwitchArrows currentImage={currentImage} setCurrentImage={setCurrentImage} imagesLength={images.length}>
-                        <ImageJust image={images[currentImage]} />
-                    </SwitchArrows>
+                <SwitchArrows currentImage={currentImage} setCurrentImage={setCurrentImage} imagesLength={images.length}>
+                    <ImageJust image={images[currentImage]} />
+                </SwitchArrows>
             </MyFullScreen>
             <div className={classes.imagesCard}>
                 <div className={classes.switch}>

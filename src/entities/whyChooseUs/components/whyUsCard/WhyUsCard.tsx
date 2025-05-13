@@ -17,7 +17,7 @@ export const WhyUsCard: FC<WhyUsCardProps> = ({title, description, ind, iconSrc}
             <div className={classes.title}>
                 <div className={classes.index}>{'0' + ind}</div>
                 <h4>{title}</h4>
-                <img src={iconSrc} alt={`Иконка ${ind}`} />
+                <img src={iconSrc} alt={`Иконка "${title}"`} />
             </div>
             <div className={classes.description}>
                 <p>{description}</p>

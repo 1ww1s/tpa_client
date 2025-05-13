@@ -5,14 +5,17 @@
     .content{
         display: flex;
         justify-content: space-between;
-        margin: 40px 0;
+        margin: 20px 0;
 
         .productCard{
             width: 900px;
         }
     
         .rightBar{
+            display: flex;
+            flex-direction: column;
             width: 300px;
+            gap: 20px;
         }
 
         .loader{

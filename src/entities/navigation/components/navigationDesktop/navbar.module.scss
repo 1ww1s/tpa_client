@@ -67,12 +67,12 @@
                 &:hover{
                     >a{
                         color: #2799ED;
-                        transition: all 0.25s ease-out;
+                        transition: all 0.35s ease-out;
                     }
 
                     &::after{
                         opacity: 1;
-                        transition: all 0.25s ease-out;
+                        transition: all 0.35s ease-out;
                     }
                 }
                 
@@ -100,18 +100,20 @@
                     background-color: #343434;
                     transition: all 0.35s ease-out;
 
-                    >a{
-                        width: 100%;
-                    }
                     
                     li{
                         box-sizing: border-box;
                         display: block;
-                        padding: 12px 16px;
                         width: 100%;
+
+                        >a{
+                            padding: 12px 16px;
+                            width: 100%;
+                        }
                     }
 
-                    >.hr{
+                    &::before{
+                        content: "";
                         position: absolute;
                         top: 0;
                         width: 100%;
@@ -125,15 +127,20 @@
                 }
 
                 &:hover{
-                    ul{
+
+                    >ul{
                         opacity: 1;
                         top: 56px;
                         transition: all 0.35s ease-out;
                         pointer-events: auto;
 
-                        a{
-                            :hover{
-                                background-color: #2799ED;
+                        li{
+                            a{
+                                transition: all .15s ease-in-out;
+                                &:hover{
+                                    transition: all .15s ease-in-out;
+                                    background-color: #2799ED;
+                                }
                             }
                         }
                     }

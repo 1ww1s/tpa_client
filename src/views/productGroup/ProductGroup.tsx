@@ -8,6 +8,7 @@ import { ProductPreviewLayout } from '@/src/entities/product';
 import { IProductGroupItem, productGroupService } from '@/src/entities/productGroup';
 import { isDynamicServerError } from 'next/dist/client/components/hooks-server-context';
 import { NotFound } from '@/src/widgets/not-found';
+import { Breadcrumbs, IBreadcrumb } from '@/src/entities/breadcrumbs';
 
 interface ProductProps {    
     slug: string;
@@ -33,11 +34,17 @@ export default async function ProductGroup({slug}: ProductProps) {
 
     if(!productGroupItem) return <NotFound />
 
+    const breadcrumbs: IBreadcrumb[] = [
+        { path: '/product-catalog', label: 'Каталог продукции' },
+        { path: `/product-catalog/${slug}`, label: productGroupItem.name },
+    ]
+
     return (
         <>
             <PageTitle title={productGroupItem.name} image='Панель управления' />
             <div className={classes.productGroup}>
                 <div className="wrapper">
+                    <Breadcrumbs breadcrumbs={breadcrumbs} />
                     <div className={classes.content}>
                         <div className={classes.productPreview}>
                             <Suspense fallback={<ProductPreviewLayout loaderDiv={<LoaderDiv />} numb={4}/>}>

@@ -96,10 +96,9 @@ export const CarouselImages: FC<CarouselImagesProps> = ({images, children}) => {
                     )}
                 </div>
             </div>
-            
             <div className={classes.switch}>
-                <img onClick={() => checkTime(backward, 250)} className={classes.backward} src={arrow.src} />
-                <img onClick={() => checkTime(forward, 250)} className={classes.forward} src={arrow.src} />
+                <img onClick={() => checkTime(backward, 250)} className={classes.backward} src={arrow.src} alt="Назад" />
+                <img onClick={() => checkTime(forward, 250)} className={classes.forward} src={arrow.src} alt="Вперед" />
             </div>
         </div>
     )

@@ -36,7 +36,7 @@ export const SwitchImages: FC<SwitchImagesProps> = ({images, currentImage, setCu
 
     return (
         <div className={classes.switchImages}>
-            <img onClick={forwardScroll} className={classes.forwardScroll} src={arrow.src} />
+            <img onClick={forwardScroll} className={classes.forwardScroll} src={arrow.src} alt="Вперед" />
             <div ref={refSlider} className={classes.slider}>
                 {images.map((img, ind) => 
                     <Image 
@@ -51,7 +51,7 @@ export const SwitchImages: FC<SwitchImagesProps> = ({images, currentImage, setCu
                     />
                 )}
             </div>
-            <img onClick={backwardScroll} className={classes.backwardScroll} src={arrow.src} />
+            <img onClick={backwardScroll} className={classes.backwardScroll} src={arrow.src} alt="Назад" />
         </div>
     )
 }

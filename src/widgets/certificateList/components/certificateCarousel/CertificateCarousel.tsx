@@ -26,7 +26,6 @@ export const CertificateCarousel: FC<CertificateCarouselProps> = ({certificates}
                 open={open}
                 setOpen={setOpen}
             />
-            
             <CarouselImages images={certificates.map(c => c.img)} children={
                 certificates.map((certificate, ind) => 
                     <div key={ind} className={classes.certificate}>

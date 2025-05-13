@@ -1,0 +1,47 @@
+
+
+
+.breadcrumbs{
+    overflow: auto;
+    width: 100%;
+    // background-color: #efefef;
+    &::after{
+        content: "";
+        position: absolute;
+        width: 100%;
+        left: 0;
+        border-bottom: 1px solid #efefef;
+    }
+
+    .list{
+        display: flex;
+        padding: 0;
+        font-size: 13px;
+        
+        .breadcrumb{
+            display: flex;
+            list-style: none;
+            text-wrap: nowrap;
+            .separator{
+                padding: 0 6px;
+            }
+
+            .label{
+                color: #3d3d3d;
+            }
+
+            .link{
+                text-decoration: none;
+                color: var(--hover-blue);
+                transition: color .15s ease-in-out;
+                
+                &:hover{
+                    color: #337ab7;
+                }
+            }
+        }
+    }
+
+
+
+}
