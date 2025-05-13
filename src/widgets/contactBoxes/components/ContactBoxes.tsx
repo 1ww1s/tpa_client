@@ -15,7 +15,6 @@ export const ContactBoxes: FC = () => {
                     <ContactBox key={contact.title} contact={contact} />
                 )}
             </div>
-            
         </div>
     )
 }

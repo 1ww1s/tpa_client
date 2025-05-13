@@ -23,12 +23,12 @@ export const ProductGroupCard: FC<ProductGroupCardProps & PropsWithChildren> = (
                         alt={productGroup.img.name} 
                     />
                 </Link>
-                    <div className={classes.title}>
-                        <span>{productGroup.title}</span>
-                    </div>
-                    <div className={classes.link}>
-                        {children}
-                    </div>
+                <div className={classes.title}>
+                    <span>{productGroup.title}</span>
+                </div>
+                <div className={classes.link}>
+                    {children}
+                </div>
             </div>
         </div>
     )

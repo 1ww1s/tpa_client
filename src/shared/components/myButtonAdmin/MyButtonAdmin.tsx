@@ -17,8 +17,7 @@ export const MyButton: FC<PropsWithChildren<ComponentProps<"button"> & MyButtonP
 
     return (
         <div className={classes.buttonBox}>
-            <button disabled={isLoading || Boolean(error)} className={classes.myButton} {...props}>
-            
+            <button disabled={isLoading || Boolean(error)} className={classes.myButton} {...props}>        
                 <div className={classes.status}>
                     {!isLoading && !success && <img src={cursorClick.src} />}
                     { isLoading && <MyLoader /> }

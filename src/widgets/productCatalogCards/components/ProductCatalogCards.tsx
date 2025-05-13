@@ -27,8 +27,8 @@ export const ProductCatalogCards: FC = async () => {
 
     return (
         <div>
-            {productGroup.map(p => 
-                <div className={classes.productPreview}>
+            {productGroup.map((p, ind) => 
+                <div key={ind} className={classes.productPreview}>
                     <ProductPreview key={p.title} title={p.title} info={p.info} img={p.img} observed >
                         <ClickOnButton title="Подробнее..." link={process.env.NEXT_PUBLIC_CLIENT_URL + `/product-catalog/${p.slug}`} />
                     </ProductPreview>

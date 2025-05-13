@@ -27,13 +27,13 @@ export default async function InformationDisclosure() {
 
     return (
         <ul className={classes.informationDisclosures}>
-            {
-                informationDisclosures.map((informationDisclosure, ind) => 
-                    <li className={classes.item} key={ind}>
-                        <Disclosure informationDisclosure={informationDisclosure} />
-                    </li>
-                )
-            }
+        {
+            informationDisclosures.map((informationDisclosure, ind) => 
+                <li className={classes.item} key={ind}>
+                    <Disclosure informationDisclosure={informationDisclosure} />
+                </li>
+            )
+        }
         </ul>
     )
 }

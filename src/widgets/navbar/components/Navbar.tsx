@@ -4,15 +4,13 @@ import { contacts } from "@/src/entities/contact"
 import classes from './navbar.module.scss'
 import { CallUs, NavigationMobile } from "@/src/entities/navigation"
 import { NavigationDesktop } from "@/src/entities/navigation"
-import { FC, PropsWithChildren, useEffect, useState } from "react"
+import { FC, useEffect, useState } from "react"
 import { SiteSearch } from "@/src/features/siteSearch"
 import { IProductItem } from "@/src/entities/product"
 import { usePathname } from "next/navigation";
 import { Burger } from "@/src/features/burger"
 
-
-
-export const Navbar: FC<PropsWithChildren> = ({children}) => {
+export const Navbar: FC = () => {
     
     const [items, setItems] = useState<IProductItem[]>([])
     const [open, setOpen] = useState<boolean>(false)

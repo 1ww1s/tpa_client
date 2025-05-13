@@ -25,6 +25,6 @@ export const LatestDevelopmentPreview: FC<LatestDevelopmentPreviewProps> = ({lat
                     <span>{latestDevelopmentPreview.title}</span>
                 </div>
             </div>
-    </div>
+        </div>
     )
 }

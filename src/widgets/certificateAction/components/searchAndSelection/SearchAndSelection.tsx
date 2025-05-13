@@ -81,8 +81,8 @@ export const SearchAndSelection: FC<SearchProps> = ({setCertificate, selectedWid
                     isLoading={isLoading}
                 />
                 <ul className={classes.endDate}>
-                    {certificatesSearchAndSort.map(c => 
-                        <li key={c.id}>{new Date(c.endDate).toLocaleDateString("ru")}</li>
+                    {certificatesSearchAndSort.map((c, ind) => 
+                        <li key={ind}>{new Date(c.endDate).toLocaleDateString("ru")}</li>
                     )}
                 </ul>
             </div>

@@ -28,7 +28,7 @@ export const NavigationDesktop: FC<NavigationDesktopProps & PropsWithChildren> =
                                             &&
                                         <ul>
                                             {section.children.sections.map((s, ind) => 
-                                                <li><MyLink className={classes.dropdownA} key={ind} href={s.link}>{s.name}</MyLink></li>
+                                                <li key={ind}><MyLink className={classes.dropdownA} href={s.link}>{s.name}</MyLink></li>
                                             )}
                                         </ul>
                                     }

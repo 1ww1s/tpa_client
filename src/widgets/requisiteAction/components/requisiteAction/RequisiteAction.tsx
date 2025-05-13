@@ -76,7 +76,6 @@ export const RequisiteAction: FC<RequisiteActionProps> = ({action}) => {
                         } 
                     />
                 </div>
-        
             </OpenModal>
         </div>
     )

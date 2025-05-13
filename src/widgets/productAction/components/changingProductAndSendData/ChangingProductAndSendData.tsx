@@ -55,7 +55,6 @@ export const ChangingProductAndSendData: FC<ChangingProductAndSendDataProps> = (
             <hr />
             <SendDetailedData 
                 action={action}
-                
                 validation={setError => { return action === 'update' && !isBasic ? true : validationProduct(product, setError)}}
                 isLoading={isLoading}
                 setIsLoading={setIsLoading}

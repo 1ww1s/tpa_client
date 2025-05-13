@@ -112,7 +112,7 @@ class ProductService {
     }
 
 
-    async get(slug: string): Promise<IProduct> { 
+    async get(slug: string): Promise<IProduct> { // пока не используется (есть basic и options)
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL_API}/site/product/data/${slug}`, {
             method: "GET",
             headers: {

@@ -11,20 +11,18 @@ interface MySelectProps {
 export const MySelect: FC<PropsWithChildren<ComponentProps<"select"> & MySelectProps>> = ({defaultValue, value, change, options, ...props}) => {
     return (
 
-        
         <select
-              
             className={classes.select} 
             value={value} 
             onChange={(e) => {change(e.target.value)}}
             {...props}
         >
-                <option className={classes.option} disabled value="">{defaultValue}</option>
-                {options.map(option => 
-                    <option className={classes.option} key={option.value} value={option.value}> 
-                        {option.name} 
-                    </option>    
-                )}
+            <option className={classes.option} disabled value="">{defaultValue}</option>
+            {options.map(option => 
+                <option className={classes.option} key={option.value} value={option.value}> 
+                    {option.name} 
+                </option>    
+            )}
         </select>
     )
 }

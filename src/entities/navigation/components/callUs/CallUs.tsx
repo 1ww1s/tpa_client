@@ -1,4 +1,4 @@
-import { FC, ReactElement } from "react";
+import { FC } from "react";
 import classes from './callUs.module.scss'
 import { IContact } from "@/src/entities/contact";
 import Link from "next/link";
@@ -7,7 +7,6 @@ import mail from '@/src/shared/lib/assets/mail.png'
 import tele from '@/src/shared/lib/assets/phone-call.png'
 import Image from "next/image";
 import { HOME_ROUTE } from "../../model/links";
-import { NavigationMobile } from "../navigationMobile/NavigationMobile";
 
 interface CallUsProps {
     contactEmail: IContact | undefined;

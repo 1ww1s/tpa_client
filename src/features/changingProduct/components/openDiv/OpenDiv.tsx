@@ -20,7 +20,7 @@ export const OpenDiv: FC<openDivProps> = ({title, toggleClasses, refToggle}) => 
         <div className={classes.openBox}>
             <div ref={refOpen} onClick={() => open(refToggle, toggleClasses, refOpen, classes)} className={classes.openDiv}>
                 <p data-title="title">{title}</p>     
-                <img data-img="arrow-down" src={arrowDown.src} />
+                <img data-img="arrow-down" src={arrowDown.src} alt="Открыть" />
             </div>
         </div>
     )

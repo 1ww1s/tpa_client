@@ -3,7 +3,6 @@
 import { FC } from "react";
 import classes from './changingLatestDevelopment.module.scss'
 import { MyInput } from "@/src/shared/components/myInput/MyInput";
-import { IProductGroup } from "@/src/entities/productGroup";
 import { ILatestDevelopment } from "@/src/entities/latestDevelopment";
 
 interface Props {

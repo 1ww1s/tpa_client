@@ -28,7 +28,7 @@ export const ImageList = (props: ImageListProps) => {
     return (
         <div className={classes.listBox}>
             {props.images.map((image, ind) => 
-                <div key={Math.random()} className={classes.listItem}>
+                <div key={ind} className={classes.listItem}>
                     <Image 
                         width={14}
                         height={14}

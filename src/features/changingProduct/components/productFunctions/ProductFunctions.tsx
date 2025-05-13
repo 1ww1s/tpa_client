@@ -20,7 +20,6 @@ export const ProductFucntions: FC<ProductFucntionsProps> = ({functions, setFunct
     const refResult = useRef<HTMLDivElement>(null)
     const refFunctionsDiv = useRef<HTMLDivElement>(null)
 
-
     useEffect(() => {
         transformation(functions)
     }, [functions])

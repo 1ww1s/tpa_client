@@ -39,8 +39,6 @@ export const SiteSearch: FC<SiteSearchProps> = ({setItems}) => {
 
     return (
         <div className={classes.siteSearch}>
-            
-
             <input value={value} onChange={(e) => setValue(e.target.value)} type='text' />
             <img className={classes.clear} src={clear.src} onClick={() => {setValue('')}} />
         </div>

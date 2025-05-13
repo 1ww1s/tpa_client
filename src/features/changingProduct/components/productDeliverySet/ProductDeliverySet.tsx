@@ -33,7 +33,7 @@ export const ProductDeliverySet: FC<ProductDeliverySetProps> = ({deliverySet, se
                         deliverySet.map((d, ind) => 
                             <tr key={ind}>
                                 <td><MyInput value={d.name} setValue={val => setData(val, 'name', ind)}></MyInput></td>
-                                <td><MyInput type="number" value={d.numb} setValue={val => setData(val, 'numb', ind)}></MyInput></td>
+                                <td><MyInput value={d.numb} setValue={val => setData(val, 'numb', ind)}></MyInput></td>
                                 <td><MyInput value={d.note} setValue={val => setData(val, 'note', ind)}></MyInput></td>
                                 <td className={classes.setTC}><img src={plus.src} onClick={() => setRow(ind)} /></td>
                                 <td className={classes.removeTC}><img src={remove.src} onClick={() => removeRow(ind)} /></td>
@@ -41,12 +41,10 @@ export const ProductDeliverySet: FC<ProductDeliverySetProps> = ({deliverySet, se
                         )
                     }
                 />
-
                 <div className={classes.addTC}>
                     <MyButton onClick={addRow}>Добавить</MyButton>
                 </div>
             </div>
-            
         </div>
     )
 }
