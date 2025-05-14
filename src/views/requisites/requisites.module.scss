@@ -8,6 +8,9 @@
         margin: 40px 0;
 
         .requisites{
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
             width: 900px;
 
             .loaderDiv{
