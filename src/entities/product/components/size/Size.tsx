@@ -1,7 +1,7 @@
 import { FC } from "react";
 import classes from './size.module.scss'
 import { IProduct } from "../../model/types";
-import { FileList } from "@/src/entities/informationDisclosure";
+import { FileList } from "@/src/shared/components/file/fileList/FileList";
 
 interface Props {
     size: IProduct['size'];

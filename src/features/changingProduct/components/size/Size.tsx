@@ -1,9 +1,9 @@
-import { FileList, IInformationDisclosure, informationDisclosureService } from "@/src/entities/informationDisclosure";
 import { initialStateProduct, IProduct } from "@/src/entities/product";
 import { AddImgList } from "@/src/features/addImgList";
 import { FC, useRef } from "react";
 import { OpenDiv } from "../openDiv/OpenDiv";
 import classes from './size.module.scss'
+import { FileList } from "@/src/shared/components/file/fileList/FileList";
 
 
 interface Props {
@@ -38,7 +38,7 @@ export const Size: FC<Props> = (
                     images={[size]} 
                     accept=".pdf" 
                 />
-                <FileList 
+                <FileList
                     sign={size.url && 'Открыть файл'}
                     files={(size?.blobUrl || size?.url) ? [size] : []} onDeleteFile={deleteItem} 
                 />

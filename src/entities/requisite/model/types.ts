@@ -6,3 +6,10 @@ export interface IRequisite {
     name: string;
     value: string;
 }
+
+export interface ICompanyCard {
+    name: string;
+    url?: string;
+    blobUrl?: string;
+    file?: File;
+}

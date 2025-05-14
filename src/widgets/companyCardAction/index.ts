@@ -1,0 +1,1 @@
+export { Action as CompanyCardAction } from "./components/action/Action";

@@ -3,7 +3,6 @@ import { IRequisite } from "../../model/types";
 import classes from './requisitesTable.module.scss'
 import { requisiteService } from "../../api/RequisiteService";
 import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
-import { Empty } from "@/src/shared/components/empty/Empty";
 
 const columns: string[] = ['Наименование', 'Значение']
 
@@ -25,7 +24,7 @@ export default async function RequisitesTable() {
 
     const requisites = await getData()
     
-    if(!requisites.length) return <Empty />
+    if(!requisites.length) return <></>
 
     const rows: (string)[][] = [];
 

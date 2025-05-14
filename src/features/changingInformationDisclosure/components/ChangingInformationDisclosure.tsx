@@ -1,6 +1,6 @@
 import classes from './changingInformationDisclosure.module.scss'
 import { MyInput } from "@/src/shared/components/myInput/MyInput";
-import { FileList, IInformationDisclosure } from "@/src/entities/informationDisclosure";
+import { IInformationDisclosure } from "@/src/entities/informationDisclosure";
 import React, { FC, PropsWithChildren } from 'react';
 
 interface Props {

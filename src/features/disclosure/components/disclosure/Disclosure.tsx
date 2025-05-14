@@ -1,8 +1,9 @@
 "use client"
 
 import React, { FC, useRef, useState } from "react";
-import { FileList, IInformationDisclosure } from "@/src/entities/informationDisclosure";
+import { IInformationDisclosure } from "@/src/entities/informationDisclosure";
 import classes from './disclosure.module.scss';
+import { FileList } from "@/src/shared/components/file/fileList/FileList";
 
 interface Props {
     informationDisclosure: IInformationDisclosure;

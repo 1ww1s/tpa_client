@@ -3,7 +3,7 @@
 import { OpenModal } from "@/src/features/openModal";
 import { FC, useEffect, useState } from "react";
 import plus from '@/src/shared/lib/assets/plus-square.png'
-import classes from './certificateAction.module.scss'
+import classes from './action.module.scss'
 import { chooseWidgets, Timeline } from "@/src/features/timeline";
 import { SearchAndSelection } from "../searchAndSelection/SearchAndSelection";
 import { Delete } from "../delete/Delete";

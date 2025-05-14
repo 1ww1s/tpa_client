@@ -31,7 +31,7 @@ export const PageTitle: FC<PageTitleProps> = ({title, image}) => {
 
     return (
         <div className={classes.pageTitle}>
-            {image && <Image width={1340} height={220}  src={chooseImage()} alt={image} />}
+            {image && <Image width={1340} height={220} src={chooseImage()} alt={image} />}
             <div className="wrapper">
                 <div className={classes.title}>{title}</div>
             </div>

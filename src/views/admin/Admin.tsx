@@ -17,6 +17,7 @@ import { useRouter } from "next/navigation";
 import { RequisiteAction } from "@/src/widgets/requisiteAction";
 import { LatestDevelopmentsAction } from "@/src/widgets/latestDevelopmentsAction";
 import { InformationDisclosureAction } from "@/src/widgets/informationDisclosureAction";
+import { CompanyCardAction } from "@/src/widgets/companyCardAction";
  
 export const Admin: FC = () => {
 
@@ -83,6 +84,7 @@ export const Admin: FC = () => {
                     <RequisiteAction action='create' />
                     <RequisiteAction action='update' />
                     <RequisiteAction action='delete' />
+                    <CompanyCardAction />
                 </div>
                 {/* <div>
                     <h3>Контакты</h3>

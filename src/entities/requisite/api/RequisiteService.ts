@@ -1,5 +1,5 @@
 import { $authHost } from "@/src/shared/api/axios"
-import { IRequisite } from "../model/types"
+import { ICompanyCard, IRequisite } from "../model/types"
 
 
 class RequisiteService{
@@ -11,6 +11,15 @@ class RequisiteService{
 
     async update(requisite: IRequisite){
         const res = await $authHost.post<string>(process.env.NEXT_PUBLIC_SERVER_URL_API + '/admin/requisite/update', {requisite})
+        return res.data
+    }
+
+    async updateCompanyCard(formData: FormData){
+        const res = await $authHost.post<string>(process.env.NEXT_PUBLIC_SERVER_URL_API + '/admin/companyCard/update', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+        })
         return res.data
     }
 
@@ -45,6 +54,34 @@ class RequisiteService{
         })
         const requisite: IRequisite[] = await res.json()
         return requisite
+    }
+
+    async fetchCompanyCard() {
+        const res = await fetch(process.env.NEXT_PUBLIC_SERVER_URL_API + '/site/companyCard', {
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            next: {revalidate: 300}
+        })
+        const companyCard: ICompanyCard = await res.json()
+        return companyCard
+    }
+    
+    async getCompanyCard() {
+        const res = await fetch(process.env.NEXT_PUBLIC_SERVER_URL_API + '/site/companyCard', {
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            cache: 'no-store',
+            credentials: 'include'
+        })
+        const companyCard: ICompanyCard = await res.json()
+        return companyCard
     }
 }
 

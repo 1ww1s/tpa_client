@@ -1,5 +1,5 @@
 import { FC, PropsWithChildren } from "react"
-import classes from '../fileDownload/fileDownload.module.scss'
+import classes from './fileOpen.module.scss'
 
 
 interface IProps {

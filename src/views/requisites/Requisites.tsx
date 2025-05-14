@@ -1,6 +1,6 @@
 import classes from './requisites.module.scss'
 import { PageTitle } from '@/src/widgets/pageTitle';
-import {requisiteService, RequisitesTable} from '@/src/entities/requisite';
+import {CompanyCard, requisiteService, RequisitesTable} from '@/src/entities/requisite';
 import { Suspense } from 'react';
 import { LoaderDiv } from '@/src/shared/components/loaderDiv/LoaderDiv';
 import {LatestDevelopments} from '@/src/widgets/latestDevelopments';
@@ -18,6 +18,7 @@ export default async function Requisites() {
                         <div className={classes.requisites}>
                             <Suspense fallback={<div className={classes.loaderDiv}><LoaderDiv height={600} /></div>}>
                                 <RequisitesTable />
+                                <CompanyCard />
                             </Suspense>
                         </div>
                         <div className={classes.rightBar}>

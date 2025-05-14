@@ -1,7 +1,8 @@
-import { FileList, IInformationDisclosure, informationDisclosureService } from "@/src/entities/informationDisclosure";
+import { IInformationDisclosure, informationDisclosureService } from "@/src/entities/informationDisclosure";
 import { AddImgList } from "@/src/features/addImgList";
 import { ChangingInformationDisclosure } from "@/src/features/changingInformationDisclosure";
 import { SendDetailedData } from "@/src/features/sendDetailedData";
+import { FileList } from "@/src/shared/components/file/fileList/FileList";
 import { FC } from "react";
 
 interface Props {

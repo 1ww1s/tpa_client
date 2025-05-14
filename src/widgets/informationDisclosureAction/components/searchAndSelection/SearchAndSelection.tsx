@@ -6,9 +6,9 @@ import { IInformationDisclosure, informationDisclosureService } from "@/src/enti
 
 interface SearchProps {
     setInformationDisclosure: (informationDisclosure: IInformationDisclosure) => void;
-    setSelectedWidget: (selectedWidget: number) => void;
     isLoading: boolean; 
     setIsLoading: (isLoading: boolean) => void;
+    setSelectedWidget: (selectedWidget: number) => void;
     selectedWidget: number;
     action: "create" | "update" | "delete"
 }
@@ -19,26 +19,25 @@ export const SearchAndSelection: FC<SearchProps> = ({action, isLoading, setIsLoa
     const [items, setItems] = useState<{name: string}[]>([])
 
     const onSelected = async (selected: {name: string}) => {
-            try{
-                setIsLoading(true)
-                if(action === 'delete'){
-                    const data = await informationDisclosureService.getByName(selected.name)
-                    setInformationDisclosure({id: data.id, name: data.name, files: []})
-                }
-                else{
-                    const data = await informationDisclosureService.getByName(selected.name)
-                    setInformationDisclosure(data)
-
-                }
-                setSelectedWidget(selectedWidget + 1)
+        try{
+            setIsLoading(true)
+            if(action === 'delete'){
+                const data = await informationDisclosureService.getByName(selected.name)
+                setInformationDisclosure({id: data.id, name: data.name, files: []})
             }
-            catch(e){
-                console.log(e)
+            else{
+                const data = await informationDisclosureService.getByName(selected.name)
+                setInformationDisclosure(data)
             }
-            finally{
-                setIsLoading(false)
-            }
+            setSelectedWidget(selectedWidget + 1)
         }
+        catch(e){
+            console.log(e)
+        }
+        finally{
+            setIsLoading(false)
+        }
+    }
 
     return (
         <div>
