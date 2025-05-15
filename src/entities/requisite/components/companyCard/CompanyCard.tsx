@@ -24,6 +24,6 @@ export default async function CompanyCard() {
     return (
         companyCard.url
             &&
-        <FileOpen file={{name: 'карточку предприятия', url: `${process.env.NEXT_PUBLIC_SERVER_URL_API}${companyCard.url}`}} />
+        <FileOpen pdf={true} file={{name: 'карточку предприятия', url: `${process.env.NEXT_PUBLIC_SERVER_URL_API}${companyCard.url}`}} />
     )
 }

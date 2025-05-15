@@ -43,7 +43,7 @@ export const Disclosure: FC<Props> = ({ informationDisclosure }) => {
                 style={{ height: `${contentHeight}px` }}
             >
                 <div className={classes.list}>
-                    <FileList files={informationDisclosure.files} />
+                    <FileList pdf={true} files={informationDisclosure.files} />
                 </div>
             </div>
         </div>

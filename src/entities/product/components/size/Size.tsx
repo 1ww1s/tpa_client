@@ -12,6 +12,7 @@ export const ProductSize: FC<Props> = ({size}) => {
         <div className={classes.productSize}>
             <h2>Габаритные размеры</h2>
             <FileList 
+                pdf={true}
                 sign="Открыть файл"
                 files={[size]} 
             />

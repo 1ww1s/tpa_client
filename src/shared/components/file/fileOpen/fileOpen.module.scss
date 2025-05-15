@@ -7,10 +7,13 @@
     .nameBox{
         display: flex;
         gap: 20px;
-        height: 24px;
+        min-height: 24px;
         align-items: center;
         
         .name{
+            display: flex;
+            align-items: center;
+            gap: 16px;
             text-decoration: none;
             color: black;
             transition: color .15s ease-in-out;

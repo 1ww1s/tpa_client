@@ -9,9 +9,10 @@ interface IProps {
     files: T[]
     onDeleteFile?: (ind: number) => void;
     sign?: string;
+    pdf?: boolean;
 }
 
-export const FileList: FC<IProps> = ({files, onDeleteFile, sign}) => {
+export const FileList: FC<IProps> = ({files, onDeleteFile, sign, pdf}) => {
 
     return (
         <ul className={classes.list}>
@@ -20,7 +21,7 @@ export const FileList: FC<IProps> = ({files, onDeleteFile, sign}) => {
                 {
                     file.blobUrl || file.url
                         ?
-                    <FileOpen sign={sign} file={{name: file.name, url: file.blobUrl ? file.blobUrl as string : `${process.env.NEXT_PUBLIC_SERVER_URL_API}${file.url}`}}>
+                    <FileOpen pdf={pdf} sign={sign} file={{name: file.name, url: file.blobUrl ? file.blobUrl as string : `${process.env.NEXT_PUBLIC_SERVER_URL_API}${file.url}`}}>
                         {onDeleteFile ? <DeleteItem onClick={() => onDeleteFile(ind)} /> : <></>}
                     </FileOpen>
                         :
