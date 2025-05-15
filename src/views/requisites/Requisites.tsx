@@ -1,6 +1,6 @@
 import classes from './requisites.module.scss'
 import { PageTitle } from '@/src/widgets/pageTitle';
-import {CompanyCard, requisiteService, RequisitesTable} from '@/src/entities/requisite';
+import {CompanyCard, RequisitesTable} from '@/src/entities/requisite';
 import { Suspense } from 'react';
 import { LoaderDiv } from '@/src/shared/components/loaderDiv/LoaderDiv';
 import {LatestDevelopments} from '@/src/widgets/latestDevelopments';
