@@ -7,6 +7,7 @@ import { MyFullScreen } from "@/src/shared/components/myFullScreen/MyFullScreen"
 import { FC, useState } from "react";
 import classes from './imageCards.module.scss'
 import { IProduct } from "@/src/entities/product";
+// import { SliderImages } from "@/src/widgets/sliderImages";
 import { SliderImages } from "my-sliders";
 import 'my-sliders/dist/index.css'
 

@@ -8,6 +8,7 @@ import { OpenFullScreen } from "@/src/features/openFullScreen";
 import { ImageCard } from "@/src/entities/image";
 import classes from './certificateCarousel.module.scss'
 import { Arrows } from "../arrows/Arrows";
+// import { SliderImagesStatic } from "@/src/widgets/sliderImages";
 import { SliderImagesStatic } from "my-sliders";
 import 'my-sliders/dist/index.css'
 
