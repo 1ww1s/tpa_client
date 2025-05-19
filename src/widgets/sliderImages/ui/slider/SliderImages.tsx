@@ -230,30 +230,35 @@ export const SliderImages: FC<IProps> = (
         
         document.body.addEventListener('pointermove', onMouseMove);
         document.body.addEventListener('pointerup', onMouseUp);
+        document.body.addEventListener('touchend', onMouseUp);
 
         function onMouseMove(e: MouseEvent) {
             e.preventDefault();
             const currentX = e.clientX;
             
+            console.log('MOVE')
+
             const currentTime = Date.now();
             if (currentTime - prevTime >= ms) {
                 setPrevTime(currentTime);
                 if (Math.abs(currentX - initialX) > SWAP_PX) {  // возможно случайный клик (нужно больше провести мышкой (пальцем))
                     stop.current = true;  // блокируем child клик (мб просто на move)
                     if (currentX < initialX) {
-                        onMouseUp(e);
+                        onMouseUp();
                         forwardChange();
                     } else {
-                        onMouseUp(e);
+                        onMouseUp();
                         backwardChange();
                     }
                 }
             }
         }
 
-        function onMouseUp(e: MouseEvent) {
+        function onMouseUp() {
+            console.log('UP')
             document.body.removeEventListener('pointermove', onMouseMove);
             document.body.removeEventListener('pointerup', onMouseUp);
+            document.body.removeEventListener('touchend', onMouseUp);
             clearTimeout(idTimeout)
             const id = setTimeout(() => {stop.current = false}, ms + 40) // дожидаемя конца скролла
             setIdTimeout(id)
