@@ -9,9 +9,10 @@ interface SwitchImagesProps {
     images: IProduct['images'];
     currentImage: number;
     setCurrentImage: (currentImage: number) => void;
+    setFirstElemChange: (f: boolean) => void;
 }
 
-export const SwitchImages: FC<SwitchImagesProps> = ({images, currentImage, setCurrentImage}) => {
+export const SwitchImages: FC<SwitchImagesProps> = ({setFirstElemChange, images, currentImage, setCurrentImage}) => {
 
     const refSlider = useRef<HTMLDivElement>(null)
 
@@ -32,6 +33,7 @@ export const SwitchImages: FC<SwitchImagesProps> = ({images, currentImage, setCu
 
     const chooseImage = (ind: number) => {
         setCurrentImage(ind)
+        setFirstElemChange(true)
     }
 
     return (

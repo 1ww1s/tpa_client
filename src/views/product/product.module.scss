@@ -6,9 +6,12 @@
         display: flex;
         justify-content: space-between;
         margin: 20px 0;
+        gap: 20px;
+        width: 100%;
+        max-width: 100%;
 
         .productCard{
-            width: 900px;
+            width: calc(100% - 300px);
         }
     
         .rightBar{

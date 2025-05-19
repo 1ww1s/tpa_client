@@ -6,11 +6,15 @@ interface ForwardProps {
     currentImage: number;
     setCurrentImage: (currentImage: number) => void;
     imagesLength: number;
+    setFirstElemChange?: (f: boolean) => void;
 }
 
-export const Forward: FC<ForwardProps> = ({imagesLength, currentImage, setCurrentImage}) => {
+export const Forward: FC<ForwardProps> = (
+    {setFirstElemChange = () => {}, imagesLength, currentImage, setCurrentImage}
+) => {
 
     const forward = () => {
+        setFirstElemChange(true)
         if(currentImage === imagesLength - 1) setCurrentImage(0)
         else setCurrentImage(currentImage + 1) 
     }

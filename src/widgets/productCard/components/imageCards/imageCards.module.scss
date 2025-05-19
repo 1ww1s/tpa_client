@@ -1,16 +1,23 @@
-.imagesCard{
-    display: flex;
-    height: 460px;
 
-    .switch{
-        width: 90px;
-    }
 
-    .image{
+.imageCardsBox{
+    width: 100%;
+
+    .imagesCard{
         display: flex;
-        box-sizing: border-box;
+        height: 460px;
         width: 100%;
-        height: 100%;
-        padding: 20px 10px;
+
+        .switch{
+            width: 90px;
+        }
+    
+        .image{
+            display: flex;
+            box-sizing: border-box;
+            width: calc(100% - 90px);
+            height: 100%;
+        }
     }
 }
+

@@ -1,0 +1,16 @@
+
+
+
+.switch {
+        height: 30px;
+        margin-top: 16px;
+        .backward{
+            cursor: pointer;
+            transform: rotate(90deg);
+        }
+
+        .forward{
+            cursor: pointer;
+            transform: rotate(-90deg);
+        }
+    }

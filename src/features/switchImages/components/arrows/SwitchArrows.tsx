@@ -7,16 +7,17 @@ interface SwitchArrowsProps {
     currentImage: number;
     setCurrentImage: (currentImage: number) => void;
     imagesLength: number;
+    setFirstElemChange?: (f: boolean) => void;
 }
 
-export const SwitchArrows: FC<SwitchArrowsProps & PropsWithChildren> = ({imagesLength, currentImage, setCurrentImage, children}) => {
+export const SwitchArrows: FC<SwitchArrowsProps & PropsWithChildren> = ({setFirstElemChange = () => {}, imagesLength, currentImage, setCurrentImage, children}) => {
 
 
     return (
         <div className={classes.switchArrows}>
-            <Backward currentImage={currentImage} setCurrentImage={setCurrentImage} imagesLength={imagesLength} />
+            <Backward setFirstElemChange={setFirstElemChange} currentImage={currentImage} setCurrentImage={setCurrentImage} imagesLength={imagesLength} />
             {children}
-            <Forward currentImage={currentImage} setCurrentImage={setCurrentImage} imagesLength={imagesLength} />
+            <Forward setFirstElemChange={setFirstElemChange} currentImage={currentImage} setCurrentImage={setCurrentImage} imagesLength={imagesLength} />
         </div>
     )
 }

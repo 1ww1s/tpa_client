@@ -1,12 +1,15 @@
 "use client"
 
-import { FC, useState } from "react";
+import { FC, useRef, useState } from "react";
 import { FullScreen } from "../fullScreen/FullScreen";
 import { ICertificate } from "@/src/entities/certificate";
-import { CarouselImages } from "@/src/features/carouselImages";
+import { CarouselImages } from "@/src/features/carouselImages";  // версия до этого my-sliders
 import { OpenFullScreen } from "@/src/features/openFullScreen";
 import { ImageCard } from "@/src/entities/image";
 import classes from './certificateCarousel.module.scss'
+import { Arrows } from "../arrows/Arrows";
+import { SliderImagesStatic } from "my-sliders";
+import 'my-sliders/dist/index.css'
 
 interface CertificateCarouselProps {
     certificates: ICertificate[];
@@ -17,6 +20,14 @@ export const CertificateCarousel: FC<CertificateCarouselProps> = ({certificates}
     const [open, setOpen] = useState<boolean>(false)
     const [currentImage, setCurrentImage] = useState<number>(0)
 
+    const refBackward = useRef<HTMLImageElement>(null)
+    const refForward = useRef<HTMLImageElement>(null)
+
+    const onClick = (ind: number) => {
+        setCurrentImage(ind)
+        setOpen(true)
+    }
+
     return (
         <div className={classes.certificateCarousel}>
             <FullScreen 
@@ -26,15 +37,27 @@ export const CertificateCarousel: FC<CertificateCarouselProps> = ({certificates}
                 open={open}
                 setOpen={setOpen}
             />
-            <CarouselImages images={certificates.map(c => c.img)} children={
-                certificates.map((certificate, ind) => 
+            <SliderImagesStatic
+                onClick={onClick}
+                widthItem={280}
+
+                ms={450}
+                
+                refBackward={refBackward}
+                refForward={refForward}
+
+                elements={certificates.map((certificate, ind) => 
                     <div key={ind} className={classes.certificate}>
                         <OpenFullScreen highlight open={open} key={ind} setIndex={setCurrentImage} index={ind} setOpen={setOpen} >
                             <ImageCard img={certificate.img} />
                         </OpenFullScreen>
                     </div>
-                )
-            } />
+                )} 
+            />
+            <Arrows 
+                refBackward={refBackward}
+                refForward={refForward}
+            />
         </div>
     )
 }

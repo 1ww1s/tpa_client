@@ -1,7 +1,11 @@
 .productCardFull{
     display: flex;
     flex-direction: column;
-    margin-right: 20px;
+    width: 100%;
+
+    .images{
+        width: 100%;
+    }
 
     .productCard{
         margin-top: 20px;
