@@ -9,7 +9,7 @@ export const LatestDevelopmentsHome: FC = async () => {
     return (
         <div className={classes.latestDevelopments}>
             <div className="wrapper">
-                <TitleWithSeparator title="НАШИ ПОСЛЕДНИЕ РАЗРАБОТКИ" />
+                <TitleWithSeparator title="НАШИ НОВЫЕ РАЗРАБОТКИ" />
                 <div className={classes.boxes}>
                     <Suspense 
                         fallback={

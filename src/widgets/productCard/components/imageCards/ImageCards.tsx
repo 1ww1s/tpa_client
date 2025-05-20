@@ -36,7 +36,6 @@ export const ImageCards: FC<ImagesCardProps> = ({images}) => {
                     <SwitchImages setFirstElemChange={setFirstElemChange} images={images} currentImage={currentImage} setCurrentImage={setCurrentImage}/>
                 </div>
                 <div className={classes.image}>
-                    
                     <SliderImages
                         firstElemChange={firstElemChange}
                         setFirstElemChange={setFirstElemChange}

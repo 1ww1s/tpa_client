@@ -27,7 +27,7 @@ export const LatestDevelopments: FC = async () => {
         latestDevelopments.length !== 0
             &&
         <div className={classes.latestDevelopments}>
-            <h2>НАШИ ПОСЛЕДНИЕ<br /> РАЗРАБОТКИ</h2>
+            <h2>НОВЫЕ РАЗРАБОТКИ</h2>
             <img className={classes.hrImg} src={hrImg.src} alt="Разделитель" />
             {latestDevelopments.map(l => 
                 <div key={l.title} className={classes.latestDevelopment}>
