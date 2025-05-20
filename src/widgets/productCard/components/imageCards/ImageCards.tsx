@@ -7,9 +7,7 @@ import { MyFullScreen } from "@/src/shared/components/myFullScreen/MyFullScreen"
 import { FC, useState } from "react";
 import classes from './imageCards.module.scss'
 import { IProduct } from "@/src/entities/product";
-// import { SliderImages } from "@/src/widgets/sliderImages";
 import { SliderImages } from "my-sliders";
-import 'my-sliders/dist/index.css'
 
 interface ImagesCardProps {
     images: IProduct['images']
@@ -38,6 +36,7 @@ export const ImageCards: FC<ImagesCardProps> = ({images}) => {
                     <SwitchImages setFirstElemChange={setFirstElemChange} images={images} currentImage={currentImage} setCurrentImage={setCurrentImage}/>
                 </div>
                 <div className={classes.image}>
+                    
                     <SliderImages
                         firstElemChange={firstElemChange}
                         setFirstElemChange={setFirstElemChange}

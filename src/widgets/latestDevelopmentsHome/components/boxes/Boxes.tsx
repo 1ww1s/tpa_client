@@ -1,9 +1,11 @@
 import { ILatestDevelopment, LatestDevelopmentCard, latestDevelopmentsService } from "@/src/entities/latestDevelopment";
-import { CarouselImages } from "@/src/features/carouselImages";
+// import { CarouselImages } from "@/src/features/carouselImages";
 import { ClickOnLink } from "@/src/features/clickOnLink";
 import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
 import { FC } from "react"
 import classes from './boxes.module.scss'
+import { SliderImagesStatic } from "my-sliders";
+import { Slider } from "../slider/Slider";
 
 const getData = async () => {
     let latestDevelopments: ILatestDevelopment[] = [];
@@ -28,15 +30,8 @@ export const Boxes: FC = async () => {
         latestDevelopments.length
             ?
         <div className={classes.boxes}>
-            <CarouselImages 
-                images={latestDevelopments.map(l => ({...l.img, name: l.title}))} 
-                children={
-                    latestDevelopments.map(l =>
-                        <ClickOnLink key={l.title} href={l.link}>
-                            <LatestDevelopmentCard latestDevelopment={l} />
-                        </ClickOnLink>
-                    )
-                }
+            <Slider 
+                latestDevelopments={latestDevelopments} 
             />
         </div>
             :

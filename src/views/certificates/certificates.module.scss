@@ -1,8 +1,11 @@
 .certificates{
     display: flex;
     justify-content: center;
-
+    max-width: 100%;
+    width: 100%;
+    
     .content {
         margin: 40px 0;
+        width: 100%;
     }
 }

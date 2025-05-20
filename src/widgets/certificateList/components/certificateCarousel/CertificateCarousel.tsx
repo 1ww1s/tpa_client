@@ -7,10 +7,8 @@ import { CarouselImages } from "@/src/features/carouselImages";  // версия
 import { OpenFullScreen } from "@/src/features/openFullScreen";
 import { ImageCard } from "@/src/entities/image";
 import classes from './certificateCarousel.module.scss'
-import { Arrows } from "../arrows/Arrows";
-// import { SliderImagesStatic } from "@/src/widgets/sliderImages";
+import { Arrows } from "../../../../shared/components/arrows/Arrows";
 import { SliderImagesStatic } from "my-sliders";
-import 'my-sliders/dist/index.css'
 
 interface CertificateCarouselProps {
     certificates: ICertificate[];
@@ -40,7 +38,7 @@ export const CertificateCarousel: FC<CertificateCarouselProps> = ({certificates}
             />
             <SliderImagesStatic
                 onClick={onClick}
-                widthItem={280}
+                widthItem={240}
 
                 ms={450}
                 
