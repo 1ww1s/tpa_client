@@ -11,7 +11,6 @@ import logo from '@/public/logo.ico'
 
 import 'my-sliders/dist/index.css' // подключаем стили модуля глобально
 
-
 // const roboto = Roboto({ subsets: ["latin"], weight: ['300','400', '500', '700', '900'] });
 const  roboto2 = localFont({src: [
   {path: '../src/shared/fonts/Roboto-Light.ttf', weight: '300'},

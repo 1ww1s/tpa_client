@@ -5,6 +5,7 @@ import { ImageCards } from "../imageCards/ImageCards";
 const getData = async (slug: string) =>  {
     let images: IProduct['images'] | null = null;
     try{
+        // await new Promise(resolve => setTimeout(resolve, 1000))
         images = await productService.fetchImages(slug)
     }
     catch(e){

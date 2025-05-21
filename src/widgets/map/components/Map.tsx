@@ -8,7 +8,7 @@ export const MapCompany: FC = () => {
     
     
     const mapData = {
-        center: [56.812148, 35.984049],
+        center: [56.825, 35.985],
         zoom: 12,
     };
       

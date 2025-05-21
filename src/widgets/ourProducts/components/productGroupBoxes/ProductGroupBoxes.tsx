@@ -10,18 +10,16 @@ interface ProductGroupBoxesProps {
 
 export const ProductGroupBoxes: FC<ProductGroupBoxesProps> = ({productGroup}) => {
     return (
-        <div>
-            <div className={classes.productGroupBoxes}>
-                {productGroup.map(p => 
-                    <div className={classes.productGroupBox} key={p.title}>
-                        <Observed classesObserved={classes.observed} classesTarget={classes.productGroupBox}>
-                            <ProductGroupCard productGroup={p}>
-                                <ClickOnButton title="Подробнее..." link={process.env.NEXT_PUBLIC_CLIENT_URL + `/product-catalog/${p.slug}`} />
-                            </ProductGroupCard>
-                        </Observed>
-                    </div>
-                )}
-            </div>
+        <div className={classes.productGroupBoxes}>
+            {productGroup.map(p => 
+                <div className={classes.productGroupBox} key={p.title}>
+                    <Observed classesObserved={classes.observed} classesTarget={classes.productGroupBox}>
+                        <ProductGroupCard productGroup={p}>
+                            <ClickOnButton title="Подробнее..." link={process.env.NEXT_PUBLIC_CLIENT_URL + `/product-catalog/${p.slug}`} />
+                        </ProductGroupCard>
+                    </Observed>
+                </div>
+            )}
         </div>
     )
 }

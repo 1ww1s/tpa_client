@@ -1,11 +1,11 @@
 "use client"
 
 import { ILatestDevelopment, LatestDevelopmentCard } from "@/src/entities/latestDevelopment"
-import { ClickOnLink } from "@/src/features/clickOnLink";
 import { Arrows } from "@/src/shared/components/arrows/Arrows";
-import { SliderImagesStatic } from "my-sliders";
 import { FC, useRef } from "react"
 import classes from './slider.module.scss'
+import { useRouter } from "next/navigation";
+import { SliderImagesStatic } from "my-sliders";
 
 interface IProps{
     latestDevelopments: ILatestDevelopment[];
@@ -15,22 +15,28 @@ export const Slider: FC<IProps> = ({latestDevelopments}) => {
 
     const refBackward = useRef<HTMLImageElement>(null)
     const refForward = useRef<HTMLImageElement>(null)
-    
+
+    const router = useRouter()
+
+    const onClick = (ind: number) => {
+        const target = latestDevelopments[ind]
+        router.push(target.link)
+    }
+
     return (
         <>
             <SliderImagesStatic
-
-                    widthItem={270}
-                    ms={450}
-                    refBackward={refBackward}
-                    refForward={refForward}
-                    elements={latestDevelopments.map(l =>
-                            <ClickOnLink key={l.title} href={l.link}>
-                                <section className={classes.card}> 
-                                    <LatestDevelopmentCard latestDevelopment={l} />
-                                </section>
-                            </ClickOnLink>
-                    )}
+                onClick={onClick}
+                widthItem={270}
+                ms={450}
+                showItems={true}
+                refBackward={refBackward}
+                refForward={refForward}
+                elements={latestDevelopments.map(l =>
+                    <section key={l.title} className={classes.card}> 
+                        <LatestDevelopmentCard latestDevelopment={l} />
+                    </section>
+                )}
             />
             <Arrows 
                 refForward={refForward}

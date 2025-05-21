@@ -1,10 +1,8 @@
 import { ILatestDevelopment, LatestDevelopmentCard, latestDevelopmentsService } from "@/src/entities/latestDevelopment";
-// import { CarouselImages } from "@/src/features/carouselImages";
 import { ClickOnLink } from "@/src/features/clickOnLink";
 import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
 import { FC } from "react"
 import classes from './boxes.module.scss'
-import { SliderImagesStatic } from "my-sliders";
 import { Slider } from "../slider/Slider";
 
 const getData = async () => {

@@ -41,7 +41,6 @@ export const ImageCards: FC<ImagesCardProps> = ({images}) => {
                         setFirstElemChange={setFirstElemChange}
                     
                         ms={600}
-                        
                         onClick={onClick}
                     
                         setFirstElem={setCurrentImage}

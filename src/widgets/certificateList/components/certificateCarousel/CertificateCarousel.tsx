@@ -45,6 +45,8 @@ export const CertificateCarousel: FC<CertificateCarouselProps> = ({certificates}
                 refBackward={refBackward}
                 refForward={refForward}
 
+                showItems={true}
+
                 elements={certificates.map((certificate, ind) => 
                     <div key={ind} className={classes.certificate}>
                         <OpenFullScreen highlight open={open} key={ind} setIndex={setCurrentImage} index={ind} setOpen={setOpen} >
