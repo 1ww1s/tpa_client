@@ -10,6 +10,7 @@ import { LoadingScreen } from "@/src/shared/components/loadingScreen/LoadingScre
 import logo from '@/public/logo.ico'
 
 import 'my-sliders/dist/index.css' // подключаем стили модуля глобально
+import { YandexMetrika } from "@/src/app/metrika/YandexMetrika";
 
 // const roboto = Roboto({ subsets: ["latin"], weight: ['300','400', '500', '700', '900'] });
 const  roboto2 = localFont({src: [
@@ -41,6 +42,7 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href={logo.src} />
+        
       </head>
         <body className={roboto2.className}>
           <StoreProvider>
@@ -52,7 +54,8 @@ export default function RootLayout({
                   </div>
                 <Bottom />
             </Suspense>
-            </StoreProvider>
+            <YandexMetrika counterId={103269353} />
+          </StoreProvider>
         </body>
     </html>
   );
