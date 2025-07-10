@@ -47,15 +47,15 @@ export default function RootLayout({
         <body className={roboto2.className}>
           <StoreProvider>
             <Suspense fallback={<LoadingScreen />}>
-              {/* <LoadingLink /> */}
-                <Navbar />
-                  <div className="content">
-                      {children}
-                  </div>
-                <Bottom />
-            </Suspense>
-            <YandexMetrika counterId={103269353} />
+                {/* <LoadingLink /> */}
+                  <Navbar />
+                    <div className="content">
+                        {children}
+                    </div>
+                  <Bottom />
+              </Suspense>
           </StoreProvider>
+          <YandexMetrika counterId={103269353} />
         </body>
     </html>
   );

@@ -2,24 +2,30 @@ export {};
 
 declare global {
   interface Window {
-    ym: (
-      counterId: number,
-      action: 'init' | 'hit' | 'reachGoal' | 'userParams',
-      params?: any,
-      options?: {
-        callback?: () => void;
-        ctx?: any;
-        referer?: string;
-        title?: string;
-        userParams?: Record<string, any>;
-      }
-    ) => void;
-    
-    // Для работы счетчика
+    ym?: YmFunction;
     Ya?: {
       Metrika2?: {
         getCounters?: () => any[];
       };
     };
   }
+}
+
+type YmFunction = {
+  (counterId: number, action: 'init', params: YmInitParams): void;
+  (counterId: number, action: 'hit' | 'reachGoal', url: string): void;
+  (counterId: number, action: 'userParams', params: Record<string, unknown>): void;
+  a?: Array<unknown>;
+  l?: number;
+};
+
+export interface YmInitParams {
+  clickmap?: boolean;
+  trackLinks?: boolean;
+  accurateTrackBounce?: boolean;
+  webvisor?: boolean;
+  defer?: boolean;
+  ecommerce?: string | boolean;
+  triggerEvent?: boolean;
+  trackHash?: boolean;
 }

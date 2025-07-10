@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
+import { YmInitParams } from '@/types/global';
 
 interface YandexMetrikaProps {
   counterId: number;
@@ -10,67 +11,70 @@ interface YandexMetrikaProps {
 
 export const YandexMetrika = ({ counterId, debug = false }: YandexMetrikaProps) => {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    const url = `${pathname}${searchParams.toString() ? `?${searchParams.toString()}` : ''}`;
-
+    // Инициализация объекта ym, если его нет
     if (!window.ym) {
-      // Загрузка скрипта метрики
+      window.ym = function(...args: unknown[]) {
+        (window.ym!.a = window.ym!.a || []).push(args);
+      };
+      window.ym.l = Date.now();
+    }
+
+    // Загрузка скрипта метрики
+    const loadScript = () => {
       const script = document.createElement('script');
       script.src = 'https://mc.yandex.ru/metrika/tag.js';
       script.async = true;
-      script.onload = () => initMetrika(url);
+      script.onload = initMetrika;
       document.head.appendChild(script);
-    } else {
-      initMetrika(url);
-    }
+    };
 
-    function initMetrika(url: string) {
+    // Инициализация метрики
+    const initMetrika = () => {
       try {
         if (!window.ym) {
           if (debug) console.warn('Yandex Metrika not loaded');
           return;
         }
 
-        window.ym(counterId, 'init', {
+        const initParams: YmInitParams = {
           clickmap: true,
           trackLinks: true,
           accurateTrackBounce: true,
           webvisor: true,
-          defer: true,
-          ecommerce: 'dataLayer',
-          triggerEvent: false,
-          trackHash: true,
-        });
+        };
 
-        // Первая загрузка страницы
-        window.ym(counterId, 'hit', url);
+        window.ym(counterId, 'init', initParams);
         
         if (debug) console.log('Yandex Metrika initialized', counterId);
-      } catch (e) {
-        console.error('Yandex Metrika error', e);
+      } catch (error) {
+        console.error('Yandex Metrika initialization error', error);
       }
-    }
+    };
+
+    loadScript();
 
     return () => {
       // Очистка при размонтировании
       const scripts = document.querySelectorAll('script[src*="mc.yandex.ru/metrika/tag.js"]');
       scripts.forEach(script => script.remove());
     };
-  }, [counterId, debug, pathname, searchParams]);
+  }, [counterId, debug]);
 
   useEffect(() => {
     // Отслеживание изменений URL
     if (typeof window === 'undefined' || !window.ym) return;
 
-    const url = `${pathname}${searchParams.toString() ? `?${searchParams.toString()}` : ''}`;
-    window.ym(counterId, 'hit', url);
-    
-    if (debug) console.log('Yandex Metrika pageview', url);
-  }, [pathname, searchParams, counterId, debug]);
+    try {
+      window.ym(counterId, 'hit', pathname);
+      if (debug) console.log('Yandex Metrika pageview', pathname);
+    } catch (error) {
+      console.error('Yandex Metrika hit error', error);
+    }
+  }, [pathname, counterId, debug]);
 
   return (
     <noscript>
@@ -78,7 +82,7 @@ export const YandexMetrika = ({ counterId, debug = false }: YandexMetrikaProps) 
         <img
           src={`https://mc.yandex.ru/watch/${counterId}`}
           style={{ position: 'absolute', left: '-9999px' }}
-          alt=""
+          alt="Yandex Metrika"
         />
       </div>
     </noscript>
