@@ -1,3 +1,5 @@
+
+
 .imageJust{
    display: flex;
    flex-direction: column;
@@ -7,13 +9,13 @@
    height: 100%;
    top: 0;
    left: 0;
+   position: relative;
 
    >img{
-      position: relative;
+      display: block;
       width: 100%;
       height: calc(100% - 40px);
       object-fit: contain;
-      z-index: 1;
    }
 
    .name{
