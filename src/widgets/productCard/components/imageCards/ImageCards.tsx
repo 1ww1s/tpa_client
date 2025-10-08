@@ -33,7 +33,12 @@ export const ImageCards: FC<ImagesCardProps> = ({images}) => {
             </MyFullScreen>
             <div className={classes.imagesCard}>
                 <div className={classes.switch}>
-                    <SwitchImages setFirstElemChange={setFirstElemChange} images={images} currentImage={currentImage} setCurrentImage={setCurrentImage}/>
+                    <SwitchImages 
+                        setFirstElemChange={setFirstElemChange} 
+                        images={images} 
+                        currentImage={currentImage} 
+                        setCurrentImage={setCurrentImage}
+                    />
                 </div>
                 <div className={classes.image}>
                     <SliderImages
