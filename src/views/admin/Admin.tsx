@@ -65,6 +65,7 @@ export const Admin: FC = () => {
                 <div>
                     <h3>Последние разработки</h3>
                     <LatestDevelopmentsAction action='create' />
+                    <LatestDevelopmentsAction action='update' />
                     <LatestDevelopmentsAction action='delete' />
                 </div>
                 <div>

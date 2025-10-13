@@ -12,7 +12,7 @@ import { Changing } from "../changing/Changing";
 import { Delete } from "../delete/Delete";
 
 interface LatestDevelopmentsActionProps {
-    action: 'create' | 'delete'
+    action: 'create' | 'update' | 'delete'
 }
 
 export const LatestDevelopmentsAction: FC<LatestDevelopmentsActionProps> = ({action}) => {
@@ -22,8 +22,8 @@ export const LatestDevelopmentsAction: FC<LatestDevelopmentsActionProps> = ({act
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [open, setOpen] = useState<boolean>(false)
 
-    const actionName = action === 'create' ? 'Добавить' : 'Удалить';
-    const actionNameSuccess = action === 'create' ? 'добавлена' : 'удалена';
+    const actionName = action === 'create' ? 'Добавить' : action === 'update' ? 'Обновить' : 'Удалить';
+    const actionNameSuccess = action === 'create' ? 'добавлена' : action === 'update' ? 'обновлена' : 'удалена';
 
     useEffect(() => {
         setLatestDevelopment(initialLatestDevelopment)
@@ -39,37 +39,36 @@ export const LatestDevelopmentsAction: FC<LatestDevelopmentsActionProps> = ({act
                         setSelectedWidget={setSelectedWidget}
                         isLoading={isLoading}
                         widgets={
-                        [...chooseWidgets(action, 
-                            <SearchAndSelection 
-                                action={action}
-                                isLoading={isLoading}
-                                setIsLoading={setIsLoading}
-                                setLatestDevelopment={setLatestDevelopment}
-                                selectedWidget={selectedWidget}
-                                setSelectedWidget={setSelectedWidget}
-                            />,
-                            <Changing 
-                                title={actionName + ' последнюю разработку'}
-                                latestDevelopment={latestDevelopment}
-                                setLatestDevelopment={setLatestDevelopment}
-                                action={action}
-                                isLoading={isLoading}
-                                setIsLoading={setIsLoading}
-                                selectedWidget={selectedWidget}
-                                setSelectedWidget={setSelectedWidget}
-                            />,
-                            <Delete
-                                latestDevelopment={latestDevelopment}
-                                selectedWidget={selectedWidget}
-                                setSelectedWidget={setSelectedWidget}
-                                isLoading={isLoading}
-                                setIsLoading={setIsLoading}
-                            />
-                        ),
-                            <div className={classes.successAction}>
-                                <SuccessAction title={`Последняя разработка ${actionNameSuccess}`} />
-                            </div>
-                        ]
+                            [...chooseWidgets(action, 
+                                <SearchAndSelection 
+                                    isLoading={isLoading}
+                                    setIsLoading={setIsLoading}
+                                    setLatestDevelopment={setLatestDevelopment}
+                                    selectedWidget={selectedWidget}
+                                    setSelectedWidget={setSelectedWidget}
+                                />,
+                                <Changing 
+                                    title={actionName + ' последнюю разработку'}
+                                    latestDevelopment={latestDevelopment}
+                                    setLatestDevelopment={setLatestDevelopment}
+                                    action={action}
+                                    isLoading={isLoading}
+                                    setIsLoading={setIsLoading}
+                                    selectedWidget={selectedWidget}
+                                    setSelectedWidget={setSelectedWidget}
+                                />,
+                                <Delete
+                                    latestDevelopment={latestDevelopment}
+                                    selectedWidget={selectedWidget}
+                                    setSelectedWidget={setSelectedWidget}
+                                    isLoading={isLoading}
+                                    setIsLoading={setIsLoading}
+                                />
+                            ),
+                                <div className={classes.successAction}>
+                                    <SuccessAction title={`Последняя разработка ${actionNameSuccess}`} />
+                                </div>
+                            ]
                         } 
                     />
                 </div>

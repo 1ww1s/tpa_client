@@ -16,7 +16,8 @@ interface Props {
 }
 
 export const Changing: FC<Props> = (
-    {latestDevelopment, setLatestDevelopment, action, isLoading, setIsLoading, selectedWidget, setSelectedWidget, title}) => {
+    {latestDevelopment, setLatestDevelopment, action, isLoading, setIsLoading, selectedWidget, setSelectedWidget, title}
+) => {
 
     const setImg = (img: ILatestDevelopment['img']) => {
         setLatestDevelopment({...latestDevelopment, img})
@@ -30,6 +31,9 @@ export const Changing: FC<Props> = (
         formData.append("data", JSON.stringify({...latestDevelopment, img: {id: latestDevelopment.img.id}}));
         if(action === 'create'){
             return await latestDevelopmentsService.create(formData)
+        }
+        else if(action === 'update'){
+            return await latestDevelopmentsService.update(formData)
         }
         return ''
     };

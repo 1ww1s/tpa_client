@@ -3,11 +3,9 @@
 import { FC, useEffect, useState } from "react";
 import classes from './searchAndSelection.module.scss'
 import { ILatestDevelopment, ILatestItem, latestDevelopmentsService } from "@/src/entities/latestDevelopment";
-import { GetDataByName } from "@/src/features/getDataByName";
 import { SelectFromList } from "@/src/features/selectFromList";
 
 interface SearchProps {
-    action: 'create' | 'delete';
     isLoading: boolean; 
     setIsLoading: (isLoading: boolean) => void;
     setLatestDevelopment: (latestDevelopment: ILatestDevelopment) => void;
@@ -15,17 +13,17 @@ interface SearchProps {
     selectedWidget: number;
 }
 
-export const SearchAndSelection: FC<SearchProps> = ({action, isLoading, setIsLoading, setLatestDevelopment, selectedWidget, setSelectedWidget}) => {
+export const SearchAndSelection: FC<SearchProps> = (
+    {isLoading, setIsLoading, setLatestDevelopment, selectedWidget, setSelectedWidget}
+) => {
 
     const [items, setItems] = useState<ILatestItem[]>([])
-    const [itemsSearch, setItemsSearch] = useState<ILatestItem[]>([])
 
     const getLatestDevelopments = async () => {
         try{    
             setIsLoading(true)
             const latestDevelopments = await latestDevelopmentsService.getItems()
             setItems(latestDevelopments)
-            setItemsSearch(latestDevelopments)
         }
         catch(e){
             console.log(e)
@@ -51,14 +49,12 @@ export const SearchAndSelection: FC<SearchProps> = ({action, isLoading, setIsLoa
     }
 
     useEffect(() => {
-        if(action==='delete'){
-            getLatestDevelopments()
-        }
+        getLatestDevelopments()
     }, [])
 
     return (
         <div className={classes.search}>
-            <h3>Найти продукт</h3>
+            <h3>Последние разработки</h3>
             <SelectFromList 
                 items={items}
                 field={'title'}

@@ -29,7 +29,6 @@ export const SearchAndSelection: FC<SearchProps> = ({setCertificate, selectedWid
         try{    
             setIsLoading(true)
             const certificates = await certificateService.getAll()
-            console.log(certificates)
             setCertificatesInitial(certificates)
             setCertificatesSearch(certificates)
             setCertificatesSearchAndSort(certificates)
