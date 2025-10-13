@@ -5,6 +5,11 @@
     width: 100%;
     overflow: auto;
     
+    &.noHeight{
+        height: auto;
+        overflow: visible;
+    }
+
     ul{
         padding: 0;
         margin: 0;

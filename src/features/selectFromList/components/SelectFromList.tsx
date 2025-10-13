@@ -7,6 +7,7 @@ interface SelectFromListProps<T> {
     field: keyof T;
     onSelected: (selected: T) => void;
     isLoading?: boolean;
+    noHeight?: boolean;
 }
 
 
@@ -17,7 +18,7 @@ export const SelectFromList = <T,>(props: SelectFromListProps<T>) => {
     }
 
     return (
-         <div className={classes.list}>
+         <div className={classes.list + (props.noHeight ? ` ${classes.noHeight}` : '')}>
                 { props.isLoading && <LoaderDiv /> }
                 { 
                     (!props.isLoading) 

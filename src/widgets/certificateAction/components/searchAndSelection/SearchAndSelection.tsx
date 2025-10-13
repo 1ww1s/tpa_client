@@ -78,6 +78,7 @@ export const SearchAndSelection: FC<SearchProps> = ({setCertificate, selectedWid
                     field={'name'}
                     onSelected={onSelected}
                     isLoading={isLoading}
+                    noHeight={true}
                 />
                 <ul className={classes.endDate}>
                     {certificatesSearchAndSort.map((c, ind) => 
